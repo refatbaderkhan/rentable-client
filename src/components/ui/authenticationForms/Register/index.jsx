@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import Button from "../../../base/Button";
 import Input from "../../../base/Input";
-import { requestMethods } from "../../../../core/enums/requestMethods";
 import "./style.css";
+import { requestMethods } from "../../../../core/enums/requestMethods";
 import { sendMultipartRequest } from "../../../../core/config/sendMultipartRequest";
 
-const RegisterForm = ({ onToggleRegister }) => {
+const RegisterForm = () => {
+  
   const [registeration, setRegisteration] = useState({
     username: "",
     first_name: "",
@@ -13,11 +14,13 @@ const RegisterForm = ({ onToggleRegister }) => {
     email: "",
     password: "",
   });
+
   const [profilePicture, setProfilePicture] = useState(null);
   const [error, setError] = useState(null);
   const [created, setCreated] = useState(null);
 
   const registerHandler = async () => {
+
     const registerationForm = {
       username: registeration.username,
       first_name: registeration.first_name,
@@ -27,10 +30,11 @@ const RegisterForm = ({ onToggleRegister }) => {
       profile_picture: profilePicture,
     };
 
+
     try {
-    const response = await sendMultipartRequest({
+    await sendMultipartRequest({
       method: requestMethods.POST,
-      route: "/register",
+      route: "/auth/register",
       body: registerationForm,
     });
 
@@ -127,7 +131,7 @@ const RegisterForm = ({ onToggleRegister }) => {
             <p>
               Account Created Successfully.
               <br />
-              <span className="pointer primary-text" onClick={onToggleRegister}>
+              <span className="pointer primary-text">
                 Click here to login.
               </span>
             </p>
@@ -145,10 +149,14 @@ const RegisterForm = ({ onToggleRegister }) => {
               }
             }}
           />
+          <button
+            type = "submit"
+            className="baseButtonAlternative pointer"
+          />
           <div className="spacer-10"></div>
           <p className="black-text">
             Already have an account?{" "}
-            <span className="pointer primary-text" onClick={onToggleRegister }>
+            <span className="pointer primary-text">
               Login
             </span>
           </p>
