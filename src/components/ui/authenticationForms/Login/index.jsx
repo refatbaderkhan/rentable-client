@@ -7,7 +7,7 @@ import { requestMethods } from "../../../../core/enums/requestMethods";
 import { localStorageAction } from "../../../../core/config/localstorage";
 import "./style.css";
 
-const LoginForm = ({ onToggleLogin }) => {
+const LoginForm = () => {
   const navigation = useNavigate();
 
   const [credentials, setCredentials] = useState({
@@ -21,12 +21,12 @@ const LoginForm = ({ onToggleLogin }) => {
     try {
       const response = await sendRequest({
         method: requestMethods.POST,
-        route: "/login",
+        route: "/auth/login",
         body: credentials,
       });
 
       localStorageAction("access_token", response.token);
-      navigation("/landing");
+      navigation("/add-item");
     } catch (error) {
       console.log(error.response.data.message);
       setError(error.response.data.message);
@@ -75,7 +75,7 @@ const LoginForm = ({ onToggleLogin }) => {
 
       <p className="black-text">
         Don't have an account?{" "}
-        <span className="pointer primary-text" onClick={() => onToggleLogin()}>
+        <span className="pointer primary-text" onClick={() => navigation("/register")}>
           Register
         </span>
       </p>
