@@ -13,7 +13,6 @@ const Chat = ({user_id, setUser_id, socket, room_id, setRoom_id}) => {
 
   setUser_id(localStorageAction('user_id'));
 
-  
   const joinHandler = async () => {
 
     try {
@@ -45,6 +44,12 @@ const Chat = ({user_id, setUser_id, socket, room_id, setRoom_id}) => {
           onChange={(e) => setReciever(e.target.value)}
         />
 
+        <button
+          className=""
+          onClick={joinHandler}
+        >
+          Join Room
+        </button>
       </div>
     </div>
   );
