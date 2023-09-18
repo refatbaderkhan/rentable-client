@@ -36,6 +36,12 @@ const SendMessage = ({socket, user_id, room_id}) => {
 
   return (
     <div className="">
+      <input
+        className=""
+        placeholder='Message...'
+        onChange={(e) => setMessage(e.target.value)}
+        value={message}
+      />
     </div>
   )
 }
