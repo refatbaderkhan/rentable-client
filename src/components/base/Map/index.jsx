@@ -6,7 +6,7 @@ const Map = ({onCoordinatesChange}) => {
 
   const [position, setPosition] = useState([33.891122, 35.506016])
 
-
+  
   const LocationMarker = ({setPosition}) => {
     const map = useMapEvents({
       click(e) {
@@ -41,8 +41,6 @@ const Map = ({onCoordinatesChange}) => {
       }),
       [],
     )
-
-    
     return (
       <Marker
         draggable={true}
@@ -55,6 +53,19 @@ const Map = ({onCoordinatesChange}) => {
     )
   }
 
+  
+  return (
+    <div id='leaflet-container'>
+ <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
+  <TileLayer
+    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
+  <LocationMarker setPosition={setPosition}/>
+  <DraggableMarker/>
+</MapContainer>
+    </div>
+  )
 }
 
 export default Map
