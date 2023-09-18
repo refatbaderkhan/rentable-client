@@ -13,5 +13,24 @@ const Chat = ({user_id, setUser_id, socket, room_id, setRoom_id}) => {
 
   setUser_id(localStorageAction('user_id'));
 
+  
+  const joinHandler = async () => {
+
+    try {
+      const response = await sendRequest({
+        method: requestMethods.GET,
+        route: `/user/chat/${reciever}`,
+      });
+
+      setRoom_id(response._id);
+      
+      socket.emit('join_chat', {user_id, room_id});
+      navigate('/chat', { replace: true });
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  }
+
+};
 
 export default Chat
