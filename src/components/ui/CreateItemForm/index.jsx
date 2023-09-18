@@ -7,6 +7,7 @@ import Map from "../../base/Map";
 //import { sendMultipartRequest } from '../../../core/config/sendMultipartRequest';
 import { localStorageAction } from '../../../core/config/localstorage'; 
 import axios from 'axios';
+import {useSelector} from "react-redux"
 
 
   const CreateItemForm  = () => {
@@ -19,22 +20,15 @@ import axios from 'axios';
       item_subcategory: "",
       item_city: "",
       item_area: "",
-      item_latitude: "",
-      item_longitude: "",
     });
 
-    const handleCoordinates = (coordinates) => {
-      setItem({
-        ...item,
-        item_latitude: coordinates.item_latitude,
-        item_longitude: coordinates.item_longitude,
-      });
-    };
+    const {item_latitude, item_longitude} = useSelector(state => state.coordinates);
   
     const [itemImages, setItemImages] = useState([]);
     const [error, setError] = useState(null);
     const [created, setCreated] = useState(null);
 
+    
 
     const itemHandler = async (e) => {
       e.preventDefault();
@@ -45,6 +39,10 @@ import axios from 'axios';
         formData.append(key, item[key]);
       }
 
+      formData.append("item_latitude", item_latitude);
+      formData.append("item_longitude", item_longitude);
+
+      
       let imageCounter = 0;
       for (let i=0; i < itemImages.length; i++) {
         const image = itemImages[i];
@@ -203,7 +201,7 @@ import axios from 'axios';
             <div className="spacer-10"></div>
             <div className="spacer-15"></div>
             <div>
-          <Map onCoordinatesChange={handleCoordinates} />
+          <Map />
           </div>
           </form>
         </div>
