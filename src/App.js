@@ -42,6 +42,7 @@ function App() {
             socket={socket}
             room_id={room_id}
           />} />
+          <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </BrowserRouter>
     </div>
