@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import "./style.css";
 import Button from '../../base/Button';
 import Input from '../../base/Input';
+import Map from "../../base/Map"; 
 //import { requestMethods } from '../../../core/enums/requestMethods';
 //import { sendMultipartRequest } from '../../../core/config/sendMultipartRequest';
 import { localStorageAction } from '../../../core/config/localstorage'; 
@@ -16,13 +17,10 @@ import axios from 'axios';
       item_price: "",
       item_category: "",
       item_subcategory: "",
-      item_location: {
-        city: "",
-        area: "",
-        latitude: "",
-        longitude: "",
-      item_images: [],
-      }
+      item_city: "",
+      item_area: "",
+      item_latitude: "",
+      item_longitude: "",
     });
   
     const [itemImages, setItemImages] = useState([]);
@@ -35,21 +33,12 @@ import axios from 'axios';
 
       const formData = new FormData();
 
-      formData.append("item_name", item.item_name);
-      formData.append("item_description", item.item_description);
-      formData.append("item_price", item.item_price);
-      formData.append("item_category", item.item_category);
-      formData.append("item_subcategory", item.item_subcategory);
-      //formData.append("item_location", item.item_location);
 
-      for (let i = 0; i < itemImages.length; i++) {
-        formData.append("item_images", itemImages[i]);
-      }
 
 
       try {
         const response = await axios.post(
-          "http://localhost:8000/user/create-items",
+          "http://localhost:8000/user/create-item",
           formData,
           {
             headers: {
@@ -58,7 +47,6 @@ import axios from 'axios';
             },
           }
         );
-        console.log(response);
         setCreated(true);
         setError(null);
       } catch (error) {
@@ -79,6 +67,7 @@ import axios from 'axios';
    ///    item.item_location.longitude.trim() !== ""
    ///  );
    ///};
+  
 
     return (
       <div className="form-container">
@@ -134,32 +123,6 @@ import axios from 'axios';
                 setItem({
                   ...item,
                   item_subcategory,
-                })
-              }
-            />
-            <Input
-              label={"Item City"}
-              placeholder={"Enter Item City..."}
-              onChange={(city) =>
-                setItem({
-                  ...item,
-                  item_location: {
-                    ...item.item_location,
-                    city: city,
-                  },
-                })
-              }
-            />
-            <Input
-              label={"Item Area"}
-              placeholder={"Enter Item Area..."}
-              onChange={(area) =>
-                setItem({
-                  ...item,
-                  item_location: {
-                    ...item.item_location,
-                    area,
-                  },
                 })
               }
             />
@@ -228,6 +191,7 @@ import axios from 'axios';
 
             <div className="spacer-10"></div>
             <div className="spacer-15"></div>
+
           </form>
         </div>
       </div>
