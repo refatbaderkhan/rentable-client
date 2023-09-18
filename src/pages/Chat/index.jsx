@@ -24,7 +24,7 @@ const Chat = ({user_id, setUser_id, socket, room_id, setRoom_id}) => {
       setRoom_id(response._id);
       
       socket.emit('join_chat', {user_id, room_id});
-      navigate('/chat', { replace: true });
+      navigate('/chat-page', { replace: true });
     } catch (error) {
       console.log(error.response.data.message);
     }
