@@ -1,9 +1,12 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react'
 import { MapContainer, TileLayer, useMapEvents, Marker } from 'react-leaflet'
 import "./style.css";
+import { useDispatch } from 'react-redux';
+import { setCoordinates } from '../../../redux/itemCoordinates/itemCoordinatesSlice';
 
-const Map = ({onCoordinatesChange}) => {
-
+const Map = () => {
+  
+  const dispatch = useDispatch();
   const [position, setPosition] = useState([33.891122, 35.506016])
 
   
@@ -12,10 +15,10 @@ const Map = ({onCoordinatesChange}) => {
       click(e) {
         const { lat, lng } = e.latlng;
         setPosition([lat, lng]);
-        onCoordinatesChange({
+        dispatch(setCoordinates({
           item_latitude: lat,
           item_longitude: lng,
-        })
+        }))
       },
     });
 
@@ -32,10 +35,10 @@ const Map = ({onCoordinatesChange}) => {
           if (marker != null) {
             const { lat, lng } = marker.getLatLng()
             setPosition([lat, lng]);
-            onCoordinatesChange({
+            dispatch(setCoordinates({
               item_latitude: lat,
               item_longitude: lng,
-            })
+            }))
           }
         },
       }),
@@ -57,7 +60,7 @@ const Map = ({onCoordinatesChange}) => {
   return (
     <div id='leaflet-container'>
  <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
-  <TileLayer
+ <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
