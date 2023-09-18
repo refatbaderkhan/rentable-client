@@ -4,14 +4,19 @@ import { sendRequest } from '../../core/config/request';
 import { requestMethods } from '../../core/enums/requestMethods';
 import { useState } from 'react';
 import { localStorageAction } from '../../core/config/localstorage';
+import {useDispatch , useSelector} from "react-redux"
+import { setChat } from '../../redux/chat/chatSlice';
 
 
-const Chat = ({user_id, setUser_id, socket, room_id, setRoom_id}) => {
+const Chat = () => {
 
   const navigate = useNavigate();
   const [reciever, setReciever] = useState('');
+  const user_id = useSelector(state => state.user.user._id);
+  const socket = useSelector(state => state.socket.socket);
+  const dispatch = useDispatch();
 
-  setUser_id(localStorageAction('user_id'));
+  //setUser_id(localStorageAction('user_id'));
 
   const joinHandler = async () => {
 
@@ -21,9 +26,13 @@ const Chat = ({user_id, setUser_id, socket, room_id, setRoom_id}) => {
         route: `/user/chat/${reciever}`,
       });
 
-      setRoom_id(response._id);
+      const room = response._id;
+      //setRoom_id(response._id);
+      dispatch(setChat({
+        room_id: room,
+      }))
       
-      socket.emit('join_chat', {user_id, room_id});
+      socket.emit('join_chat', {user_id, room});
       navigate('/chat-page', { replace: true });
     } catch (error) {
       console.log(error.response.data.message);

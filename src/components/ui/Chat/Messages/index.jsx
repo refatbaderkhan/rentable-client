@@ -1,10 +1,14 @@
 import {useState, useEffect} from 'react'
 import { sendRequest } from '../../../../core/config/request';
 import { requestMethods } from '../../../../core/enums/requestMethods';
+import {useSelector} from "react-redux"
 
-const Messages = ({socket, room_id}) => {
+
+const Messages = () => {
   const [messagesRecieved, setMessagesReceived] = useState([]);
   const [messagesHistory, setMessagesHistory] = useState([]);
+  const room_id = useSelector(state => state.chat.room_id);
+  const socket = useSelector(state => state.socket.socket);
 
   useEffect(() => {
     const getMessages = async () => {
@@ -24,7 +28,6 @@ const Messages = ({socket, room_id}) => {
   // Runs whenever a socket event is recieved from the server
   useEffect(() => {
     socket.on('receive_message', (data) => {
-      console.log(data);
       setMessagesReceived((state) => [
         ...state,
         {
