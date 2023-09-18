@@ -136,7 +136,25 @@ import axios from 'axios';
                 })
               }
             />
-
+            <Input
+              label={"Item City"}
+              placeholder={"Enter Item City..."}
+              onChange={(item_city) =>
+                setItem({
+                  ...item,
+                  item_city,
+                })
+              }
+            />
+            <Input
+              label={"Item Area"}
+              placeholder={"Enter Item Area..."}
+              onChange={(item_area) =>
+                setItem({
+                  ...item,
+                  item_area,
+                })
+              }
             />
             <div className="label">Upload a item pictures</div>
             <input
