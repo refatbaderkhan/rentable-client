@@ -40,7 +40,11 @@ const Messages = ({socket, room_id}) => {
   }, [socket]);
 
   // dd/mm/yyyy, hh:mm:ss
-  
+  function formatDateFromTimestamp(timestamp) {
+    const date = new Date(timestamp);
+    return date.toLocaleString();
+  }
+
 };
 
 export default Messages;
