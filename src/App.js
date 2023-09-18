@@ -11,16 +11,14 @@ import Profile from "./pages/Profile";
 import CreateItem from "./pages/CreateItem";
 import Chat from "./pages/Chat";
 import ChatPage from "./components/ui/Chat/ChatPage";
-import io from "socket.io-client";
-
-const socket = io.connect("http://127.0.0.1:4000");
+import { Provider } from "react-redux";
+import reduxStore from "./redux/store";
 
 
 function App() {
-  const [user_id, setUser_id] = useState("");
-  const [room_id, setRoom_id] = useState("");
 
   return (
+    <Provider store={reduxStore}>
     <div className="App">
       <BrowserRouter>
         <NavBar />
@@ -30,22 +28,13 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/add-item" element={<CreateItem />} />
-          <Route path="/chat" element={<Chat
-            user_id={user_id}
-            room_id={room_id}
-            socket={socket}
-            setUser_id={setUser_id}
-            setRoom_id={setRoom_id}
-          />} />
-          <Route path="/chat-page" element={<ChatPage
-            user_id={user_id}
-            socket={socket}
-            room_id={room_id}
-          />} />
+          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat-page" element={<ChatPage />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </BrowserRouter>
     </div>
+    </Provider>
   );
 }
 
