@@ -23,6 +23,13 @@ import axios from 'axios';
       item_longitude: "",
     });
 
+    const handleCoordinates = (coordinates) => {
+      setItem({
+        ...item,
+        item_latitude: coordinates.item_latitude,
+        item_longitude: coordinates.item_longitude,
+      });
+    };
   
     const [itemImages, setItemImages] = useState([]);
     const [error, setError] = useState(null);
