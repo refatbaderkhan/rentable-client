@@ -16,3 +16,6 @@ const itemCoordinatesSlice = createSlice({
   }
 });
 
+export const {setCoordinates} = itemCoordinatesSlice.actions
+
+export default itemCoordinatesSlice.reducer
