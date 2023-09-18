@@ -17,6 +17,22 @@ const SendMessage = ({socket, user_id, room_id}) => {
     }
   };
 
+  const sendMessageHandler = async () => {
+
+    try {
+
+      const response = await sendRequest({
+        method: requestMethods.POST,
+        route: `/user/message/${room_id}`,
+        body: messageBody,
+      });
+
+      sendMessage();
+
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  }
 
   return (
     <div className="">
