@@ -9,7 +9,7 @@ import Register from "./pages/Register";
 import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import CreateItem from "./pages/CreateItem";
-
+import Chat from "./pages/Chat";
 import io from "socket.io-client";
 
 const socket = io.connect("http://127.0.0.1:4000");
@@ -29,6 +29,13 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/add-item" element={<CreateItem />} />
+          <Route path="/chat" element={<Chat
+            user_id={user_id}
+            room_id={room_id}
+            socket={socket}
+            setUser_id={setUser_id}
+            setRoom_id={setRoom_id}
+          />} />
         </Routes>
       </BrowserRouter>
     </div>
