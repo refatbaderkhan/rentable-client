@@ -38,6 +38,13 @@ import axios from 'axios';
         formData.append(key, item[key]);
       }
 
+      let imageCounter = 0;
+      for (let i=0; i < itemImages.length; i++) {
+        const image = itemImages[i];
+        const fileName = `${item.item_name}_${imageCounter}.${image.name.split('.').pop()}`;
+        formData.append("item_images", image, fileName);
+        imageCounter++;
+      }
 
       try {
         const response = await axios.post(
