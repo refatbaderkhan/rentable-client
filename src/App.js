@@ -10,6 +10,7 @@ import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import CreateItem from "./pages/CreateItem";
 import Chat from "./pages/Chat";
+import ChatPage from "./components/ui/Chat/ChatPage";
 import io from "socket.io-client";
 
 const socket = io.connect("http://127.0.0.1:4000");
@@ -35,6 +36,11 @@ function App() {
             socket={socket}
             setUser_id={setUser_id}
             setRoom_id={setRoom_id}
+          />} />
+          <Route path="/chat-page" element={<ChatPage
+            user_id={user_id}
+            socket={socket}
+            room_id={room_id}
           />} />
         </Routes>
       </BrowserRouter>
