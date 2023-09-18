@@ -45,6 +45,22 @@ const Messages = ({socket, room_id}) => {
     return date.toLocaleString();
   }
 
+  return (
+    <div>
+    <div className=''>
+    {messagesHistory.map((msg, i) => (
+      <div className='' key={i}>
+        <div>
+          <span className=''>{msg.sender}</span>
+        </div>
+        <p className=''>{msg.message}</p>
+        <br />
+      </div>
+    ))}
+   </div>
+
+    </div>
+  );
 };
 
 export default Messages;
