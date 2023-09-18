@@ -2,22 +2,22 @@ import "./styles/App.css";
 import "./styles/utilities.css";
 import "./styles/colors.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useState } from "react";
 import NavBar from "./components/ui/NavBar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import CreateItem from "./pages/CreateItem";
+
 import io from "socket.io-client";
-import { useState } from "react";
-
-
 
 const socket = io.connect("http://127.0.0.1:4000");
 
 
 function App() {
-
+  const [user_id, setUser_id] = useState("");
+  const [room_id, setRoom_id] = useState("");
 
   return (
     <div className="App">
