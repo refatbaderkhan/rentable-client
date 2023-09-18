@@ -8,8 +8,17 @@ import Register from "./pages/Register";
 import Landing from "./pages/Landing";
 import Profile from "./pages/Profile";
 import CreateItem from "./pages/CreateItem";
+import io from "socket.io-client";
+import { useState } from "react";
+
+
+
+const socket = io.connect("http://127.0.0.1:4000");
+
 
 function App() {
+
+
   return (
     <div className="App">
       <BrowserRouter>
