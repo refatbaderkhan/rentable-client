@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
-
+import { sendRequest } from '../../../../core/config/request';
+import { requestMethods } from '../../../../core/enums/requestMethods';
 
 const SendMessage = ({socket, user_id, room_id}) => {
   const [message, setMessage] = useState('');
@@ -42,6 +43,10 @@ const SendMessage = ({socket, user_id, room_id}) => {
         onChange={(e) => setMessage(e.target.value)}
         value={message}
       />
+
+      <button className='' onClick={sendMessageHandler}>
+        Send Message
+      </button>
     </div>
   )
 }
