@@ -8,6 +8,16 @@ const SendMessage = ({socket, user_id, room_id}) => {
   const messageBody = {message: message}
 
 
+  const sendMessage = () => {
+    if (message !== '') {
+      const message_time = Date.now();
+      // Send message to server. We can't specify who we send the message to from the frontend. We can only send to server. Server can then send message to rest of users in room
+      socket.emit('send_message', { user_id, message });
+      setMessage('');
+    }
+  };
+
+
   return (
     <div className="">
     </div>
