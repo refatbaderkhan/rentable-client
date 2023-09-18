@@ -22,6 +22,7 @@ import axios from 'axios';
       item_latitude: "",
       item_longitude: "",
     });
+
   
     const [itemImages, setItemImages] = useState([]);
     const [error, setError] = useState(null);
@@ -33,7 +34,9 @@ import axios from 'axios';
 
       const formData = new FormData();
 
-
+      for (const key in item) {
+        formData.append(key, item[key]);
+      }
 
 
       try {
@@ -126,31 +129,7 @@ import axios from 'axios';
                 })
               }
             />
-            <Input
-              label={"Item Latitude"}
-              placeholder={"Enter Item Area..."}
-              onChange={(latitude) =>
-                setItem({
-                  ...item,
-                  item_location: {
-                    ...item.item_location,
-                    latitude,
-                  },
-                })
-              }
-            />
-            <Input
-              label={"Item Longitude"}
-              placeholder={"Enter Item Longitude..."}
-              onChange={(longitude) =>
-                setItem({
-                  ...item,
-                  item_location: {
-                    ...item.item_location,
-                    longitude,
-                  },
-                })
-              }
+
             />
             <div className="label">Upload a item pictures</div>
             <input
