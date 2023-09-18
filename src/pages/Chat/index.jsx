@@ -31,6 +31,23 @@ const Chat = ({user_id, setUser_id, socket, room_id, setRoom_id}) => {
     }
   }
 
+
+
+
+  return (
+    <div className="">
+      <div className="">
+        <h1>{`<>DevRooms</>`}</h1>
+        
+
+        <input
+          className=""
+          onChange={(e) => setReciever(e.target.value)}
+        />
+
+      </div>
+    </div>
+  );
 };
 
 export default Chat
