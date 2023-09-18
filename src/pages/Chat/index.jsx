@@ -5,3 +5,11 @@ import { requestMethods } from '../../core/enums/requestMethods';
 import { useState } from 'react';
 import { localStorageAction } from '../../core/config/localstorage';
 
+
+const Chat = ({user_id, setUser_id, socket, room_id, setRoom_id}) => {
+
+  const navigate = useNavigate();
+  const [reciever, setReciever] = useState('');
+
+
+export default Chat
