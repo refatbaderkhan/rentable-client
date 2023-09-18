@@ -59,6 +59,20 @@ const Messages = ({socket, room_id}) => {
     ))}
    </div>
 
+    <div className=''>
+      {messagesRecieved.map((msg, i) => (
+        <div className='' key={i}>
+          <div>
+            <span className=''>{msg.user_id}</span>
+            <span className=''>
+              {formatDateFromTimestamp(msg.message_time)}
+            </span>
+          </div>
+          <p className=''>{msg.message}</p>
+          <br />
+        </div>
+      ))}
+    </div>
     </div>
   );
 };
