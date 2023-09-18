@@ -26,7 +26,8 @@ const LoginForm = () => {
       });
 
       localStorageAction("access_token", response.token);
-      navigation("/add-item");
+      localStorageAction("user_id", response.user._id);
+      navigation("/chat");
     } catch (error) {
       console.log(error.response.data.message);
       setError(error.response.data.message);
