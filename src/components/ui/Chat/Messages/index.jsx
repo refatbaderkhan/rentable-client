@@ -21,5 +21,26 @@ const Messages = ({socket, room_id}) => {
     getMessages();
   }, []);
 
+  // Runs whenever a socket event is recieved from the server
+  useEffect(() => {
+    socket.on('receive_message', (data) => {
+      console.log(data);
+      setMessagesReceived((state) => [
+        ...state,
+        {
+          message: data.message,
+          user_id: data.user_id,
+          message_time: data.message_time,
+        },
+      ]);
+    });
+
+	// Remove event listener on component unmount
+    return () => socket.off('receive_message');
+  }, [socket]);
+
+  // dd/mm/yyyy, hh:mm:ss
+  
+};
 
 export default Messages;
