@@ -202,7 +202,9 @@ import axios from 'axios';
 
             <div className="spacer-10"></div>
             <div className="spacer-15"></div>
-
+            <div>
+          <Map onCoordinatesChange={handleCoordinates} />
+          </div>
           </form>
         </div>
       </div>
