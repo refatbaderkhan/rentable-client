@@ -1,9 +1,11 @@
-  import React, {useState} from 'react'
-  import "./style.css";
-  import Button from '../../base/Button';
-  import Input from '../../base/Input';
-  import { requestMethods } from '../../../core/enums/requestMethods';
-  import { sendMultipartRequest } from '../../../core/config/sendMultipartRequest';
+import React, {useState} from 'react'
+import "./style.css";
+import Button from '../../base/Button';
+import Input from '../../base/Input';
+//import { requestMethods } from '../../../core/enums/requestMethods';
+//import { sendMultipartRequest } from '../../../core/config/sendMultipartRequest';
+import { localStorageAction } from '../../../core/config/localstorage'; 
+import axios from 'axios';
 
 
   const CreateItemForm  = () => {
@@ -30,52 +32,53 @@
 
     const itemHandler = async (e) => {
       e.preventDefault();
-      
-      const itemForm = {
-        item_name: item.item_name,
-        item_description: item.item_description,
-        item_price: item.item_price,
-        item_category: item.item_category,
-        item_subcategory: item.item_subcategory,
-        item_location: {
-          city: item.item_location.city,
-          area: item.item_location.area,
-          latitude: item.item_location.latitude,
-          longitude: item.item_location.longitude,
-        },
-        item_images: itemImages,
-      };
-      
+
+      const formData = new FormData();
+
+      formData.append("item_name", item.item_name);
+      formData.append("item_description", item.item_description);
+      formData.append("item_price", item.item_price);
+      formData.append("item_category", item.item_category);
+      formData.append("item_subcategory", item.item_subcategory);
+      //formData.append("item_location", item.item_location);
+
+      for (let i = 0; i < itemImages.length; i++) {
+        formData.append("item_images", itemImages[i]);
+      }
+
 
       try {
-      await sendMultipartRequest({
-        method: requestMethods.POST,
-        route: "/user/create-item",
-        body: itemForm,
-      });
+        const response = await axios.post(
+          "http://localhost:8000/user/create-items",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              Authorization: `Bearer ${localStorageAction("access_token")}`,
+            },
+          }
+        );
+        console.log(response);
         setCreated(true);
         setError(null);
-
       } catch (error) {
-        console.log(error.response.data);
-        setError(error.response.data);
-        setCreated(false);
+        console.log(error)
       }
     };
 
-    const isFormValid = () => {
-      return (
-        item.item_name.trim() !== "" &&
-        item.item_description.trim() !== "" &&
-        item.item_price.trim() !== "" &&
-        item.item_category.trim() !== "" &&
-        item.item_subcategory.trim() !== "" &&
-        item.item_location.city.trim() !== "" &&
-        item.item_location.area.trim() !== "" &&
-        item.item_location.latitude.trim() !== "" &&
-        item.item_location.longitude.trim() !== ""
-      );
-    };
+   ///const isFormValid = () => {
+   ///  return (
+   ///    item.item_name.trim() !== "" &&
+   ///    item.item_description.trim() !== "" &&
+   ///    item.item_price.trim() !== "" &&
+   ///    item.item_category.trim() !== "" &&
+   ///    item.item_subcategory.trim() !== "" &&
+   ///    item.item_location.city.trim() !== "" &&
+   ///    item.item_location.area.trim() !== "" &&
+   ///    item.item_location.latitude.trim() !== "" &&
+   ///    item.item_location.longitude.trim() !== ""
+   ///  );
+   ///};
 
     return (
       <div className="form-container">
@@ -188,15 +191,15 @@
             />
             <div className="label">Upload a item pictures</div>
             <input
-              className="upload"
-              type="file"
-              multiple
-              onChange= {(e) => {
-                if (e.target && e.target.files) {
-                  setItemImages(e.target.files[0]);
-                }
-              }}
-            />
+            className="upload"
+            type="file"
+            multiple
+            onChange={(e) => {
+              if (e.target && e.target.files) {
+                setItemImages(e.target.files);
+              }
+            }}
+          />
             {error && <p>{error}</p>}
             {created && (
               <p>
@@ -208,18 +211,20 @@
               color={"primary-bg"}
               textColor={"white-text"}
               text={"Submit"}
-              onClick={() => {
-              if (isFormValid()) {
-                itemHandler();
-              } else {
-                setError("Please fill in all the fields.");
-              }
-              }}
+            //onClick={() => {
+            ////if (isFormValid()) {
+            ////itemHandler();
+            ////} else {
+            ////  setError("Please fill in all the fields.");
+            ////}
+            //}}
             />
             <button
               type = "submit"
               className="baseButtonAlternative pointer"
-            />
+            >
+              submit form
+            </button>
 
             <div className="spacer-10"></div>
             <div className="spacer-15"></div>
