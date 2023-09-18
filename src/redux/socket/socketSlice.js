@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const socketSlice = createSlice({
-  name: "chat",
+  name: "socket",
   initialState: initialState,
   reducers: {
     setSocket: (state, action) => {
