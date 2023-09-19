@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import "./style.css";
+import Input from '../../base/Input';
 import { requestMethods } from '../../../core/enums/requestMethods';
 import { sendRequest } from '../../../core/config/request';
 import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
@@ -35,14 +36,40 @@ const SubCategory = (subCategorySchema) => {
 }
 
 
-const AddSubCategory = () => {
+const AddSubCategory = ({category_id}) => {
 
-  const [newSubCategory, setNewSubCategory] = useState("")
+  const [newSubCategory, setNewSubCategory] = useState({
+    subCategory_name: "",
+  });
+
+  const addSubCategoryHandler = async () => {
+
+    try {
+      const response = await sendRequest({
+        method: requestMethods.POST,
+        route: `/admin/create-subcategory/${category_id}`,
+        body: newSubCategory,
+      });
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+      
 
   return (
     <div>
-      <input type="text" placeholder="add subcategory" onChange={(e) => setNewSubCategory(e.target.value)} />
-      <button onClick={() => console.log(newSubCategory)}>
+      <Input
+        label={"New SubCategory"}
+        placeholder={"Type new sub category here..."}
+        onChange={(subCategory_name) =>
+          setNewSubCategory({
+            ...newSubCategory,
+            subCategory_name,
+          })
+        }
+      />
+      <button onClick={addSubCategoryHandler}>
         add subcategory
       </button>
     </div>
@@ -65,7 +92,7 @@ const AdminCategory = ({category}) => {
             <p>No subcategories available</p>
           )}
       </h3>
-      <AddSubCategory />
+      <AddSubCategory category_id={category._id} />
       <div className="spacer-20"></div>
       <button onClick={() => console.log(category._id)}>
         delete category
