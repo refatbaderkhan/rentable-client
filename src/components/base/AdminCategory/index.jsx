@@ -1,14 +1,29 @@
 import React from 'react'
 import {useState} from 'react'
 import "./style.css";
+import { requestMethods } from '../../../core/enums/requestMethods';
+import { sendRequest } from '../../../core/config/request';
 
 
 const SubCategory = (subCategorySchema) => {
 
+  const deleteSubCategoryHandler = async () => {
+
+    try {
+      const response = await sendRequest({
+        method: requestMethods.DELETE,
+        route: `/admin/delete-subcategory/${subCategorySchema._id}`,
+      });
+      
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  }
+
   return (
     <div key={subCategorySchema._id}>
       {subCategorySchema.subCategory_name}
-      <button onClick={() => console.log(subCategorySchema._id)}>
+      <button onClick={deleteSubCategoryHandler}>
         x
       </button>
     </div>
