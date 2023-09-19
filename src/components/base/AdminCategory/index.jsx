@@ -42,6 +42,8 @@ const AddSubCategory = ({category_id}) => {
     subCategory_name: "",
   });
 
+  const {addSubCategory} = useCustomDispatch()
+
   const addSubCategoryHandler = async () => {
 
     try {
@@ -50,6 +52,8 @@ const AddSubCategory = ({category_id}) => {
         route: `/admin/create-subcategory/${category_id}`,
         body: newSubCategory,
       });
+
+      addSubCategory(response.subcategory, category_id)
 
     } catch (error) {
       console.log(error)
