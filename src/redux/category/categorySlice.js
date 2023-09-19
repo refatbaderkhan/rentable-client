@@ -15,6 +15,11 @@ const categorySlice = createSlice({
     addCategory: (state, action) => {
       state.categories.push(action.payload.category)
     },
+    deleteCategory: (state, action) => {
+      const category_id = action.payload
+      const categoryIndex = state.categories.findIndex(category => category._id === category_id)
+      state.categories.splice(categoryIndex, 1)
+    },
     addSubCategory: (state, action) => {
       const {subCategory, category_id} = action.payload
       const category = state.categories.find(category => category._id === category_id)
