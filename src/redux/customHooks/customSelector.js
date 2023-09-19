@@ -12,5 +12,7 @@ export const useCustomSelector = () => {
   
     const room_id = useSelector((state) => state.chat.room_id);
 
-  return { user, user_id, socket, coordinates, room_id }
+    const categories = useSelector((state) => state.category.categories);
+
+  return { user, user_id, socket, coordinates, room_id, categories }
 }
