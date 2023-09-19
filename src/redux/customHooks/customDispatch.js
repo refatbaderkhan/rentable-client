@@ -12,5 +12,7 @@ export const useCustomDispatch = () => {
 
   const setChat = (chat) => dispatch({ type: "chat/setChat", payload: chat });
 
-return { setUser, setSocket, setCoordinates, setChat }
+  const setCategories = (categories) => dispatch({ type: "category/setCategories", payload: categories });
+
+return { setUser, setSocket, setCoordinates, setChat, setCategories}
 }
