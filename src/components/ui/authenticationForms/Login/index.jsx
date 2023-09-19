@@ -6,13 +6,12 @@ import { sendRequest } from "../../../../core/config/request";
 import { requestMethods } from "../../../../core/enums/requestMethods";
 import { localStorageAction } from "../../../../core/config/localstorage";
 import "./style.css";
-import {useDispatch} from "react-redux"
-import { setUser } from "../../../../redux/user/userSlice";
+import { useCustomDispatch } from "../../../../redux/customHooks/customDispatch";
 
 const LoginForm = () => {
   const navigation = useNavigate();
-  const dispatch = useDispatch();
- 
+  const {setUser} = useCustomDispatch(); 
+
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -28,10 +27,10 @@ const LoginForm = () => {
         body: credentials,
       });
 
-      dispatch(setUser({
+      setUser({
         token: response.token,
-        user: response.user
-      }))
+        user: response.user,
+      }); 
 
       localStorageAction("access_token", response.token);
       navigation("/chat");
