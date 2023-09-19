@@ -83,6 +83,20 @@ const AddSubCategory = ({category_id}) => {
 
 const AdminCategory = ({category}) => {
 
+  const deleteCategoryHandler = async () => {
+
+    try {
+
+      const response = await sendRequest({
+        method: requestMethods.DELETE,
+        route: `/admin/delete-category/${category._id}`,
+      });
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div key={category._id} className="form-container">
       <div className="log-in">
@@ -90,15 +104,13 @@ const AdminCategory = ({category}) => {
       <h1>{category.category_name}</h1>
       <div className="spacer-30"></div>
       <h3>
-          {category.subCategorySchema.length > 0 ? (
-            category.subCategorySchema.map(SubCategory)
-          ) : (
-            <p>No subcategories available</p>
-          )}
+        {category.subCategorySchema.length > 0 && (
+          category.subCategorySchema.map(SubCategory)
+        )}
       </h3>
       <AddSubCategory category_id={category._id} />
       <div className="spacer-20"></div>
-      <button onClick={() => console.log(category._id)}>
+      <button onClick={deleteCategoryHandler}>
         delete category
       </button>
       <div className="spacer-10"></div>
