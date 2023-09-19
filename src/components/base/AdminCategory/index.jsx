@@ -3,18 +3,22 @@ import {useState} from 'react'
 import "./style.css";
 import { requestMethods } from '../../../core/enums/requestMethods';
 import { sendRequest } from '../../../core/config/request';
-
+import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
 
 const SubCategory = (subCategorySchema) => {
+  
+  const {deleteSubCategory} = useCustomDispatch()
 
   const deleteSubCategoryHandler = async () => {
-
+  
     try {
       const response = await sendRequest({
         method: requestMethods.DELETE,
         route: `/admin/delete-subcategory/${subCategorySchema._id}`,
       });
-      
+
+      deleteSubCategory(subCategorySchema._id, subCategorySchema.category_id)
+
     } catch (error) {
       console.log(error.response.data.message);
     }
