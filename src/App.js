@@ -11,7 +11,7 @@ import Profile from "./pages/Profile";
 import CreateItem from "./pages/CreateItem";
 import Chat from "./pages/Chat";
 import ChatPage from "./components/ui/Chat/ChatPage";
-import CreateCategory from "./components/ui/CategoryManagement/CreateCategory";
+import CreateCategory from "./components/ui/AdminCategoryManagement/AdminCreateCategory";
 import { Provider } from "react-redux";
 import reduxStore from "./redux/store";
 
