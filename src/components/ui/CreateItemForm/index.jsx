@@ -7,7 +7,7 @@ import Map from "../../base/Map";
 //import { sendMultipartRequest } from '../../../core/config/sendMultipartRequest';
 import { localStorageAction } from '../../../core/config/localstorage'; 
 import axios from 'axios';
-import {useSelector} from "react-redux"
+import { useCustomSelector } from '../../../redux/customHooks/customSelector';
 
 
   const CreateItemForm  = () => {
@@ -22,7 +22,8 @@ import {useSelector} from "react-redux"
       item_area: "",
     });
 
-    const {item_latitude, item_longitude} = useSelector(state => state.coordinates);
+    const {coordinates} = useCustomSelector();
+    const {item_latitude, item_longitude} = coordinates;
   
     const [itemImages, setItemImages] = useState([]);
     const [error, setError] = useState(null);
@@ -41,7 +42,6 @@ import {useSelector} from "react-redux"
 
       formData.append("item_latitude", item_latitude);
       formData.append("item_longitude", item_longitude);
-
       
       let imageCounter = 0;
       for (let i=0; i < itemImages.length; i++) {
