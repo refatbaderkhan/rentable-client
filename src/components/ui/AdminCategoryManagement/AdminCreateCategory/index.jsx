@@ -6,7 +6,7 @@ import { sendRequest } from '../../../../core/config/request';
 import { requestMethods } from '../../../../core/enums/requestMethods';
 import { useCustomDispatch } from '../../../../redux/customHooks/customDispatch';
 
-const CreateCategory = () => {
+const AdminCreateCategory = () => {
   
   const [category, setCategory] = useState({
     category_name: "",
@@ -63,4 +63,4 @@ const CreateCategory = () => {
   );
 }
 
-export default CreateCategory
+export default AdminCreateCategory
