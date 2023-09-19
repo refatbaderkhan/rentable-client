@@ -2,13 +2,11 @@ import React from 'react'
 import {useState} from 'react'
 import { sendRequest } from '../../../../core/config/request';
 import { requestMethods } from '../../../../core/enums/requestMethods';
-import {useSelector} from "react-redux"
+import { useCustomSelector } from '../../../../redux/customHooks/customSelector';
 
 const SendMessage = () => {
   const [message, setMessage] = useState('');
-  const user_id = useSelector(state => state.user.user._id);
-  const room_id = useSelector(state => state.chat.room_id);
-  const socket = useSelector(state => state.socket.socket);
+  const {user_id, room_id, socket} = useCustomSelector();
   const messageBody = {message: message}
 
 
