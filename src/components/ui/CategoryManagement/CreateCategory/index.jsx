@@ -4,7 +4,7 @@ import Button from '../../../base/Button';
 import Input from '../../../base/Input';
 import { sendRequest } from '../../../../core/config/request';
 import { requestMethods } from '../../../../core/enums/requestMethods';
-
+import { useCustomDispatch } from '../../../../redux/customHooks/customDispatch';
 
 const CreateCategory = () => {
   
@@ -13,6 +13,8 @@ const CreateCategory = () => {
   });
   const [error, setError] = useState(null);
 
+  const {addCategory} = useCustomDispatch();
+
   const CategoryHandler = async () => {
     try {
       const response = await sendRequest({
@@ -20,6 +22,8 @@ const CreateCategory = () => {
         route: "/admin/create-category",
         body: category,
       });
+
+      addCategory({category: response.category});
     } catch (error) {
       console.log(error.response.data.message);
       setError(error.response.data.message);
