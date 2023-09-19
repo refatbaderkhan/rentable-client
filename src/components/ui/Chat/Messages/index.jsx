@@ -1,14 +1,13 @@
 import {useState, useEffect} from 'react'
 import { sendRequest } from '../../../../core/config/request';
 import { requestMethods } from '../../../../core/enums/requestMethods';
-import {useSelector} from "react-redux"
+import { useCustomSelector } from '../../../../redux/customHooks/customSelector';
 
 
 const Messages = () => {
   const [messagesRecieved, setMessagesReceived] = useState([]);
   const [messagesHistory, setMessagesHistory] = useState([]);
-  const room_id = useSelector(state => state.chat.room_id);
-  const socket = useSelector(state => state.socket.socket);
+  const {room_id, socket} = useCustomSelector();
 
   useEffect(() => {
     const getMessages = async () => {
