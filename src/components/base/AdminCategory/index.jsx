@@ -83,6 +83,8 @@ const AddSubCategory = ({category_id}) => {
 
 const AdminCategory = ({category}) => {
 
+  const {deleteCategory} = useCustomDispatch()
+
   const deleteCategoryHandler = async () => {
 
     try {
@@ -92,6 +94,8 @@ const AdminCategory = ({category}) => {
         route: `/admin/delete-category/${category._id}`,
       });
 
+      deleteCategory(category._id)
+      
     } catch (error) {
       console.log(error);
     }
