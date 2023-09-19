@@ -1,12 +1,11 @@
 import React, { useState, useRef, useMemo, useEffect } from 'react'
 import { MapContainer, TileLayer, useMapEvents, Marker } from 'react-leaflet'
 import "./style.css";
-import { useDispatch } from 'react-redux';
-import { setCoordinates } from '../../../redux/itemCoordinates/itemCoordinatesSlice';
+import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
 
 const Map = () => {
   
-  const dispatch = useDispatch();
+  const {setCoordinates} = useCustomDispatch();
   const [position, setPosition] = useState([33.891122, 35.506016])
 
   
@@ -15,10 +14,10 @@ const Map = () => {
       click(e) {
         const { lat, lng } = e.latlng;
         setPosition([lat, lng]);
-        dispatch(setCoordinates({
+        setCoordinates({
           item_latitude: lat,
           item_longitude: lng,
-        }))
+        })
       },
     });
 
@@ -35,10 +34,10 @@ const Map = () => {
           if (marker != null) {
             const { lat, lng } = marker.getLatLng()
             setPosition([lat, lng]);
-            dispatch(setCoordinates({
+            setCoordinates({
               item_latitude: lat,
               item_longitude: lng,
-            }))
+            })
           }
         },
       }),
