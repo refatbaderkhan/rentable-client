@@ -1,13 +1,16 @@
 import React from 'react'
 import {useCustomSelector} from '../../../../redux/customHooks/customSelector'
+import AdminCategory from '../../../base/AdminCategory'
+
 
 const AdminDisplayCategories = () => {
 
   const {categories} = useCustomSelector()
 
-  console.log(categories)
   return (
-    <div>AdminDisplayCategories</div>
+    categories.map((category) => (
+      <AdminCategory category={category} />
+    ))
   )
 }
 
