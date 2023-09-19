@@ -1,4 +1,5 @@
 import React from 'react'
+import {useState} from 'react'
 import "./style.css";
 
 
@@ -9,6 +10,21 @@ const SubCategory = (subCategorySchema) => {
       {subCategorySchema.subCategory_name}
       <button onClick={() => console.log(subCategorySchema._id)}>
         x
+      </button>
+    </div>
+  )
+}
+
+
+const AddSubCategory = () => {
+
+  const [newSubCategory, setNewSubCategory] = useState("")
+
+  return (
+    <div>
+      <input type="text" placeholder="add subcategory" onChange={(e) => setNewSubCategory(e.target.value)} />
+      <button onClick={() => console.log(newSubCategory)}>
+        add subcategory
       </button>
     </div>
   )
@@ -60,6 +76,7 @@ const AdminCategory = () => {
       <h3>
       {categoryObj.subCategorySchema.map(SubCategory)}
       </h3>
+      <AddSubCategory />
       <div className="spacer-20"></div>
       <button onClick={() => console.log(categoryObj._id)}>
         delete category
