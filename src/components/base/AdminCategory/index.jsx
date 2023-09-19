@@ -2,6 +2,19 @@ import React from 'react'
 import "./style.css";
 
 
+const SubCategory = (subCategorySchema) => {
+
+  return (
+    <div key={subCategorySchema._id}>
+      {subCategorySchema.subCategory_name}
+      <button onClick={() => console.log(subCategorySchema._id)}>
+        x
+      </button>
+    </div>
+  )
+}
+
+
 const AdminCategory = () => {
 
    const categoryObj = {
@@ -44,7 +57,9 @@ const AdminCategory = () => {
       <div className="spacer-30"></div>
       <h1>{categoryObj.category_name}</h1>
       <div className="spacer-30"></div>
-
+      <h3>
+      {categoryObj.subCategorySchema.map(SubCategory)}
+      </h3>
       <div className="spacer-20"></div>
       <button onClick={() => console.log(categoryObj._id)}>
         delete category
