@@ -15,6 +15,16 @@ export const useCustomDispatch = () => {
   const setCategories = (categories) => dispatch({ type: "category/setCategories", payload: categories });
 
   const addCategory = (category) => dispatch({ type: "category/addCategory", payload: category });
+
+  const deleteSubCategory = (subCategory_id, category_id) => dispatch({ type: "category/deleteSubCategory", payload: {subCategory_id, category_id} });
   
-return { setUser, setSocket, setCoordinates, setChat, setCategories, addCategory}
+  return {
+    setUser, 
+    setSocket, 
+    setCoordinates, 
+    setChat, 
+    setCategories, 
+    addCategory,
+    deleteSubCategory
+  }
 }
