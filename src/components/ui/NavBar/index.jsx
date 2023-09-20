@@ -16,14 +16,12 @@ const NavBar = () => {
 
   const navigate = useNavigate();
 
-  const [isLoggedIn , setIsLoggedIn] = useState(null);
+  const [isLoggedIn , setIsLoggedIn] = useState(localStorageAction("access_token"));
+  const [profileToggle, setProfileToggle] = useState(false);
 
   const {setCategories, setSocket} = useCustomDispatch();
+
   setSocket({socket: socket});
-
-  const {user_type} = useCustomSelector();
-  console.log('user_type', user_type)
-
 
   const category = async () => {
     try {
@@ -42,16 +40,23 @@ const NavBar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("access_token");
+    localStorage.removeItem("user_type");
     setIsLoggedIn(null);
+    setProfileToggle(false);
+  }
+
+  const toggleProfile = () => {
+    setProfileToggle((prevProfileToggle) => !prevProfileToggle); // Toggle the profileToggle state
   }
 
   useEffect(() => {
     category();
     setIsLoggedIn(localStorageAction("access_token"));
-  }, [isLoggedIn])
+  }, [localStorageAction("access_token")])
   
 
   return (
+    <div>
     <div className="navbar">
       { !isLoggedIn && (
       <Button
@@ -60,16 +65,25 @@ const NavBar = () => {
         text = {"login"}
         onClick = {() => navigate("/login")}
       />)}
-      { user_type === 0 && (
-        <div> admin  </div>
-      )}
       { isLoggedIn && (
-      <Button
+        <Button
         color = {"primary-bg"}
         textColor = {"white-text"}
-        text = {"logout"}
-        onClick = {() => handleLogout()}
-      />)}
+        text = {"Profile"}
+        onClick = {toggleProfile}
+        />
+      )}
+    </div>
+    { isLoggedIn && profileToggle && (
+      <div>
+      <Button
+      color = {"primary-bg"}
+      textColor = {"white-text"}
+      text = {"logout"}
+      onClick = {() => handleLogout()}
+      />
+      </div>
+      )}
     </div>
   )
 }
