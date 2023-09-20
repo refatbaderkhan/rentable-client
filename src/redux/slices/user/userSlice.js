@@ -32,6 +32,19 @@ const userSlice = createSlice({
       state.user.user_items = action.payload.user.user_items
       state.user.user_ratings = action.payload.user.user_ratings
       state.user.user_type = action.payload.user.user_type
+    },
+    deleteUser: (state) => {
+      state.user._id = ""
+      state.user.email = ""
+      state.user.username = ""
+      state.user.first_name = ""
+      state.user.last_name = ""
+      state.user.profile_picture = ""
+      state.user.user_bookings = []
+      state.user.user_favorites = []
+      state.user.user_items = []
+      state.user.user_ratings = []
+      state.user.user_type = ""
     }
   }
 });
