@@ -28,13 +28,9 @@ const LoginForm = () => {
         body: credentials,
       });
 
-      setUser({
-        token: response.token,
-        user: response.user,
-      }); 
+      setUser({user: response.user}); 
 
       localStorageAction("access_token", response.token);
-      localStorageAction("user_type", response.user.user_type.toString());
       navigate("/chat");
       
     } catch (error) {
