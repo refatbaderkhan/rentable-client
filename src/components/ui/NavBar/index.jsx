@@ -5,6 +5,7 @@ import {sendRequest} from '../../../core/config/request'
 import {requestMethods} from '../../../core/enums/requestMethods'
 import io from "socket.io-client";
 import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
+import { useCustomSelector } from '../../../redux/customHooks/customSelector';
 import Button from '../../base/Button';
 import { useNavigate } from 'react-router-dom'
 import { localStorageAction } from '../../../core/config/localstorage'
@@ -19,6 +20,9 @@ const NavBar = () => {
 
   const {setCategories, setSocket} = useCustomDispatch();
   setSocket({socket: socket});
+
+  const {user_type} = useCustomSelector();
+  console.log('user_type', user_type)
 
 
   const category = async () => {
@@ -44,7 +48,7 @@ const NavBar = () => {
   useEffect(() => {
     category();
     setIsLoggedIn(localStorageAction("access_token"));
-  }, [handleLogout])
+  }, [isLoggedIn])
   
 
   return (
@@ -56,6 +60,9 @@ const NavBar = () => {
         text = {"login"}
         onClick = {() => navigate("/login")}
       />)}
+      { user_type === 0 && (
+        <div> admin  </div>
+      )}
       { isLoggedIn && (
       <Button
         color = {"primary-bg"}
