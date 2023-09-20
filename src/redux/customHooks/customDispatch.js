@@ -6,6 +6,8 @@ export const useCustomDispatch = () => {
   
   const setUser = (user) => dispatch({ type: "user/setUser", payload: user });
 
+  const deleteUser = () => dispatch({ type: "user/deleteUser" });
+
   const setSocket = (socket) => dispatch({ type: "socket/setSocket", payload: socket });
 
   const setCoordinates = (coordinates) => dispatch({ type: "coordinates/setCoordinates", payload: coordinates });
@@ -24,6 +26,7 @@ export const useCustomDispatch = () => {
   
   return {
     setUser, 
+    deleteUser,
     setSocket, 
     setCoordinates, 
     setChat, 
