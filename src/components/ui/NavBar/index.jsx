@@ -9,6 +9,9 @@ import { useCustomSelector } from '../../../redux/customHooks/customSelector';
 import Button from '../../base/Button';
 import { useNavigate } from 'react-router-dom'
 import { localStorageAction } from '../../../core/config/localstorage'
+import AdminProfileMenu from '../ProfileMenu/AdminProfileMenu'
+import UserProfileMenu from '../ProfileMenu/UserProfileMenu'
+
 
 const socket = io.connect("http://127.0.0.1:4000");
 
@@ -78,26 +81,10 @@ const NavBar = () => {
       )}
     </div>
     { isLoggedIn && profileToggle && user_type == 0 && (
-      <div>
-      <p> this user is admin </p>
-      <Button
-      color = {"primary-bg"}
-      textColor = {"white-text"}
-      text = {"logout"}
-      onClick = {() => handleLogout()}
-      />
-      </div>
+      < AdminProfileMenu handleLogout={handleLogout}/>
       )}
     { isLoggedIn && profileToggle && user_type == 1 && (
-      <div>
-      <p> this user is user </p>
-      <Button
-      color = {"primary-bg"}
-      textColor = {"white-text"}
-      text = {"logout"}
-      onClick = {() => handleLogout()}
-      />
-      </div>
+      < UserProfileMenu handleLogout={handleLogout}/>
       )}
     </div>
   )
