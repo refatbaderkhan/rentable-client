@@ -23,10 +23,9 @@ const NavBar = () => {
   const [profileToggle, setProfileToggle] = useState(false);
 
   const {setCategories, setSocket, setUser} = useCustomDispatch();
+  const {user_type} = useCustomSelector();
 
   setSocket({socket: socket});
-
-  const user_type = localStorageAction("user_type");
 
   const user = async () => {
     try {
