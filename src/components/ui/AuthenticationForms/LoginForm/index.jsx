@@ -6,11 +6,11 @@ import { requestMethods } from "../../../../core/enums/requestMethods";
 import { localStorageAction } from "../../../../core/config/localstorage";
 import "./style.css";
 import { useCustomDispatch } from "../../../../redux/customHooks/customDispatch";
-import { NavigateTo } from "../../../../core/config/navigation";
-
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
 
+  const navigate = useNavigate();
   const {setUser} = useCustomDispatch(); 
 
   const [credentials, setCredentials] = useState({
@@ -34,7 +34,7 @@ const LoginForm = () => {
       }); 
 
       localStorageAction("access_token", response.token);
-      NavigateTo("/chat");
+      navigate("/chat");
       
     } catch (error) {
       console.log(error.response.data.message);
@@ -84,7 +84,7 @@ const LoginForm = () => {
 
       <p className="black-text">
         Don't have an account?{" "}
-        <span className="pointer primary-text" onClick={NavigateTo("/register")}>
+        <span className="pointer primary-text" onClick={() => navigate("/register")}>
           Register
         </span>
       </p>
