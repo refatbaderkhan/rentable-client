@@ -22,11 +22,27 @@ const NavBar = () => {
   const [isLoggedIn , setIsLoggedIn] = useState(localStorageAction("access_token"));
   const [profileToggle, setProfileToggle] = useState(false);
 
-  const {setCategories, setSocket} = useCustomDispatch();
+  const {setCategories, setSocket, setUser} = useCustomDispatch();
 
   setSocket({socket: socket});
 
   const user_type = localStorageAction("user_type");
+
+  const user = async () => {
+    try {
+      const response = await sendRequest({
+        method: requestMethods.GET,
+        route: "/user/account",
+      });
+
+      setUser({user: response});
+
+      return response.data;
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
 
   const category = async () => {
     try {
@@ -60,6 +76,7 @@ const NavBar = () => {
   }
 
   useEffect(() => {
+    user();
     category();
     setIsLoggedIn(localStorageAction("access_token"));
   }, [localStorageAction("access_token")])
