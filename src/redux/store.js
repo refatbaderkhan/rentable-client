@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "./user/userSlice";
-import chatReducer from "./chat/chatSlice";
-import socketReducer from "./socket/socketSlice";
-import coordinatesReducer from "./itemCoordinates/itemCoordinatesSlice";
-import  categoryReducer  from "./category/categorySlice";
+import userReducer from "./slices/user/userSlice";
+import chatReducer from "./slices/chat/chatSlice";
+import socketReducer from "./slices/socket/socketSlice";
+import coordinatesReducer from "./slices/itemCoordinates/itemCoordinatesSlice";
+import categoryReducer  from "./slices/category/categorySlice";
 import { createLogger } from "redux-logger";
 
 const store = configureStore({
