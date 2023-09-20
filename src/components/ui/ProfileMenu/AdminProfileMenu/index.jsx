@@ -1,11 +1,16 @@
 import React from 'react'
 import Button from '../../../base/Button'
 
+const AdminProfileMenu = ({handleLogout, setProfileToggle}) => {
+  
 
-const AdminProfileMenu = ({handleLogout}) => {
   return (
     <div>
-    <p> this user is admin </p>
+    <Button
+    color = {"primary-bg"}
+    textColor = {"white-text"}
+    text = {"Categories Management"}
+    />
     <Button
     color = {"primary-bg"}
     textColor = {"white-text"}
