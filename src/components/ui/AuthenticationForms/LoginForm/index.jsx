@@ -34,6 +34,7 @@ const LoginForm = () => {
       }); 
 
       localStorageAction("access_token", response.token);
+      localStorageAction("user_type", response.user.user_type.toString());
       navigate("/chat");
       
     } catch (error) {
