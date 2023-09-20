@@ -27,7 +27,6 @@ const NavBar = () => {
   setSocket({socket: socket});
 
   const user_type = localStorageAction("user_type");
-  console.log(user_type);
 
   const category = async () => {
     try {
@@ -55,6 +54,11 @@ const NavBar = () => {
     setProfileToggle((prevProfileToggle) => !prevProfileToggle);
   }
 
+  const navigateAndToggle = (path) => {
+    navigate(path);
+    setProfileToggle(false);
+  }
+
   useEffect(() => {
     category();
     setIsLoggedIn(localStorageAction("access_token"));
@@ -64,6 +68,14 @@ const NavBar = () => {
   return (
     <div>
     <div className="navbar">
+    <div className = "logo pointer">
+      <span
+      className = "logo-text"
+      onClick={() => navigateAndToggle("/")}
+      >
+        <h1>logo</h1>
+      </span>
+    </div>
       { !isLoggedIn && (
       <Button
         color = {"primary-bg"}
