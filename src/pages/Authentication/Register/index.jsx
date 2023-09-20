@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import RegisterForm from "../../components/ui/AuthenticationForms/Register";
+import RegisterForm from "../../../components/ui/AuthenticationForms/RegisterForm";
 
 const Register = () => {
 

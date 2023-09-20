@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import LoginForm from "../../components/ui/AuthenticationForms/Login";
+import LoginForm from "../../../components/ui/AuthenticationForms/LoginForm";
 
 const Login = () => {
 
