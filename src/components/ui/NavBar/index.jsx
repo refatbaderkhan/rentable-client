@@ -23,6 +23,9 @@ const NavBar = () => {
 
   setSocket({socket: socket});
 
+  const user_type = localStorageAction("user_type");
+  console.log(user_type);
+
   const category = async () => {
     try {
       const response = await sendRequest({
@@ -74,8 +77,20 @@ const NavBar = () => {
         />
       )}
     </div>
-    { isLoggedIn && profileToggle && (
+    { isLoggedIn && profileToggle && user_type == 0 && (
       <div>
+      <p> this user is admin </p>
+      <Button
+      color = {"primary-bg"}
+      textColor = {"white-text"}
+      text = {"logout"}
+      onClick = {() => handleLogout()}
+      />
+      </div>
+      )}
+    { isLoggedIn && profileToggle && user_type == 1 && (
+      <div>
+      <p> this user is user </p>
       <Button
       color = {"primary-bg"}
       textColor = {"white-text"}
