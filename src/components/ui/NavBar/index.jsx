@@ -22,7 +22,7 @@ const NavBar = () => {
   const [isLoggedIn , setIsLoggedIn] = useState(localStorageAction("access_token"));
   const [profileToggle, setProfileToggle] = useState(false);
 
-  const {setCategories, setSocket, setUser} = useCustomDispatch();
+  const {setCategories, setSocket, setUser, deleteUser} = useCustomDispatch();
   const {user_type} = useCustomSelector();
 
   setSocket({socket: socket});
@@ -33,9 +33,9 @@ const NavBar = () => {
         method: requestMethods.GET,
         route: "/user/account",
       });
-
+    
       setUser({user: response});
-
+    
       return response.data;
     }
     catch (error) {
@@ -60,7 +60,7 @@ const NavBar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("access_token");
-    localStorage.removeItem("user_type");
+    deleteUser();
     setIsLoggedIn(null);
     setProfileToggle(false);
   }
