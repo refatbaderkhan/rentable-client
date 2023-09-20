@@ -52,7 +52,7 @@ const NavBar = () => {
   }
 
   const toggleProfile = () => {
-    setProfileToggle((prevProfileToggle) => !prevProfileToggle); // Toggle the profileToggle state
+    setProfileToggle((prevProfileToggle) => !prevProfileToggle);
   }
 
   useEffect(() => {
@@ -81,10 +81,10 @@ const NavBar = () => {
       )}
     </div>
     { isLoggedIn && profileToggle && user_type == 0 && (
-      < AdminProfileMenu handleLogout={handleLogout}/>
+      < AdminProfileMenu handleLogout={handleLogout} setProfileToggle={setProfileToggle}/>
       )}
     { isLoggedIn && profileToggle && user_type == 1 && (
-      < UserProfileMenu handleLogout={handleLogout}/>
+      < UserProfileMenu handleLogout={handleLogout} setProfileToggle={setProfileToggle}/>
       )}
     </div>
   )
