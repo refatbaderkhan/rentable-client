@@ -1,0 +1,31 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    justify-content: space-around;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 250px;
+    height: 200px;
+    background-color: #F1F2F3;
+    border-radius: 16px;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+.menu-entry {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    padding-left: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 7px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.menu-entry:hover {
+    background-color: #D1D2D3;
+}

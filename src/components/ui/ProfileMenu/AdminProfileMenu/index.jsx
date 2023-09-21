@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '../../../base/Button'
+import './style.css'
 import { useNavigate } from 'react-router-dom'
 
 const AdminProfileMenu = ({handleLogout, setProfileToggle}) => {
@@ -12,19 +13,11 @@ const AdminProfileMenu = ({handleLogout, setProfileToggle}) => {
   }
 
   return (
-    <div>
-    <Button
-    color = {"primary-bg"}
-    textColor = {"white-text"}
-    text = {"Categories Management"}
-    onClick = {() => navigateAndToggle("/category-management")}
-    />
-    <Button
-    color = {"primary-bg"}
-    textColor = {"white-text"}
-    text = {"logout"}
-    onClick = {() => handleLogout()}
-    />
+    <div className='menu'>
+    <div className='pointer menu-entry' onClick={() => navigateAndToggle("/category-management")}>Users Management</div>
+    <div className='pointer menu-entry' onClick={() => navigateAndToggle("/category-management")}>Categories Management</div>
+    <div className='pointer menu-entry' onClick={() => navigateAndToggle("/category-management")}>Location Management</div>
+    <div className='pointer menu-entry' onClick={() => handleLogout()}>Logout</div>
     </div>
   )
 }
