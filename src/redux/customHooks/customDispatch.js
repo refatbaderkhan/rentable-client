@@ -25,6 +25,8 @@ export const useCustomDispatch = () => {
   const deleteSubCategory = (subCategory_id, category_id) => dispatch({ type: "category/deleteSubCategory", payload: {subCategory_id, category_id} });
 
   const setCities = (cities) => dispatch({ type: "city/setCities", payload: cities });
+
+  const addCity = (city) => dispatch({ type: "city/addCity", payload: city });
   
   return {
     setUser, 
@@ -37,6 +39,7 @@ export const useCustomDispatch = () => {
     deleteCategory,
     addSubCategory,
     deleteSubCategory,
-    setCities
+    setCities,
+    addCity,
   }
 }
