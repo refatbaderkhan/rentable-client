@@ -42,6 +42,11 @@ const citySlice = createSlice({
       const city_id = action.payload;
       const cityIndex = state.cities.findIndex((city) => city._id === city_id);
       state.cities.splice(cityIndex, 1);
+    },
+    addArea: (state, action) => {
+      const {area, city_id} = action.payload;
+      const city = state.cities.find((city) => city._id === city_id);
+      city.areas.push(area);
     }
   },
 });
