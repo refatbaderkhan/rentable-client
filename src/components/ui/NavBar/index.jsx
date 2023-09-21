@@ -23,7 +23,7 @@ const NavBar = () => {
   const [isLoggedIn , setIsLoggedIn] = useState(localStorageAction("access_token"));
   const [profileToggle, setProfileToggle] = useState(false);
 
-  const {setCategories, setSocket, setUser, deleteUser} = useCustomDispatch();
+  const {setCategories, setSocket, setUser, deleteUser, setCities} = useCustomDispatch();
 
   setSocket({socket: socket});
 
@@ -53,11 +53,13 @@ const NavBar = () => {
 
 
   const category = async () => {
+
     try {
       const response = await sendRequest({
         method: requestMethods.GET,
         route: "/categories",
       });
+
       setCategories({categories: response});
       
       return response.data;
@@ -73,6 +75,8 @@ const NavBar = () => {
         method: requestMethods.GET,
         route: "/cities",
       });
+
+      setCities({cities: response});
 
       return response.data;
     }
