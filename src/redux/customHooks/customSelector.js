@@ -14,12 +14,15 @@ export const useCustomSelector = () => {
 
     const categories = useSelector((state) => state.category.categories);
 
+    const cities = useSelector((state) => state.city.cities);
+
   return {
     user,
     user_id,
     socket,
     coordinates,
     room_id,
-    categories
+    categories,
+    cities
   }
 }
