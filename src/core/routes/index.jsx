@@ -11,106 +11,18 @@ import ChatPage from "../../components/ui/Chat/ChatPage";
 import AdminCategoryManagement from "../../pages/Admin/AdminCategoryManagement/AdminCategoryManagement";
 import AdminLocationManagement from "../../pages/Admin/AdminUserManagement/AdminLocationManagement";
 import AdminDisplayUsers from "../../components/ui/Admin/AdminUserManagement/AdminDisplayUsers";
-import io from "socket.io-client";
-import { localStorageAction } from '../config/localstorage';
-import { sendRequest } from '../config/request';
-import { requestMethods } from '../enums/requestMethods';
-import { useCustomDispatch } from '../../redux/customHooks/customDispatch';
+import {OnLoad} from '../config/onLoad';
+import { useCustomSelector } from '../../redux/customHooks/customSelector';
 
 const AppRoutes = () => {
 
-  const socket = io.connect("http://127.0.0.1:4000");
-  
-  const {setCategories, setSocket, setUser, setCities, setUsers} = useCustomDispatch();
+  OnLoad();
 
-  setSocket({socket: socket});
+  const {user} = useCustomSelector();
+  console.log(user.user_type)
 
-  const account = async () => {
-
-    if (!localStorageAction("access_token")) {
-      return;
-    }
-
-    try {
-      const response = await sendRequest({
-        method: requestMethods.GET,
-        route: "/user/account",
-      });
-    
-      setUser({user: response});
-     
-      return response.data;
-    }
-    catch (error) {
-      console.log(error);
-    }
-
-  }
-
-
-  const users = async () => {
-
-    try {
-      const response = await sendRequest({
-        method: requestMethods.GET,
-        route: "/account",
-      });
-
-      setUsers({users: response});
-
-      return response;
-    }
-
-    catch (error) {
-      console.log(error);
-    }
-  }
-
-
-  const category = async () => {
-
-    try {
-      const response = await sendRequest({
-        method: requestMethods.GET,
-        route: "/categories",
-      });
-
-      setCategories({categories: response});
-      
-      return response.data;
-    }
-    catch (error) {
-      console.log(error);
-    }
-  }
-
-  const cities = async () => {
-    try {
-      const response = await sendRequest({
-        method: requestMethods.GET,
-        route: "/cities",
-      });
-
-      setCities({cities: response});
-
-      return response.data;
-    }
-    catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    account();
-    users();
-    category();
-    cities();
-  }, [])
-
-
-  const [user_type, setUserType] = useState(1);
   const authenticatedRoute = (Component) => {
-    if (user_type == 0) {
+    if (user.user_type == 0) {
       return <Component />
     } else {
       return <Navigate to="/login" />

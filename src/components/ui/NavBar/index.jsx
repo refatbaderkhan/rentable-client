@@ -25,6 +25,7 @@ const NavBar = () => {
     deleteUser();
     setIsLoggedIn(null);
     setProfileToggle(false);
+    navigate("/");
   }
 
   const toggleProfile = () => {
