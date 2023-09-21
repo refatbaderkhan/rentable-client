@@ -32,13 +32,12 @@ const AdminCreateCategory = () => {
     
   return (
     <div className="form-container">
-      <div className="log-in">
+      <div className="create-category">
       <div className="spacer-30"></div>
-      <h1>Create Category</h1>
+      <h2>Create Category</h2>
       <div className="spacer-30"></div>
       <Input
-        label={"Category Name"}
-        placeholder={"Type category here..."}
+        placeholder={"Type category name here..."}
         onChange={(category_name) =>
           setCategory({
             ...category,
@@ -47,11 +46,9 @@ const AdminCreateCategory = () => {
         }
       />
       {error && <p>{error}</p>}
-      <div className="spacer-20"></div>
+      <div className="spacer-30"></div>
       <Button
-        color={"primary-bg"}
-        textColor={"white-text"}
-        text={"submit"}
+        text={"Add Category"}
         onClick={() => CategoryHandler()}
       />
       <div className="spacer-10"></div>
