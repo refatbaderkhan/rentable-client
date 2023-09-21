@@ -13,7 +13,7 @@ const Button = ({ text, color, textColor, onClick, style, enabled = true, type }
   return (
     <button
       type = {`${type}`}
-      className={` ${combinedClassName} pointer ${color} d-text`}
+      className={` ${combinedClassName} green-bg white-text pointer ${color} `}
       onClick={() => clickHandler()}
     >
       {text}
