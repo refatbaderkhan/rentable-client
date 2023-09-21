@@ -67,6 +67,20 @@ const NavBar = () => {
     }
   }
 
+  const cities = async () => {
+    try {
+      const response = await sendRequest({
+        method: requestMethods.GET,
+        route: "/cities",
+      });
+
+      return response.data;
+    }
+    catch (error) {
+      console.log(error);
+    }
+  }
+
   const {user} = useCustomSelector();
 
   const handleLogout = () => {
@@ -88,6 +102,7 @@ const NavBar = () => {
   useEffect(() => {
     account();
     category();
+    cities();
     setIsLoggedIn(localStorageAction("access_token"));
   }, [localStorageAction("access_token")])
   
