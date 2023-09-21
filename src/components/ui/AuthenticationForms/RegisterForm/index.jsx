@@ -32,11 +32,13 @@ const RegisterForm = () => {
 
 
     try {
-    await sendMultipartRequest({
-      method: requestMethods.POST,
-      route: "/auth/register",
-      body: registerationForm,
-    });
+      const response = await sendMultipartRequest({
+        method: requestMethods.POST,
+        route: "/auth/register",
+        body: registerationForm,
+      });
+
+      console.log(response);
 
       setCreated(true);
       setError(null);
