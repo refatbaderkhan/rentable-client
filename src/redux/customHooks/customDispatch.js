@@ -14,6 +14,8 @@ export const useCustomDispatch = () => {
 
   const setChat = (chat) => dispatch({ type: "chat/setChat", payload: chat });
 
+  const setUsers = (users) => dispatch({ type: "users/setUsers", payload: users });
+
   const setCategories = (categories) => dispatch({ type: "category/setCategories", payload: categories });
 
   const addCategory = (category) => dispatch({ type: "category/addCategory", payload: category });
@@ -39,7 +41,8 @@ export const useCustomDispatch = () => {
     deleteUser,
     setSocket, 
     setCoordinates, 
-    setChat, 
+    setChat,
+    setUsers,
     setCategories, 
     addCategory,
     deleteCategory,
