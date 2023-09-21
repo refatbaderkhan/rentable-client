@@ -38,6 +38,11 @@ const citySlice = createSlice({
     addCity: (state, action) => {
       state.cities.push(action.payload.city);
     },
+    deleteCity: (state, action) => {
+      const city_id = action.payload;
+      const cityIndex = state.cities.findIndex((city) => city._id === city_id);
+      state.cities.splice(cityIndex, 1);
+    }
   },
 });
 
