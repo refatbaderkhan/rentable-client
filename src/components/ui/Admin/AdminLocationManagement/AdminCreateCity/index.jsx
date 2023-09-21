@@ -35,7 +35,7 @@ const AdminCreateCity = () => {
     <div className="form-container">
       <div className="create-city">
       <div className="spacer-30"></div>
-      <h2>Create Category</h2>
+      <h2>Add City</h2>
       <div className="spacer-30"></div>
       <Input
         placeholder={"Type category name here..."}

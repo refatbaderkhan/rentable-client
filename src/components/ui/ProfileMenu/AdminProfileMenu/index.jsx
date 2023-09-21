@@ -16,7 +16,7 @@ const AdminProfileMenu = ({handleLogout, setProfileToggle}) => {
     <div className='menu'>
     <div className='pointer menu-entry' onClick={() => navigateAndToggle("/category-management")}>Users Management</div>
     <div className='pointer menu-entry' onClick={() => navigateAndToggle("/category-management")}>Categories Management</div>
-    <div className='pointer menu-entry' onClick={() => navigateAndToggle("/category-management")}>Location Management</div>
+    <div className='pointer menu-entry' onClick={() => navigateAndToggle("/location-management")}>Location Management</div>
     <div className='pointer menu-entry' onClick={() => handleLogout()}>Logout</div>
     </div>
   )
