@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState} from 'react'
 import './style.css'
+import logo from '../../../assets/logo.svg'
 import {sendRequest} from '../../../core/config/request'
 import {requestMethods} from '../../../core/enums/requestMethods'
 import io from "socket.io-client";
@@ -23,11 +24,17 @@ const NavBar = () => {
   const [profileToggle, setProfileToggle] = useState(false);
 
   const {setCategories, setSocket, setUser, deleteUser} = useCustomDispatch();
-  const {user_type} = useCustomSelector();
 
   setSocket({socket: socket});
 
-  const user = async () => {
+
+
+  const account = async () => {
+
+    if (!localStorageAction("access_token")) {
+      return;
+    }
+
     try {
       const response = await sendRequest({
         method: requestMethods.GET,
@@ -35,13 +42,15 @@ const NavBar = () => {
       });
     
       setUser({user: response});
-    
+     
       return response.data;
     }
     catch (error) {
       console.log(error);
     }
+
   }
+
 
   const category = async () => {
     try {
@@ -57,6 +66,8 @@ const NavBar = () => {
       console.log(error);
     }
   }
+
+  const {user} = useCustomSelector();
 
   const handleLogout = () => {
     localStorage.removeItem("access_token");
@@ -75,7 +86,7 @@ const NavBar = () => {
   }
 
   useEffect(() => {
-    user();
+    account();
     category();
     setIsLoggedIn(localStorageAction("access_token"));
   }, [localStorageAction("access_token")])
@@ -83,36 +94,48 @@ const NavBar = () => {
 
   return (
     <div>
-    <div className="navbar">
+    <div className="navbar flex">
+    <div className ="navbar-container flex">
     <div className = "logo pointer">
       <span
       className = "logo-text"
       onClick={() => navigateAndToggle("/")}
       >
-        <h1>logo</h1>
+        <img src={logo} alt="logo" className="logo-img"/>
       </span>
     </div>
+    <div>
       { !isLoggedIn && (
       <Button
-        color = {"primary-bg"}
+        text = {"LOG IN"}
         textColor = {"white-text"}
-        text = {"login"}
         onClick = {() => navigate("/login")}
       />)}
       { isLoggedIn && (
-        <Button
-        color = {"primary-bg"}
-        textColor = {"white-text"}
-        text = {"Profile"}
-        onClick = {toggleProfile}
-        />
+        <div>
+        <div className="profile-avatar pointer white-text green-bg" onClick={toggleProfile}>
+          { user.profile_picture ? (
+            <img src={`http://127.0.0.1:8000/uploads/${user.profile_picture}`} alt="profile" className='profilepicture'/>
+          ) : (
+            <span className="profile-letter">
+              {user.first_name[0]}
+            </span>
+          )}
+        </div>
+        </div>
       )}
     </div>
-    { isLoggedIn && profileToggle && user_type == 0 && (
+    </div>
+    </div>
+    { isLoggedIn && profileToggle && user.user_type == 0 && (
+      <div className="navbar-menu ">
       < AdminProfileMenu handleLogout={handleLogout} setProfileToggle={setProfileToggle}/>
+      </div>
       )}
-    { isLoggedIn && profileToggle && user_type == 1 && (
+    { isLoggedIn && profileToggle && user.user_type == 1 && (
+      <div className="navbar-menu ">
       < UserProfileMenu handleLogout={handleLogout} setProfileToggle={setProfileToggle}/>
+      </div>
       )}
     </div>
   )
