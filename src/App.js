@@ -12,6 +12,7 @@ import CreateItem from "./pages/CreateItem";
 import Chat from "./pages/Chat";
 import ChatPage from "./components/ui/Chat/ChatPage";
 import AdminCategoryManagement from "./pages/Admin/AdminCategoryManagement/AdminCategoryManagement";
+import AdminLocationManagement from "./pages/Admin/AdminUserManagement/AdminLocationManagement";
 import { Provider } from "react-redux";
 import reduxStore from "./redux/store";
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/chat" element={<Chat />} />
           <Route path="/chat-page" element={<ChatPage />} />
           <Route path="/category-management" element={<AdminCategoryManagement />} />
+          <Route path="/location-management" element={<AdminLocationManagement />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </BrowserRouter>
