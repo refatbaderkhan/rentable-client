@@ -16,8 +16,16 @@
   align-items: center;
 }
 
-.roundedMedium {
-  border-radius: 10px;
+.space-between {
+  justify-content: space-between;
+}
+
+.space-around {
+  justify-content: space-around;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .spacer-30 {
@@ -46,4 +54,20 @@
 
 .pointer {
   cursor: pointer;
+}
+
+.width-400 {
+  width: 400px;
+}
+
+.width-300 {
+  width: 300px;
+}
+
+.width-250 {
+  width: 250px;
+}
+
+.width-225 {
+  width: 225px;
 }

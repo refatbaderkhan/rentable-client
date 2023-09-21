@@ -1,3 +1,7 @@
+.green-bg {
+  background-color: #1EDC98;
+}
+
 .primary-bg {
   background-color: #ff385c;
 }
@@ -10,24 +14,9 @@
   background-color: #5d5d5d;
 }
 
-.white-bg {
-  background-color: white;
-}
-
-.black-bg {
-  background-color: black;
-}
-
-.primary-text {
-  color: #ff385c;
-}
-
-.secondary-text {
-  color: #5d5d5d;
-}
 
 .white-text {
-  color: white;
+  color: #FFFFFF;
 }
 
 .black-text {
