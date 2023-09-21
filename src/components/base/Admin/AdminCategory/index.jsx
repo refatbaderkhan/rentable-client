@@ -1,11 +1,11 @@
 import React from 'react'
 import {useState} from 'react'
 import "./style.css";
-import Input from '../../base/Input';
-import Button from '../../base/Button';
-import { requestMethods } from '../../../core/enums/requestMethods';
-import { sendRequest } from '../../../core/config/request';
-import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
+import Input from '../../Input';
+import Button from '../../Button';
+import { requestMethods } from '../../../../core/enums/requestMethods';
+import { sendRequest } from '../../../../core/config/request';
+import { useCustomDispatch } from '../../../../redux/customHooks/customDispatch';
 
 const SubCategory = (subCategorySchema) => {
   
