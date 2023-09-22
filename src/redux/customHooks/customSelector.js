@@ -7,6 +7,8 @@ export const useCustomSelector = () => {
     const user_id = useSelector((state) => state.user.user._id);
   
     const socket = useSelector((state) => state.socket.socket);
+
+    const items = useSelector((state) => state.items.items);
   
     const coordinates = useSelector((state) => state.coordinates);
   
@@ -22,6 +24,7 @@ export const useCustomSelector = () => {
     user,
     user_id,
     socket,
+    items,
     coordinates,
     room_id,
     users,
