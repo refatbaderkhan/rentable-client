@@ -9,7 +9,14 @@ export const OnLoad = () => {
 
   const socket = io.connect("http://127.0.0.1:4000");
 
-  const {setCategories, setSocket, setUser, setCities, setUsers} = useCustomDispatch();
+  const {
+    setCategories,
+    setSocket,
+    setUser,
+    setItems,
+    setCities,
+    setUsers}
+    = useCustomDispatch();
 
   const account = async () => {
 
@@ -31,6 +38,24 @@ export const OnLoad = () => {
       console.log(error);
     }
 
+  }
+
+  const items = async () => {
+
+    try {
+      const response = await sendRequest({
+        method: requestMethods.GET,
+        route: "/items",
+      });
+
+      setItems({items: response});
+
+      return response.data;
+    }
+
+    catch (error) {
+      console.log(error);
+    }
   }
 
 
@@ -89,6 +114,7 @@ export const OnLoad = () => {
   useEffect(() => {
     setSocket({ socket: socket });
     account();
+    items();
     users();
     category();
     cities();
