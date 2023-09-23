@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-const Input = ({ onChange, label, placeholder, enabled, type = "text", width }) => {
+const Input = ({ onChange, label, placeholder, enabled, type = "text", width, onEnter}) => {
 
   width = width ? `width-${width}` : "width-400";
 
