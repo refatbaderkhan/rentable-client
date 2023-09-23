@@ -20,6 +20,10 @@ export const useCustomDispatch = () => {
 
   const deleteFromUsers = (user_id) => dispatch({ type: "users/deleteFromUsers", payload: user_id });
 
+  const setSearch = (search) => dispatch({ type: "search/setSearch", payload: search });
+
+  const deleteSearch = () => dispatch({ type: "search/deleteSearch" });
+
   const setCategories = (categories) => dispatch({ type: "category/setCategories", payload: categories });
 
   const addCategory = (category) => dispatch({ type: "category/addCategory", payload: category });
@@ -49,6 +53,8 @@ export const useCustomDispatch = () => {
     setItems,
     setUsers,
     deleteFromUsers,
+    setSearch,
+    deleteSearch,
     setCategories, 
     addCategory,
     deleteCategory,
