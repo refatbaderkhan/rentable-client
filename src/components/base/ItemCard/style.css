@@ -1,21 +1,23 @@
 
-.form-container {
+.card-container {
   width: 275px;
   height: 376px;
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .display-item {
   background: #eee7e7;
   border-radius: 16px;
-  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  box-shadow: 10px 10px 10px rgba(34, 35, 58, 0.2);
   border-radius: 25px;
   height: 376px;
   width: 275px;
-  border: 0.2px solid grey;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,7 +34,10 @@
   height:195px;
   width: 250px;
   border-radius: 16px;
-  margin: 10px;
+  margin-top: 15px;
+  margin-left: 12.5px;
+  margin-right: 12.5px;
+  margin-bottom: 24px;
 }
 
 .itemimage {
@@ -45,12 +50,14 @@
 .item-user {
   display: flex;
   width: 250px;
+  margin-bottom: 12px;
 }
 
 .profile-avatar {
   height: 37px;
   width: 37px;
   border-radius: 50%;
+  margin-right: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,4 +74,36 @@
 .item-username {
   display: flex;
   align-items: center;
+  font-size: 18px;
+  font-weight:600;
+}
+
+.item-name {
+  display: flex;
+  width: 250px;
+  justify-content: flex-start;
+  font-size:24px;
+  font-weight:bold;
+  margin-bottom: 17px;
+}
+
+.item-details {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+  margin-bottom: 25px;
+}
+
+.item-price {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight:bold;
+}
+
+.item-rating {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight:bold;
 }

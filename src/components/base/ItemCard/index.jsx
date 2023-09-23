@@ -3,7 +3,7 @@ import './style.css'
 
 const ItemCard = ({item}) => {
   return (
-    <div key={item._id} className='form-container'>
+    <div key={item._id} className='card-container'>
       <div className='display-item'>
         <div className= 'item-image'>
           { item.item_images ? (
@@ -24,20 +24,19 @@ const ItemCard = ({item}) => {
             </span>
           )}
           </div>
-          <div className="horizontal-spacer-10"></div>
           <div className= 'item-username'>
             {item.username}
           </div>
         </div>
         <div className='item-name'>
-          <h1>{item.item_name}</h1>
+          {item.item_name}
         </div>
-        <div className='item-details flex'>
+        <div className='item-details'>
           <div className='item-price'>
-            <h3>${item.item_price}/day</h3>
+            ${item.item_price}/day
           </div>
           <div className='item-rating'>
-            <h3>5</h3>
+            5.0(7)
           </div>
         </div>
       </div>
