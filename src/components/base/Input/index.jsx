@@ -1,9 +1,16 @@
 import React from "react";
 import "./style.css";
 
-const Input = ({ onChange, label, placeholder, type = "text", width  }) => {
+const Input = ({ onChange, label, placeholder, enabled, type = "text", width }) => {
 
   width = width ? `width-${width}` : "width-400";
+
+  const handlekeyPress = (e) => {
+    if (e.key === "Enter") {
+      onEnter(e.target.value);
+    }
+  }
+
 
   return (
     <div className="flex column baseInput">
@@ -12,6 +19,7 @@ const Input = ({ onChange, label, placeholder, type = "text", width  }) => {
         className= {width}
         type={type}
         onChange={(e) => onChange(e.target.value)}
+        onKeyDown={handlekeyPress}
         placeholder={placeholder}
       />
     </div>
