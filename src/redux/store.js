@@ -5,6 +5,7 @@ import socketReducer from "./slices/socket/socketSlice";
 import coordinatesReducer from "./slices/itemCoordinates/itemCoordinatesSlice";
 import itemsReducer from "./slices/items/itemsSlice";
 import usersReducer from "./slices/users/usersSlice";
+import searchReducer from "./slices/search/searchSlice";
 import categoryReducer  from "./slices/category/categorySlice";
 import cityReducer from "./slices/city/citySlice";
 import { createLogger } from "redux-logger";
@@ -17,6 +18,7 @@ const store = configureStore({
     coordinates: coordinatesReducer,
     items: itemsReducer,
     users: usersReducer,
+    search: searchReducer,
     category: categoryReducer,
     city: cityReducer,
   },
