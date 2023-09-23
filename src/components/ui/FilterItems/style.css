@@ -1,0 +1,51 @@
+.items-page {
+  display: flex
+}
+
+.filter-container {
+  position: absolute;
+  width: 20%;
+  height: 100vh;
+  background-color: #F1F2F3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.filter-buttons {
+  width: 80%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 80%;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.filter-title {
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.filter-entries {
+}
+
+.filter-entry {
+  font-weight: 300;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 3px;
+}
+
