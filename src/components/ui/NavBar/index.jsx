@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../../assets/logo.svg'
 import Button from '../../base/Button';
+import Input from '../../base/Input';
 import './style.css'
 import { localStorageAction } from '../../../core/config/localstorage'
 import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
@@ -40,6 +41,14 @@ const NavBar = () => {
   useEffect(() => {
     setIsLoggedIn(localStorageAction("access_token"));
   }, [localStorageAction("access_token")])
+
+  const {setSearch} = useCustomDispatch();
+
+  const [searchTerm, setSearchTerm] = useState("")
+  const handleSearch = (searchTerm) => {
+    setSearch({search: searchTerm})
+    navigate('/items')
+  }
   
 
   return (
@@ -53,6 +62,13 @@ const NavBar = () => {
       >
         <img src={logo} alt="logo" className="logo-img"/>
       </span>
+    </div>
+    <div>
+      <Input
+        placeholder = {"Search"}
+        onChange={(value) => setSearch({search: value})}
+        onEnter={handleSearch}
+      />
     </div>
     <div>
       { !isLoggedIn && (
