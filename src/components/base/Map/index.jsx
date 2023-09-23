@@ -3,11 +3,14 @@ import { MapContainer, TileLayer, useMapEvents, Marker } from 'react-leaflet'
 import "./style.css";
 import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
 
-const Map = () => {
+
+const Map = ({item_latitude, item_longitude, alternative}) => {
   
   const {setCoordinates} = useCustomDispatch();
-  const [position, setPosition] = useState([33.891122, 35.506016])
 
+  const [position, setPosition] = useState(
+    item_latitude && item_longitude ? [item_latitude, item_longitude] : [33.891122, 35.506016]
+  );
   
   const LocationMarker = ({setPosition}) => {
     const map = useMapEvents({
@@ -55,17 +58,26 @@ const Map = () => {
     )
   }
 
+  const containerId = alternative ? 'leaflet-container-alternative' : 'leaflet-container';
+  console.log('containerId', containerId)
   
   return (
-    <div id='leaflet-container'>
+  <div id={containerId}>
  <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
  <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
-  <LocationMarker setPosition={setPosition}/>
-  <DraggableMarker/>
-</MapContainer>
+  {!item_latitude && !item_longitude && (
+    <div>
+    <LocationMarker setPosition={setPosition}/>
+    <DraggableMarker/>
+    </div>
+  )}
+  {item_latitude !== undefined && item_longitude !== undefined && (
+    <Marker position={[item_latitude, item_longitude]}></Marker>
+  )}
+  </MapContainer>
     </div>
   )
 }
