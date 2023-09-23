@@ -8,7 +8,12 @@ const Button = ({ text, color, textColor, onClick, style, enabled = true, type }
     }
   };
 
-  const combinedClassName = `baseButton${style === "Alternative" ? "Alternative" : (style === "Alternative2" ? "Alternative2" : "")}`;
+  const combinedClassName = `baseButton${style === "Alternative" ? "Alternative" :
+                                        (style === "Alternative2" ?"Alternative2" :
+                                        (style === "From" ? "From" :
+                                        (style === "To" ? "To" :
+                                        (style === "Book" ? "Book" :
+                                        "" ))))}`;
 
   return (
     <button

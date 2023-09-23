@@ -51,3 +51,36 @@
 .baseButton:active {
 
 }*/
+
+.baseButtonFrom {
+  width:49%;
+  font-size: 16px;
+  height: 55px;
+  cursor: pointer;
+  padding: .3em 2em;
+  font-weight: bold;  
+  border: none;
+  border-radius: 16px 0px 0px 16px;
+}
+
+.baseButtonTo {
+  width: 49%;
+  font-size: 16px;
+  height: 55px;
+  cursor: pointer;
+  padding: .3em 2em;
+  font-weight: bold;  
+  border: none;
+  border-radius: 0px 16px 16px 0px ;
+}
+
+.baseButtonBook {
+  width: 100%;
+  font-size: 16px;
+  height: 55px;
+  cursor: pointer;
+  padding: .3em 2em;
+  font-weight: bold;  
+  border: none;
+  border-radius: 16px  ;
+}
