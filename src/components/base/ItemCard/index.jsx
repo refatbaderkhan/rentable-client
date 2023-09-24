@@ -1,9 +1,13 @@
 import React from 'react'
 import './style.css'
+import { useNavigate } from 'react-router-dom'
 
 const ItemCard = ({item}) => {
+
+  const navigate = useNavigate()
+
   return (
-    <div key={item._id} className='card-container'>
+    <div key={item._id} className='card-container' onClick={()=>navigate('/item')}>
       <div className='display-item'>
         <div className= 'item-image'>
           { item.item_images ? (
