@@ -1,0 +1,37 @@
+.item-main-picture {
+  background-color: blue;
+  width: 686px;
+  height: 536px;
+  margin-top: 20px;
+  border-radius: 16px;
+}
+
+.item-main-img{
+  object-fit: cover;
+  width: 686px;
+  height: 536px;
+  border-radius: 16px;
+}
+
+.item-other-pictures {
+  background-color: pink;
+  width: 686px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 16px;
+}
+
+.item-other-picture {
+  background-color: orange;
+  width: 124px;
+  height: 107px;
+  border-radius: 16px;
+}
+
+.item-other-img {
+  object-fit: cover;
+  width: 124px;
+  height: 107px;
+  border-radius: 16px;
+}
