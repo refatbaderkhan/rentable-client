@@ -59,7 +59,6 @@ const Map = ({item_latitude, item_longitude, alternative}) => {
   }
 
   const containerId = alternative ? 'leaflet-container-alternative' : 'leaflet-container';
-  console.log('containerId', containerId)
   
   return (
   <div id={containerId}>
