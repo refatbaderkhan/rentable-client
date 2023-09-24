@@ -10,8 +10,10 @@ export const useCustomSelector = () => {
 
     const items = useSelector((state) => state.items.items);
 
+    const item = (item_id) => { return items.find((item) => item._id === item_id);}
+
     const search = useSelector((state) => state.search.search);
-  
+
     const coordinates = useSelector((state) => state.coordinates);
   
     const room_id = useSelector((state) => state.chat.room_id);
@@ -26,6 +28,7 @@ export const useCustomSelector = () => {
     user,
     user_id,
     socket,
+    item,
     items,
     search,
     coordinates,
