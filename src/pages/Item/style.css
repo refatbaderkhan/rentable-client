@@ -1,0 +1,151 @@
+/* calendar */
+
+/* calendar */
+
+.page-container {
+  background-color: red;
+  margin-left: 7%;
+  margin-right: 7%;
+  display: flex ;
+  justify-content: space-between;
+}
+
+.item-section {
+  width: 55%;
+  background-color: white ;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.booking-section {
+  width: 40%;
+  background-color: grey;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.item-filter {
+  background-color: yellow;
+  margin-top: 20px;
+  text-align: left;
+  height: 20px;
+}
+
+.item-pictures {
+  background-color: green;
+  margin-top: 20px;
+}
+
+.user-main {
+  background-color: green;
+  margin-top: 20px;
+  width: 686px;
+  display: flex ;
+  justify-content: space-between;
+  margin-bottom: 75px;
+}
+
+.item-main-user{
+  background-color: blueviolet;
+  width: 80%;
+  display: flex ;
+  align-items: flex-start;
+}
+
+.item-user-avatar {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: white;
+  margin: 10px;
+  margin-right: 20px;
+
+}
+
+.item-user-picture {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.item-user-name {
+  height: 100%;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 500;
+}
+
+.item-user-rating {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.details {
+  background-color: yellowgreen;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.line {
+  width:686px;
+  height: 1px;
+  background-color: blue;
+  margin-bottom: 30px;
+}
+
+.description-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 26px;
+  text-align: left;
+}
+
+.description-text {
+  width: 686px;
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+.location-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 26px;
+  text-align: left;
+}
+
+.location-text {
+  width: 686px;
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: 26px;
+}
+
+.location-map {
+  width: 686px;
+  height: 360px;
+  border-radius: 16px;
+  margin-bottom: 26px;
+}
+
+.item-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: left;
+  margin-top: 80px;
+}
