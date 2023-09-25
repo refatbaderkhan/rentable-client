@@ -37,9 +37,10 @@
     
     if (loading) {
       return <div>Loading...</div>; 
-    } else {
+    }
+    if (foundItem) {
     return (
-      <div className='page-container'>
+      <div className='item-page-container'>
         <div className='item-section'>
           <div className='item-filter'>
             All items _ Category _ subCategory
