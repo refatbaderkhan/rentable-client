@@ -7,7 +7,7 @@ const ItemCard = ({item}) => {
   const navigate = useNavigate()
 
   return (
-    <div key={item._id} className='card-container' onClick={()=>navigate('/item')}>
+    <div key={item._id} className='card-container' onClick={()=>navigate(`/item/${item._id}`)}>
       <div className='display-item'>
         <div className= 'item-image'>
           { item.item_images ? (

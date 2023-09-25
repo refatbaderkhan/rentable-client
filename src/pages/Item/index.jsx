@@ -5,10 +5,11 @@
   import ItemImages from '../../components/ui/ItemImages'
   import { generateImageUrl } from '../../core/config/generateImageUrl'
   import ItemBooking from '../../components/ui/ItemBooking'
-
-
+  import { useParams } from 'react-router-dom'
 
   const Item = () => {
+  
+    const {id} = useParams()
 
     const {item} = useCustomSelector()
     const [foundItem, setFoundItem] = useState({})
@@ -20,7 +21,7 @@
     useEffect(() => {
       const fetchItem = async () => {
         try {
-          const itemData = await item('650f21fff35d12f8d2edbfd8');
+          const itemData = await item(id);
           setFoundItem(itemData);
           setFoundItemImages(itemData.item_images);
           setFoundItemBookings(itemData.item_bookings);

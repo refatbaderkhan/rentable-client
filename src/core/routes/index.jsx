@@ -21,7 +21,6 @@ const AppRoutes = () => {
   OnLoad();
 
   const {user} = useCustomSelector();
-  console.log(user.user_type)
 
   const authenticatedRoute = (Component) => {
     if (user.user_type == 0) {
@@ -43,7 +42,7 @@ const AppRoutes = () => {
           <Route path="/chat" element={<Chat />} />
           <Route path="/chat-page" element={<ChatPage />} />
           <Route path="/items" element={<DisplayItems />} />
-          <Route path="/item" element={<Item />} />
+          <Route path="/item/:id" element={<Item />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/users-management" element={authenticatedRoute(AdminDisplayUsers)} />
           <Route path="/category-management" element={<AdminCategoryManagement />} />
