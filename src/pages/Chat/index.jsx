@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState }  from 'react'
+import './style.css'
 import {useNavigate} from 'react-router-dom'
 import { sendRequest } from '../../core/config/request';
 import { requestMethods } from '../../core/enums/requestMethods';
-import { useState } from 'react';
 import { localStorageAction } from '../../core/config/localstorage';
 import { useCustomDispatch } from '../../redux/customHooks/customDispatch';
 import { useCustomSelector } from '../../redux/customHooks/customSelector';
-
+import Input from "../../components/base/Input"
+import ChatCard from '../../components/ui/ChatCard';
 
 const Chat = () => {
 
@@ -36,29 +37,47 @@ const Chat = () => {
     }
   }
 
-
-
-
   return (
-    <div className="">
-      <div className="">
-        <h1>{`<>DevRooms</>`}</h1>
-        
-
-        <input
-          className=""
-          onChange={(e) => setReciever(e.target.value)}
-        />
-
-        <button
-          className=""
-          onClick={joinHandler}
-        >
-          Join Room
-        </button>
+    <div className="chat-page-container">
+      <div className='chat-menu'>
+        <div className='chat-menu-search'>
+          <div className='chat-menu-search-input'>
+          <Input
+          width={'300'}
+          onChange={(value) => console.log(value)}
+          />
+          </div>
+        </div>
+        <div className='chat-menu-list'>
+          <ChatCard/>
+        </div>
+        <div className='chat-menu-button'>
+        </div>
       </div>
     </div>
-  );
+  )
+
+
+//return (
+//  <div className="">
+//    <div className="">
+//      <h1>{`<>DevRooms</>`}</h1>
+//      
+//
+//      <input
+//        className=""
+//        onChange={(e) => setReciever(e.target.value)}
+//      />
+//
+//      <button
+//        className=""
+//        onClick={joinHandler}
+//      >
+//        Join Room
+//      </button>
+//    </div>
+//  </div>
+//);
 };
 
 export default Chat
