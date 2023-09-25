@@ -4,9 +4,13 @@ import { useCustomSelector } from '../../redux/customHooks/customSelector'
 import { generateImageUrl } from '../../core/config/generateImageUrl'
 import Button from '../../components/base/Button'
 import DisplayItems from '../../components/ui/DisplayItems'
+import { useParams } from 'react-router-dom'
+import { OnLoad } from '../../core/config/onLoad'
 
 const Profile = () => {
   
+  const {id} = useParams()
+
   const {getUser, getUserItems} = useCustomSelector()
   const [foundUser, setFoundUser] = useState({})
   const [foundUserItems, setFoundUserItems] = useState({})
@@ -16,13 +20,23 @@ const Profile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const userData = await getUser('64fcfeca9b5ee85dc26aaedc');
-        console.log('our user', userData)
-        setFoundUser(userData);
-        const userItems = await getUserItems('64fcfeca9b5ee85dc26aaedc');
-        console.log('our user items', userItems)
-        setFoundUserItems(userItems);
-        setLoading(false);
+        const userData = await getUser(id);
+        const userItems = await getUserItems(id);
+
+        if (!userData || !userItems) {
+          OnLoad();
+          const userData = await getUser(id);
+          const userItems = await getUserItems(id);
+          setFoundUser(userData);
+          setFoundUserItems(userItems);
+          setLoading(false);
+
+        } else {
+          setFoundUser(userData);
+          setFoundUserItems(userItems);
+          setLoading(false);
+        }
+
       } catch (error) {
         console.error('Error fetching user data:', error);
         setLoading(false);
@@ -36,7 +50,7 @@ const Profile = () => {
   if (loading) {
     return <div>Loading...</div>; 
   }
-  if (foundUser){
+  if (foundUser && foundUserItems){
     return (
       <div className='profile-page-container'>
         <div className='profile-cover'>

@@ -5,11 +5,12 @@
   import ItemImages from '../../components/ui/ItemImages'
   import { generateImageUrl } from '../../core/config/generateImageUrl'
   import ItemBooking from '../../components/ui/ItemBooking'
-  import { useParams } from 'react-router-dom'
+  import { useNavigate, useParams } from 'react-router-dom'
 
   const Item = () => {
   
     const {id} = useParams()
+    const navigate = useNavigate()
 
     const {item} = useCustomSelector()
     const [foundItem, setFoundItem] = useState({})
@@ -50,7 +51,7 @@
             <ItemImages foundItemImages={foundItemImages} />
           </div>
           <div className='user-main'>
-          <div className='item-main-user'>
+          <div className='item-main-user pointer' onClick={()=>navigate(`/profile/${foundItem.user_id}`)}>
             <div className='item-user-avatar'>
               {foundItem.user_profile_picture ? (
                 <img src={generateImageUrl(foundItem.user_profile_picture)} alt='profile' className='item-user-picture' />

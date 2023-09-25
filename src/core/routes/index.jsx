@@ -43,7 +43,7 @@ const AppRoutes = () => {
           <Route path="/chat-page" element={<ChatPage />} />
           <Route path="/items" element={<DisplayItems />} />
           <Route path="/item/:id" element={<Item />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/:id" element={<Profile />} />
           <Route path="/users-management" element={authenticatedRoute(AdminDisplayUsers)} />
           <Route path="/category-management" element={<AdminCategoryManagement />} />
           <Route path="/location-management" element={<AdminLocationManagement />} />
