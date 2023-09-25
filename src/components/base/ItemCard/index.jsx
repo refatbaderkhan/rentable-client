@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import { useNavigate } from 'react-router-dom'
+import { generateImageUrl } from '../../../core/config/generateImageUrl'
 
 const ItemCard = ({item}) => {
 
@@ -11,7 +12,7 @@ const ItemCard = ({item}) => {
       <div className='display-item'>
         <div className= 'item-image'>
           { item.item_images ? (
-            <img src={`http://127.0.0.1:8000/uploads/${item.item_images[0]}`} alt="item" className='itemimage'/>
+            <img src={generateImageUrl(item.item_images[0])} alt="item" className='itemimage'/>
           ) : (
             <span className="item-letter">
               {item.item_name[0]}
@@ -21,10 +22,10 @@ const ItemCard = ({item}) => {
         <div className='item-user'>
           <div className="profile-avatar white-text green-bg">
           {item.user_profile_picture ? (
-            <img src={`http://127.0.0.1:8000/uploads/${item.user_profile_picture}`} alt="profile" className='profilepicture'/>
+            <img src={generateImageUrl(item.user_profile_picture)} alt="profile" className='profilepicture'/>
           ) : (
             <span className="profile-letter">
-              {item.user_first_name[0]}
+              {item.username[0]}
             </span>
           )}
           </div>
