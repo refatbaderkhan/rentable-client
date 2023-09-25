@@ -3,20 +3,25 @@ import './style.css'
 import { useCustomSelector } from '../../redux/customHooks/customSelector'
 import { generateImageUrl } from '../../core/config/generateImageUrl'
 import Button from '../../components/base/Button'
-
+import DisplayItems from '../../components/ui/DisplayItems'
 
 const Profile = () => {
   
-  const {getUser} = useCustomSelector()
+  const {getUser, getUserItems} = useCustomSelector()
   const [foundUser, setFoundUser] = useState({})
+  const [foundUserItems, setFoundUserItems] = useState({})
   const [loading, setLoading] = useState(true);
+  const [itemsReviewsToggle, setItemsReviewsToggle] = useState(true);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const userData = await getUser('650cc54362b557047c4ccbe7');
+        const userData = await getUser('64fcfeca9b5ee85dc26aaedc');
         console.log('our user', userData)
         setFoundUser(userData);
+        const userItems = await getUserItems('64fcfeca9b5ee85dc26aaedc');
+        console.log('our user items', userItems)
+        setFoundUserItems(userItems);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -38,7 +43,13 @@ const Profile = () => {
         </div>
         <div className='profile-info'>
           <div className='profile-page-avatar'>
+            { foundUser.profile_picture ? (
             <img src={generateImageUrl(foundUser.profile_picture)} alt='profile' className='profile-page-picture' />
+            ) : (
+              <div className='profile-page-letter'>
+              {foundUser.first_name[0]}
+              </div>
+            )}
           </div>
           <div className='profile-page-user-info'>
             <div className='profile-page-user-info-upper'>
@@ -70,15 +81,27 @@ const Profile = () => {
           </div>
         </div>
         <div className='items-reviews'>
-          <div className='items'>
+          <div className='items pointer' onClick={()=> setItemsReviewsToggle((prevItemsReviewsToggle) => !prevItemsReviewsToggle)}>
             Items
           </div>
-          <div className='reviews'>
+          <div className='reviews pointer' onClick={()=> setItemsReviewsToggle((prevItemsReviewsToggle) => !prevItemsReviewsToggle)}>
             Reviews
           </div>
         </div>
         <div className='profile-line'>
         </div>
+        {itemsReviewsToggle && (
+        <div className='profile-items'>
+          <div>
+          <DisplayItems userItems={foundUserItems} />
+          </div>
+        </div>
+        )}
+        {itemsReviewsToggle === false && (
+        <div className='profile-reviews'>
+          profile reviews
+        </div>
+        )}
       </div>
     )
   }

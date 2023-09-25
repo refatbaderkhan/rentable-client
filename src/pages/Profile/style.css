@@ -35,6 +35,19 @@
   background-color: green;
 }
 
+.profile-page-letter {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  object-fit:cover;
+  color: white;
+  background-color: #1EDC98;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 72px;
+}
+
 .profile-page-picture{
   height: 250px;
   width: 250px;
@@ -132,3 +145,11 @@
   background-color: black;
   margin-bottom: 5px;
 }
+
+.profile-items {
+  background: blue;
+  width: 100%;
+  display: flex;
+}
+
+
