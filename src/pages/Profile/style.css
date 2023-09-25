@@ -1,0 +1,134 @@
+.profile-page-container {
+  background-color: red;
+  margin-left: 7%;
+  margin-right: 7%;
+  display: flex ;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-cover {
+  width: 100%;
+  height:300px;
+  border-radius: 16px;
+  background-color: grey;
+  margin-top: 50px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin-top: 225px;
+  left: 7%;
+  width: 85.8%;
+  height: 250px;
+  border: 2px solid black;
+  border-radius: 16px;
+}
+
+.profile-page-avatar {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  margin-left: 40px;
+  background-color: green;
+}
+
+.profile-page-picture{
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  object-fit:cover;
+}
+
+.profile-page-user-info {
+  width: 100%;
+  height: 100%;
+  background-color: beige;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-page-user-info-upper {
+  width: 100%;
+  height: 50%;
+  background-color: blue;
+}
+
+.profile-page-user-info-lower {
+  width: 100%;
+  height: 50%;
+  background-color: lemonchiffon;
+  display: flex;
+  justify-content: space-between;
+}
+
+.username-rating {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-username {
+  height: 50%;
+  font-size: 36px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+.profile-rating {
+  height: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.user-button {
+  align-self: center;
+}
+
+.fullname-location {
+  margin-top:150px;
+  width: 97%;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  background-color: blueviolet;
+  margin-bottom: 50px;
+}
+
+.profile-fullname {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.fullname-location{
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.items-reviews {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 5px;
+}
+
+.items {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.reviews {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.profile-line {
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  margin-bottom: 5px;
+}
