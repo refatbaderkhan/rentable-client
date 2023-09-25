@@ -90,7 +90,7 @@ const Profile = () => {
               <div className='user-button'>
                 <Button
                   text='Message'
-                  onClick={() => navigate('/chat')}
+                  onClick={() => navigate(`/chat/${foundUser._id}`)}
                 />
               </div>
             </div>
