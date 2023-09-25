@@ -5,10 +5,11 @@ import { generateImageUrl } from '../../core/config/generateImageUrl'
 import Button from '../../components/base/Button'
 import DisplayItems from '../../components/ui/DisplayItems'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { OnLoad } from '../../core/config/onLoad'
 
 const Profile = () => {
-  
+  const navigate = useNavigate()
   const {id} = useParams()
 
   const {getUser, getUserItems} = useCustomSelector()
@@ -17,25 +18,34 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [itemsReviewsToggle, setItemsReviewsToggle] = useState(true);
 
+//const checkIfNull = async () => {
+//  const userCheck = await getUser(id);
+//
+//  if (!userCheck) {
+//    OnLoad();
+//  }
+//}
+
+
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const userData = await getUser(id);
         const userItems = await getUserItems(id);
 
-        if (!userData || !userItems) {
-          OnLoad();
-          const userData = await getUser(id);
-          const userItems = await getUserItems(id);
-          setFoundUser(userData);
-          setFoundUserItems(userItems);
-          setLoading(false);
+      //if (!userData || !userItems) {
+      //  //OnLoad();
+      //  const userDataRetry = await getUser(id);
+      //  const userItemsRetry = await getUserItems(id);
+      //  setFoundUser(userDataRetry);
+      //  setFoundUserItems(userItemsRetry);
+      //  setLoading(false);
 
-        } else {
-          setFoundUser(userData);
-          setFoundUserItems(userItems);
-          setLoading(false);
-        }
+      //} else {
+        setFoundUser(userData);
+        setFoundUserItems(userItems);
+        setLoading(false);
+      //}
 
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -80,7 +90,7 @@ const Profile = () => {
               <div className='user-button'>
                 <Button
                   text='Message'
-                  onClick={() => console.log('message')}
+                  onClick={() => navigate('/chat')}
                 />
               </div>
             </div>
