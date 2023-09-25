@@ -6,7 +6,6 @@ import Register from "../../pages/Authentication/Register";
 import Landing from "../../pages/Landing";
 import CreateItem from "../../pages/CreateItem";
 import Chat from "../../pages/Chat";
-import ChatPage from "../../components/ui/Chat/ChatPage";
 import DisplayItems from '../../components/ui/DisplayItems';
 import Item from "../../pages/Item";
 import Profile from '../../pages/Profile';
@@ -39,8 +38,7 @@ const AppRoutes = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/add-item" element={<CreateItem />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/chat-page" element={<ChatPage />} />
+          <Route path="/chat/:id" element={<Chat />} />
           <Route path="/items" element={<DisplayItems />} />
           <Route path="/item/:id" element={<Item />} />
           <Route path="/profile/:id" element={<Profile />} />
