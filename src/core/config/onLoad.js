@@ -18,6 +18,7 @@ export const OnLoad = () => {
     setUsers}
     = useCustomDispatch();
 
+  
   const account = async () => {
 
     if (!localStorageAction("access_token")) {
@@ -111,13 +112,17 @@ export const OnLoad = () => {
     }
   }
 
-  useEffect(() => {
-    setSocket({ socket: socket });
+  const OnLoadFunctions = () => {
     account();
     items();
     users();
     category();
     cities();
+    setSocket({socket: socket});
+  }
+
+  useEffect(() => {
+    OnLoadFunctions();
   }, []);
 
 }
