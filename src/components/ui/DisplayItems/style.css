@@ -1,3 +1,19 @@
 .items-page {
   display: flex
 }
+
+
+.profile-display {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 5%;
+  margin-right: 5%;
+  justify-content: center;
+  align-self: center;
+}
+
+.profile-display-items {
+  display: flex;
+  flex-wrap: wrap;
+  width: 98%;
+}

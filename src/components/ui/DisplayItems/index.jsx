@@ -6,13 +6,13 @@ import Button from '../../base/Button'
 import FilterItems from '../FilterItems'
 
 
-const DisplayItems = () => {
+const DisplayItems = ({userItems}) => {
 
   const { items, search} = useCustomSelector();
 
   const [searchTerm, setSearchTerm] = useState(search);
 
-  const searchedItems = items.filter((item) =>
+  const searchedItems = userItems ? userItems : items.filter((item) =>
     item.item_name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -51,21 +51,33 @@ const DisplayItems = () => {
         <FilterItems filters={filters} setFilters={setFilters} setFilterToggle={setFilterToggle}/>
       )}
       <div className='display-items'>
-        <div>
-        <Button
-          text="Filter"
-          style={"Alternative"}
-          onClick={() => setFilterToggle((prevFilterToggle) => !prevFilterToggle)}
-          />
-        </div>
-        <div className='flex'>
-          {filteredItem.map((item) => (
-            <ItemCard item={item} />
-          ))}
-        </div>
+      {userItems ? (
+          <div className='profile-display'>
+            <div className='profile-display-items'>
+            {filteredItem.map((item) => (
+              <ItemCard item={item} />
+            ))}
+            </div>
+          </div>
+        ) : (
+          <>
+            <div>
+              <Button
+                text='Filter'
+                style={'Alternative'}
+                onClick={() => setFilterToggle((prevFilterToggle) => !prevFilterToggle)}
+              />
+            </div>
+            <div className='flex'>
+              {filteredItem.map((item) => (
+                <ItemCard item={item} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default DisplayItems
