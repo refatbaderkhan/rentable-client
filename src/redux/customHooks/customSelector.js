@@ -22,6 +22,8 @@ export const useCustomSelector = () => {
 
     const getUser = (user_id) => { return users.find((user) => user._id === user_id);}
 
+    const getUserItems = (user_id) => { return items.filter((item) => item.user_id === user_id);}
+
     const categories = useSelector((state) => state.category.categories);
 
     const cities = useSelector((state) => state.city.cities);
@@ -37,6 +39,7 @@ export const useCustomSelector = () => {
     room_id,
     users,
     getUser,
+    getUserItems,
     categories,
     cities
   }
