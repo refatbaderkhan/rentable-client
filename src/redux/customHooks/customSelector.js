@@ -20,6 +20,8 @@ export const useCustomSelector = () => {
 
     const users = useSelector((state) => state.users.users);
 
+    const getUser = (user_id) => { return users.find((user) => user._id === user_id);}
+
     const categories = useSelector((state) => state.category.categories);
 
     const cities = useSelector((state) => state.city.cities);
@@ -34,6 +36,7 @@ export const useCustomSelector = () => {
     coordinates,
     room_id,
     users,
+    getUser,
     categories,
     cities
   }
