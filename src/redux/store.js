@@ -4,6 +4,7 @@ import chatReducer from "./slices/chat/chatSlice";
 import socketReducer from "./slices/socket/socketSlice";
 import coordinatesReducer from "./slices/itemCoordinates/itemCoordinatesSlice";
 import itemsReducer from "./slices/items/itemsSlice";
+import ChatsReducer from "./slices/chats/chatsSlice";
 import usersReducer from "./slices/users/usersSlice";
 import searchReducer from "./slices/search/searchSlice";
 import categoryReducer  from "./slices/category/categorySlice";
@@ -17,6 +18,7 @@ const store = configureStore({
     socket: socketReducer,
     coordinates: coordinatesReducer,
     items: itemsReducer,
+    chats: ChatsReducer,
     users: usersReducer,
     search: searchReducer,
     category: categoryReducer,
