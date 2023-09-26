@@ -1,0 +1,17 @@
+.chat-messaging-send {
+  width: 90%;
+  height: 75px;
+  border: 1px solid blue;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-messaging-send-input {
+  width: 80%;
+  height: 40px;
+  border: 1px solid blue;
+  display: flex;
+  justify-content: center;
+}
