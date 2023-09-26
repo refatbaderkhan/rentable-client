@@ -4,51 +4,42 @@
   justify-content: space-between;
 }
 
-.chat-menu {
-  width: 27%;
+.chat-messaging {
+  width: 73%;
   height: calc(100vh - 75px);
-  background-color: green;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.chat-menu-search {
-  width: 100%;
-  height: 80px;
-  background-color: yellow;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.chat-menu-search-input {
-  width: 90%;
-  height: 40px;
-  border: 1px solid blue;
-  display: flex;
-  justify-content: center;
-}
-
-.chat-menu-list {
-  width: 100%;
-  height: 100vh;
-  background-color: white;
+  background-color: orange;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 
-.chat-menu-button {
-  width: 27%;
-  height: 75px;
-  border: 1px solid blue;
-  position: absolute ;
-  bottom: 20px;
+.chat-messaging-header {
+  width: 100%;
+  height: 80px;
+  background-color: yellow;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+  flex-shrink: 0;
 }
+
+.chat-messaging-name {
+   margin-left:40px;  
+}
+
+.chat-messaging-messages {
+  width: 100%;
+  height: calc(100vh - 155px);
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  overflow:scroll;
+}
+
+
+
