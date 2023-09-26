@@ -14,6 +14,7 @@ export const OnLoad = () => {
     setSocket,
     setUser,
     setItems,
+    setChats,
     setCities,
     setUsers}
     = useCustomDispatch();
@@ -32,6 +33,28 @@ export const OnLoad = () => {
       });
     
       setUser({user: response});
+     
+      return response.data;
+    }
+    catch (error) {
+      console.log(error);
+    }
+
+  }
+  
+  const chats = async () => {
+
+    if (!localStorageAction("access_token")) {
+      return;
+    }
+
+    try {
+      const response = await sendRequest({
+        method: requestMethods.GET,
+        route: "/user/chats",
+      });
+    
+      setChats({chats: response});
      
       return response.data;
     }
@@ -114,6 +137,7 @@ export const OnLoad = () => {
 
   const OnLoadFunctions = () => {
     account();
+    chats();
     items();
     users();
     category();
