@@ -48,6 +48,8 @@ export const useCustomDispatch = () => {
 
   const deleteArea = (deletedArea, city_id) => dispatch({ type: "city/deleteArea", payload: {deletedArea, city_id} });
 
+  const addAlert = (alert) => dispatch({ type: "alert/setAlert", payload: alert });
+
   return {
     setUser, 
     deleteUser,
@@ -70,6 +72,7 @@ export const useCustomDispatch = () => {
     addCity,
     deleteCity,
     addArea,
-    deleteArea
+    deleteArea,
+    addAlert,
   }
 }
