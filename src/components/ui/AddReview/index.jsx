@@ -4,6 +4,7 @@ import Input from '../../base/Input'
 import Button from '../../base/Button'
 import { sendRequest } from '../../../core/config/request'
 import { requestMethods } from '../../../core/enums/requestMethods'
+import { useCustomDispatch } from '../../../redux/customHooks/customDispatch'
 
 const AddReview = ({id}) => {
   
@@ -11,6 +12,8 @@ const AddReview = ({id}) => {
     rating: "",
     review: "",
   });
+
+  const {AddItemReview} = useCustomDispatch()
   
 
   const reviewHandler = async () => {
@@ -26,6 +29,12 @@ const AddReview = ({id}) => {
         rating: "",
         review: "",
       });
+
+      
+      AddItemReview(id, response.ratingObject)
+      
+
+      console.log(response.ratingObject);
 
     } catch (error) {
       console.log(error.response);
