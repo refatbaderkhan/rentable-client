@@ -1,0 +1,7 @@
+.admin-dashboard-content-table-entry-sub{
+  display : flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  background-color: orange;
+}
