@@ -31,6 +31,8 @@ export const useCustomSelector = () => {
     const categories = useSelector((state) => state.category.categories);
 
     const cities = useSelector((state) => state.city.cities);
+    
+    const alert = useSelector((state) => state.alert.alert);
 
   return {
     user,
@@ -47,6 +49,7 @@ export const useCustomSelector = () => {
     getUser,
     getUserItems,
     categories,
-    cities
+    cities,
+    alert,
   }
 }
