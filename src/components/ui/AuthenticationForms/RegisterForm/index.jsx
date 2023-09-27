@@ -10,7 +10,6 @@ import Dropdown from "../../../base/Dropdown";
 const RegisterForm = () => {
 
   const {cities} = useCustomSelector();
-  console.log(cities);
 
   
   const [registeration, setRegisteration] = useState({
@@ -19,11 +18,21 @@ const RegisterForm = () => {
     last_name: "",
     email: "",
     password: "",
+    city: "",
+    area: "",
   });
 
   const [profilePicture, setProfilePicture] = useState(null);
   const [error, setError] = useState(null);
   const [created, setCreated] = useState(null);
+
+  const setLocation = (city, area) => {
+    setRegisteration({
+      ...registeration,
+      city,
+      area,
+    });
+  };
 
   const registerHandler = async () => {
 
@@ -34,6 +43,8 @@ const RegisterForm = () => {
       email: registeration.email,
       password: registeration.password,
       profile_picture: profilePicture,
+      city: registeration.city,
+      area: registeration.area,
     };
 
 
@@ -42,7 +53,9 @@ const RegisterForm = () => {
         method: requestMethods.POST,
         route: "/auth/register",
         body: registerationForm,
-      });
+      }); 
+
+      console.log('regform', registerationForm)
 
       console.log(response);
 
@@ -109,7 +122,7 @@ const RegisterForm = () => {
           <Dropdown
             placeHolder={"Select your city..."}
             options={cities}
-            onChange={(value) => console.log(value)}
+            onChange={(value) => setLocation(value[0], value[1])}
            />
           <Input
             label={"Email"}
@@ -163,10 +176,6 @@ const RegisterForm = () => {
                 setError("Please fill in all the fields.");
               }
             }}
-          />
-          <button
-            type = "submit"
-            className="baseButtonAlternative pointer"
           />
           <div className="spacer-10"></div>
           <p className="black-text">
