@@ -17,6 +17,7 @@ import Reviews from '../../components/ui/Reviews'
     const [foundItem, setFoundItem] = useState({})
     const [foundItemImages, setFoundItemImages] = useState([])
     const [foundItemBookings, setFoundItemBookings] = useState([])
+    const [foundItemReviews, setFoundItemReviews] = useState([])
     const [loading, setLoading] = useState(true);
 
 
@@ -29,6 +30,7 @@ import Reviews from '../../components/ui/Reviews'
           setFoundItem(itemData);
           setFoundItemImages(itemData.item_images);
           setFoundItemBookings(itemData.item_bookings);
+          setFoundItemReviews(itemData.item_ratings);
 
           setLoading(false);
         } catch (error) {
@@ -99,7 +101,7 @@ import Reviews from '../../components/ui/Reviews'
               Reviews
             </div>
             <div className='review-element'>
-              <Reviews id={foundItem._id} reviews={foundItem.item_ratings} />
+              <Reviews id={foundItem._id} reviews={foundItemReviews} />
             </div>
           </div>
         </div>
