@@ -9,6 +9,7 @@ import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
 import { useCustomSelector } from '../../../redux/customHooks/customSelector';
 import AdminProfileMenu from '../ProfileMenu/AdminProfileMenu'
 import UserProfileMenu from '../ProfileMenu/UserProfileMenu'
+import Alert from '../Alert'
 
 
 const NavBar = () => {
@@ -17,8 +18,10 @@ const NavBar = () => {
 
   const [isLoggedIn , setIsLoggedIn] = useState(localStorageAction("access_token"));
   const [profileToggle, setProfileToggle] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
-  const {user} = useCustomSelector();
+  const {user, alert} = useCustomSelector();
+
   const {deleteUser} = useCustomDispatch();
 
   const handleLogout = () => {
@@ -49,9 +52,17 @@ const NavBar = () => {
     setSearch({search: searchTerm})
     navigate('/items')
   }
+
+  useEffect(() => {
+    if (alert) {
+    setShowAlert(true);
+    }
+  }, [alert])
+
   
 
   return (
+    <div>
     <div>
     <div className="navbar flex">
     <div className ="navbar-container flex">
@@ -103,6 +114,14 @@ const NavBar = () => {
       < UserProfileMenu handleLogout={handleLogout} setProfileToggle={setProfileToggle}/>
       </div>
       )}
+    </div>
+    {showAlert && (
+      <div className="alert">
+        <Alert 
+        body={alert}
+        />
+      </div>
+    )}
     </div>
   )
 }
