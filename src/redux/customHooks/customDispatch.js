@@ -50,7 +50,9 @@ export const useCustomDispatch = () => {
 
   const addAlert = (alert) => dispatch({ type: "alert/setAlert", payload: alert });
 
-  const AddItemReview = (item_id, review) => dispatch({ type: "items/addItemReview", payload: {item_id, review} });
+  const addItemReview = (item_id, review) => dispatch({ type: "items/addItemReview", payload: {item_id, review} });
+
+  const addUserReview = (user_id, review) => dispatch({ type: "users/addUserReview", payload: {user_id, review} });
 
   return {
     setUser, 
@@ -76,6 +78,7 @@ export const useCustomDispatch = () => {
     addArea,
     deleteArea,
     addAlert,
-    AddItemReview
+    addItemReview,
+    addUserReview,
   }
 }
