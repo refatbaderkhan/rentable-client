@@ -6,6 +6,7 @@
   import { generateImageUrl } from '../../core/config/generateImageUrl'
   import ItemBooking from '../../components/ui/ItemBooking'
   import { useNavigate, useParams } from 'react-router-dom'
+import Reviews from '../../components/ui/Reviews'
 
   const Item = () => {
   
@@ -24,7 +25,6 @@
       const fetchItem = async () => {
         try {
           const itemData = await item(id);
-          console.log('itemdasta',itemData)
           setFoundItem(itemData);
           setFoundItemImages(itemData.item_images);
           setFoundItemBookings(itemData.item_bookings);
@@ -90,6 +90,14 @@
             </div>
             <div className='location-map'>
               <Map item_latitude={foundItem.item_location.latitude} item_longitude={foundItem.item_location.longitude} alternative={true} />
+            </div>
+          </div>
+          <div className='review'>
+            <div className='review-title'>
+              Reviews
+            </div>
+            <div className='review-element'>
+              <Reviews id={foundItem._id}/>
             </div>
           </div>
         </div>

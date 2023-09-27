@@ -138,6 +138,24 @@
   margin-bottom: 26px;
 }
 
+.review-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 26px;
+  text-align: left;
+}
+
+.review-element{
+  width: 686px;
+  height: 100px;
+  background-color: blueviolet;
+  margin-bottom: 26px;
+  display: flex;
+  align-items: flex-start;
+}
+
+
+
 .item-title {
   font-size: 48px;
   font-weight: bold;
@@ -145,3 +163,6 @@
   text-align: left;
   margin-top: 80px;
 }
+
+
+
