@@ -3,7 +3,7 @@ import SubDropdown from "../SubDropdown";
 import "./style.css";
 
 
-const Dropdown = ({ onChange, placeHolder, options }) => {
+const Dropdown = ({ onChange, placeHolder, options, type }) => {
   
   const [showMenu, setShowMenu] = useState(false);
   const [selected, setSelected] = useState(null);
@@ -17,10 +17,20 @@ const Dropdown = ({ onChange, placeHolder, options }) => {
   };
   
   const onSelected = (value) => {
-    setSelected(value.city_name);
-    setShowMenu(false);
-    setOption(value.areas);
-    onChange(value);
+    if (type === "city") {
+      setSelected(value.city_name);
+      setShowMenu(false);
+      setOption(value.areas);
+      onChange(value);
+      return;
+    }
+    if (type === "category") {
+      setSelected(value.category_name);
+      setShowMenu(false);
+      setOption(value.subCategories_names);
+      onChange(value);
+      return;
+    }
   }
   
 
@@ -40,9 +50,14 @@ const Dropdown = ({ onChange, placeHolder, options }) => {
       </div>
       {showMenu && 
       <div className="dropdown-menu">
-        {options.map((option) => {
+        { type === 'city' && options.map((option) => {
           return (
             <div className="dropdown-item" onClick={()=> onSelected(option)}>{option.city_name}</div>
+          );
+        })}
+        { type === 'category' && options.map((option) => {
+          return (
+            <div className="dropdown-item" onClick={()=> onSelected(option)}>{option.category_name}</div>
           );
         })}
       </div>
