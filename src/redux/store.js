@@ -9,6 +9,7 @@ import usersReducer from "./slices/users/usersSlice";
 import searchReducer from "./slices/search/searchSlice";
 import categoryReducer  from "./slices/category/categorySlice";
 import cityReducer from "./slices/city/citySlice";
+import alertReducer from "./slices/alert/alertSlice";
 import { createLogger } from "redux-logger";
 
 const store = configureStore({
@@ -23,6 +24,7 @@ const store = configureStore({
     search: searchReducer,
     category: categoryReducer,
     city: cityReducer,
+    alert: alertReducer,
   },
   middleware: [createLogger()],
 });
