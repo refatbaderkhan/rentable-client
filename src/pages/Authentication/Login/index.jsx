@@ -5,8 +5,13 @@ import LoginForm from "../../../components/ui/AuthenticationForms/LoginForm";
 const Login = () => {
 
   return (
-    <div className="flex center page">
-      <LoginForm />
+    <div className="login-page">
+      <div className="login-page-container">
+        <div className="login-page-header">
+          Weclome Back!
+        </div>
+        <LoginForm />
+      </div>
     </div>
   );
 };

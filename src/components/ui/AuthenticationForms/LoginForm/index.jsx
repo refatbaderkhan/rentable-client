@@ -41,11 +41,9 @@ const LoginForm = () => {
 
 
   return (
-    <div className="form-container">
+    <div className="">
       <div className="log-in">
-      <div className="spacer-30"></div>
-      <h1>Login</h1>
-      <div className="spacer-30"></div>
+      <div className="login-in-button">
       <Input
         label={"Email"}
         placeholder={"Type your email here..."}
@@ -56,7 +54,8 @@ const LoginForm = () => {
           })
         }
       />
-      <div className="spacer-20"></div>
+      </div>
+      <div className="login-in-button">
       <Input
         label={"Password"}
         placeholder={"Type your password here..."}
@@ -68,21 +67,21 @@ const LoginForm = () => {
           })
         }
       />
+      </div>
       {error && <p>{error}</p>}
-      <div className="spacer-25"></div>
+      <div className="login-in-button">
       <Button
-        color={"primary-bg"}
         textColor={"white-text"}
         text={"Login"}
         onClick={() => loginHandler()}
       />
-      <div className="spacer-10"></div>
-      <div className="spacer-15"></div>
-
+      </div>
+      <div className="login-line"></div>
+      <div className="spacer-20"></div>
       <p className="black-text">
         Don't have an account?{" "}
-        <span className="pointer primary-text" onClick={() => navigate("/register")}>
-          Register
+        <span className="pointer green-text" onClick={() => navigate("/register")}>
+             Sign up now
         </span>
       </p>
       <div className="spacer-30"></div>
