@@ -4,8 +4,14 @@ import Input from "../../../base/Input";
 import "./style.css";
 import { requestMethods } from "../../../../core/enums/requestMethods";
 import { sendMultipartRequest } from "../../../../core/config/sendMultipartRequest";
+import {useCustomSelector} from "../../../../redux/customHooks/customSelector";
+import Dropdown from "../../../base/Dropdown";
 
 const RegisterForm = () => {
+
+  const {cities} = useCustomSelector();
+  console.log(cities);
+
   
   const [registeration, setRegisteration] = useState({
     username: "",
@@ -61,12 +67,10 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="form-container">
+    <div className="">
       <div className="register">
         <form encType="multipart/form-data">
-          <div className="spacer-15"></div>
-          <h1>Register</h1>
-          <div className="space-15"></div>
+          <div className="register-button">
           <Input
             label={"Username"}
             placeholder={"Enter you Username..."}
@@ -77,8 +81,11 @@ const RegisterForm = () => {
               })
             }
           />
+          </div>
+          <div className="register-button">
           <Input
             label={"First Name"}
+            width={'200'}
             placeholder={"Enter you First Name..."}
             onChange={(first_name) =>
               setRegisteration({
@@ -89,6 +96,7 @@ const RegisterForm = () => {
           />
           <Input
             label={"Last Name"}
+            width={'200'}
             placeholder={"Enter you Last Name..."}
             onChange={(last_name) =>
               setRegisteration({
@@ -97,6 +105,12 @@ const RegisterForm = () => {
               })
             }
           />
+          </div>
+          <Dropdown
+            placeHolder={"Select your city..."}
+            options={cities}
+            onChange={(value) => console.log(value)}
+           />
           <Input
             label={"Email"}
             placeholder={"Enter you Email..."}
@@ -138,7 +152,6 @@ const RegisterForm = () => {
               </span>
             </p>
           )}
-          <div className="spacer-25"></div>
           <Button
             color={"primary-bg"}
             textColor={"white-text"}
@@ -162,7 +175,6 @@ const RegisterForm = () => {
               Login
             </span>
           </p>
-          <div className="spacer-15"></div>
         </form>
       </div>
     </div>

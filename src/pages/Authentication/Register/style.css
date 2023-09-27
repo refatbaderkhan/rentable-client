@@ -1,4 +1,23 @@
-.authenticationBox {
-  width: 250px;
-  padding: 10px;
+.register-page-container {
+  width: 55%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-page {
+  width: 100vw;
+  height: calc(100vh - 75px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #1EDC98;
+}
+
+.register-page-header{
+  font-size: 68px; 
+  font-weight: bold;
 }

@@ -5,8 +5,13 @@ import RegisterForm from "../../../components/ui/AuthenticationForms/RegisterFor
 const Register = () => {
 
   return (
-    <div className="flex center page">
-      <RegisterForm />
+    <div className="register-page">
+      <div className="register-page-container">
+        <div className="register-page-header">
+          You're one step away!
+        </div>
+        <RegisterForm />
+      </div>
     </div>
   );
 };
