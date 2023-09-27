@@ -11,8 +11,8 @@
   
     const {id} = useParams()
     const navigate = useNavigate()
-
-    const {item} = useCustomSelector()
+    
+    const {items, item} = useCustomSelector()
     const [foundItem, setFoundItem] = useState({})
     const [foundItemImages, setFoundItemImages] = useState([])
     const [foundItemBookings, setFoundItemBookings] = useState([])
@@ -20,9 +20,11 @@
 
 
     useEffect(() => {
+      if (items.length === 0) return
       const fetchItem = async () => {
         try {
           const itemData = await item(id);
+          console.log('itemdasta',itemData)
           setFoundItem(itemData);
           setFoundItemImages(itemData.item_images);
           setFoundItemBookings(itemData.item_bookings);
@@ -34,7 +36,7 @@
       };
   
       fetchItem();
-    }, []);
+    }, [items]);
 
     
     if (loading) {
