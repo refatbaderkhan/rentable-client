@@ -20,6 +20,7 @@ import Reviews from '../../components/ui/Reviews'
     const [loading, setLoading] = useState(true);
 
 
+
     useEffect(() => {
       if (items.length === 0) return
       const fetchItem = async () => {
@@ -28,6 +29,7 @@ import Reviews from '../../components/ui/Reviews'
           setFoundItem(itemData);
           setFoundItemImages(itemData.item_images);
           setFoundItemBookings(itemData.item_bookings);
+
           setLoading(false);
         } catch (error) {
           console.error('Error fetching item data:', error);
@@ -97,7 +99,7 @@ import Reviews from '../../components/ui/Reviews'
               Reviews
             </div>
             <div className='review-element'>
-              <Reviews id={foundItem._id}/>
+              <Reviews id={foundItem._id} reviews={foundItem.item_ratings} />
             </div>
           </div>
         </div>
