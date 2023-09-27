@@ -1,14 +1,33 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { generateImageUrl } from '../../../core/config/generateImageUrl'
 import  './style.css'
 import { useCustomSelector } from '../../../redux/customHooks/customSelector'
 
-const ReviewCard = ({review}) => {
+const ReviewCard = ({review, type}) => {
 
   const {getUserById} = useCustomSelector()
-  const user = getUserById(review.user_id)
+  const [user, setUser] = useState({})
+  const [loading, setLoading] = useState(true);
+  
+  
+  useEffect(() => {
+    if (type === 'item') {
+    const data = getUserById(review.user_id)
+    setUser(data)
+    setLoading(false)
+    }
 
-
+    if (type === 'user') {
+      const data = getUserById(review.rater_user_id)
+      setUser(data)
+      setLoading(false)
+    }
+  }, [review]);
+  
+  if (loading) {
+    return <div>Loading...</div>; 
+  }
+  if (user){
   return (
     <div className='review-card'>
       <div className='review-card-head'>
@@ -37,7 +56,7 @@ const ReviewCard = ({review}) => {
         02/02/2020
       </div>
     </div>
-  )
+  )}
 }
 
 export default ReviewCard
