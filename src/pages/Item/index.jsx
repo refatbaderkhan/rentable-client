@@ -101,7 +101,7 @@ import Reviews from '../../components/ui/Reviews'
               Reviews
             </div>
             <div className='review-element'>
-              <Reviews id={foundItem._id} reviews={foundItemReviews} />
+              <Reviews id={foundItem._id} reviews={foundItemReviews} type={'item'} />
             </div>
           </div>
         </div>
