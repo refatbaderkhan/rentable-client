@@ -9,11 +9,9 @@ import Chat from "../../pages/Chat";
 import DisplayItems from '../../components/ui/DisplayItems';
 import Item from "../../pages/Item";
 import Profile from '../../pages/Profile';
-import AdminCategoryManagement from "../../pages/Admin/AdminCategoryManagement/AdminCategoryManagement";
-import AdminLocationManagement from "../../pages/Admin/AdminUserManagement/AdminLocationManagement";
-import AdminDisplayUsers from "../../components/ui/Admin/AdminUserManagement/AdminDisplayUsers";
 import {OnLoad} from '../config/onLoad';
 import { useCustomSelector } from '../../redux/customHooks/customSelector';
+import AdminDashboard from '../../pages/AdminDashboard';
 
 const AppRoutes = () => {
 
@@ -42,9 +40,7 @@ const AppRoutes = () => {
           <Route path="/items" element={<DisplayItems />} />
           <Route path="/item/:id" element={<Item />} />
           <Route path="/profile/:id" element={<Profile />} />
-          <Route path="/users-management" element={authenticatedRoute(AdminDisplayUsers)} />
-          <Route path="/category-management" element={<AdminCategoryManagement />} />
-          <Route path="/location-management" element={<AdminLocationManagement />} />
+          <Route path="/admin-dashboard" element={authenticatedRoute(AdminDashboard)} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
       </BrowserRouter>
