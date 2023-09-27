@@ -4,15 +4,16 @@ import Button from '../../base/Button'
 import Calendar from 'react-calendar'
 import {sendRequest} from '../../../core/config/request'
 import {requestMethods} from '../../../core/enums/requestMethods'
-
+import { useCustomDispatch } from '../../../redux/customHooks/customDispatch'
 
 const ItemBooking = ({foundItem, foundItemBookings}) => {
-
 
   const [calendarButton, setCalendarButton] = useState(false)
   const [value, onChange] = useState([]);
   const [total, setTotal] = useState("")
   const [breakdown, setBreakdown] = useState("")
+  
+  const {addAlert} = useCustomDispatch()
 
   const calculateTotal = () => {
     if (value[1]) {
@@ -67,7 +68,7 @@ const ItemBooking = ({foundItem, foundItemBookings}) => {
         route: `user/book/${foundItem._id}`,
       });
 
-      console.log(response.message);
+      addAlert({alert: response.message})
       onChange([])
 
       return response;
