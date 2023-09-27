@@ -12,7 +12,7 @@ const Profile = () => {
   const navigate = useNavigate()
   const {id} = useParams()
 
-  const {getUser, getUserItems} = useCustomSelector()
+  const {user, getUser, getUserItems} = useCustomSelector()
   const [foundUser, setFoundUser] = useState({})
   const [foundUserItems, setFoundUserItems] = useState({})
   const [loading, setLoading] = useState(true);
@@ -53,7 +53,7 @@ const Profile = () => {
       }
     }
     fetchUser();
-  }, []);
+  }, [user]);
 
 
 
