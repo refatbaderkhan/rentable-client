@@ -6,39 +6,64 @@ import { sendRequest } from '../../../core/config/request'
 import { requestMethods } from '../../../core/enums/requestMethods'
 import { useCustomDispatch } from '../../../redux/customHooks/customDispatch'
 
-const AddReview = ({id}) => {
+const AddReview = ({id, type}) => {
   
   const [reviewData, setReview] = useState({
     rating: "",
     review: "",
   });
 
-  const {AddItemReview} = useCustomDispatch()
+  const {addItemReview, addUserReview} = useCustomDispatch()
   
 
   const reviewHandler = async () => {
-    
-    try {
-      const response = await sendRequest({
-        method: requestMethods.POST,
-        route: `/user/rate/${id}`,
-        body: reviewData,
-      });
+    if (type === 'item') {
+      try {
+        const response = await sendRequest({
+          method: requestMethods.POST,
+          route: `/user/rate/${id}`,
+          body: reviewData,
+        });
 
-      setReview({
-        rating: "",
-        review: "",
-      });
+        setReview({
+          rating: "",
+          review: "",
+        });
 
-      
-      AddItemReview(id, response.ratingObject)
-      
 
-      console.log(response.ratingObject);
+        addItemReview(id, response.ratingObject)
 
-    } catch (error) {
-      console.log(error.response);
+
+        console.log(response.ratingObject);
+
+      } catch (error) {
+        console.log(error.response);
+      }
     }
+
+    if (type === 'user') {
+      try {
+        const response = await sendRequest({
+          method: requestMethods.POST,
+          route: `/user/rate-user/${id}`,
+          body: reviewData,
+        });
+  
+        setReview({
+          rating: "",
+          review: "",
+        });
+
+        addUserReview(id, response.ratingObject)
+  
+        console.log(response.ratingObject);
+  
+      } catch (error) {
+        console.log(error.response);
+      }  
+    }
+
+
   }
 
 
