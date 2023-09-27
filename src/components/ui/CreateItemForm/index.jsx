@@ -3,11 +3,10 @@ import "./style.css";
 import Button from '../../base/Button';
 import Input from '../../base/Input';
 import Map from "../../base/Map"; 
-//import { requestMethods } from '../../../core/enums/requestMethods';
-//import { sendMultipartRequest } from '../../../core/config/sendMultipartRequest';
 import { localStorageAction } from '../../../core/config/localstorage'; 
 import axios from 'axios';
 import { useCustomSelector } from '../../../redux/customHooks/customSelector';
+import Dropdown from '../../base/Dropdown';
 
 
   const CreateItemForm  = () => {
@@ -22,15 +21,30 @@ import { useCustomSelector } from '../../../redux/customHooks/customSelector';
       item_area: "",
     });
 
-    const {coordinates} = useCustomSelector();
+    const {coordinates, cities, categories} = useCustomSelector();
     const {item_latitude, item_longitude} = coordinates;
   
     const [itemImages, setItemImages] = useState([]);
     const [error, setError] = useState(null);
     const [created, setCreated] = useState(null);
 
-    
+    const setLocation = (item_city, item_area) => {
+      setItem({
+        ...item,
+        item_city,
+        item_area,
+      });
+    };
 
+    const setCategory = (item_category, item_subcategory) => {
+      setItem({
+        ...item,
+        item_category,
+        item_subcategory,
+      });
+    };
+
+    
     const itemHandler = async (e) => {
       e.preventDefault();
 
@@ -51,6 +65,9 @@ import { useCustomSelector } from '../../../redux/customHooks/customSelector';
         imageCounter++;
       }
 
+      console.log(item);
+
+      console.log(formData);
       try {
         const response = await axios.post(
           "http://localhost:8000/user/create-item",
@@ -121,45 +138,17 @@ import { useCustomSelector } from '../../../redux/customHooks/customSelector';
                 })
               }
             />
-            <Input
-              label={"Item Category"}
-              placeholder={"Enter Item Category..."}
-              onChange={(item_category) =>
-                setItem({
-                  ...item,
-                  item_category,
-                })
-              }
+            <Dropdown
+              placeHolder={"Select your category..."}
+              options={categories}
+              type={"category"}
+              onChange={(value) => setCategory(value[0], value[1])}
             />
-            <Input
-              label={"Item Subcategory"}
-              placeholder={"Enter Item subCategory..."}
-              onChange={(item_subcategory) =>
-                setItem({
-                  ...item,
-                  item_subcategory,
-                })
-              }
-            />
-            <Input
-              label={"Item City"}
-              placeholder={"Enter Item City..."}
-              onChange={(item_city) =>
-                setItem({
-                  ...item,
-                  item_city,
-                })
-              }
-            />
-            <Input
-              label={"Item Area"}
-              placeholder={"Enter Item Area..."}
-              onChange={(item_area) =>
-                setItem({
-                  ...item,
-                  item_area,
-                })
-              }
+            <Dropdown
+              placeHolder={"Select your city..."}
+              type={"city"}
+              options={cities}
+              onChange={(value) => setLocation(value[0], value[1])}
             />
             <div className="label">Upload a item pictures</div>
             <input
