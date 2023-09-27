@@ -7,45 +7,30 @@ import DisplayItems from '../../components/ui/DisplayItems'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { OnLoad } from '../../core/config/onLoad'
+import Reviews from '../../components/ui/Reviews'
 
 const Profile = () => {
   const navigate = useNavigate()
   const {id} = useParams()
 
-  const {user, getUser, getUserItems} = useCustomSelector()
+  const {users, getUser, getUserItems} = useCustomSelector()
   const [foundUser, setFoundUser] = useState({})
   const [foundUserItems, setFoundUserItems] = useState({})
+  const [foundUserReviews, setFoundUserReviews] = useState({})
   const [loading, setLoading] = useState(true);
   const [itemsReviewsToggle, setItemsReviewsToggle] = useState(true);
-
-//const checkIfNull = async () => {
-//  const userCheck = await getUser(id);
-//
-//  if (!userCheck) {
-//    OnLoad();
-//  }
-//}
-
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
+
         const userData = await getUser(id);
-        const userItems = await getUserItems(id);
-
-      //if (!userData || !userItems) {
-      //  //OnLoad();
-      //  const userDataRetry = await getUser(id);
-      //  const userItemsRetry = await getUserItems(id);
-      //  setFoundUser(userDataRetry);
-      //  setFoundUserItems(userItemsRetry);
-      //  setLoading(false);
-
-      //} else {
+        const userItems = await getUserItems(id);   
+        
         setFoundUser(userData);
         setFoundUserItems(userItems);
+        setFoundUserReviews(userData.user_ratings);
         setLoading(false);
-      //}
 
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -53,7 +38,7 @@ const Profile = () => {
       }
     }
     fetchUser();
-  }, [user]);
+  }, [users]);
 
 
 
@@ -123,7 +108,7 @@ const Profile = () => {
         )}
         {itemsReviewsToggle === false && (
         <div className='profile-reviews'>
-          profile reviews
+          <Reviews id={id} reviews={foundUserReviews} type={'user'}/>
         </div>
         )}
       </div>
