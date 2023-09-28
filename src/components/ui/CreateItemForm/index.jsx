@@ -1,16 +1,19 @@
 import React, {useState} from 'react'
+import axios from 'axios';
+
 import "./style.css";
-import Button from '../../base/Button';
 import Input from '../../base/Input';
 import Map from "../../base/Map"; 
 import { localStorageAction } from '../../../core/config/localstorage'; 
-import axios from 'axios';
 import { useCustomSelector } from '../../../redux/customHooks/customSelector';
+import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
 import Dropdown from '../../base/Dropdown';
-
+import Textarea from '../../base/Textarea';
 
   const CreateItemForm  = () => {
-
+    
+    const {addAlert} = useCustomDispatch()
+    
     const [item, setItem] = useState({
       item_name: "",
       item_description: "",
@@ -25,8 +28,6 @@ import Dropdown from '../../base/Dropdown';
     const {item_latitude, item_longitude} = coordinates;
   
     const [itemImages, setItemImages] = useState([]);
-    const [error, setError] = useState(null);
-    const [created, setCreated] = useState(null);
 
     const setLocation = (item_city, item_area) => {
       setItem({
@@ -48,6 +49,11 @@ import Dropdown from '../../base/Dropdown';
     const itemHandler = async (e) => {
       e.preventDefault();
 
+      if (!isFormValid()) {
+        addAlert({alert: 'Please fill all the fields.'})
+        return;
+      }
+
       const formData = new FormData();
 
       for (const key in item) {
@@ -65,9 +71,6 @@ import Dropdown from '../../base/Dropdown';
         imageCounter++;
       }
 
-      console.log(item);
-
-      console.log(formData);
       try {
         const response = await axios.post(
           "http://localhost:8000/user/create-item",
@@ -79,35 +82,39 @@ import Dropdown from '../../base/Dropdown';
             },
           }
         );
-        setCreated(true);
-        setError(null);
+        addAlert({alert: 'Item Added Successfully.'})
       } catch (error) {
         console.log(error)
+        addAlert({alert: 'Error occured while creating Item'})
       }
     };
 
-   ///const isFormValid = () => {
-   ///  return (
-   ///    item.item_name.trim() !== "" &&
-   ///    item.item_description.trim() !== "" &&
-   ///    item.item_price.trim() !== "" &&
-   ///    item.item_category.trim() !== "" &&
-   ///    item.item_subcategory.trim() !== "" &&
-   ///    item.item_location.city.trim() !== "" &&
-   ///    item.item_location.area.trim() !== "" &&
-   ///    item.item_location.latitude.trim() !== "" &&
-   ///    item.item_location.longitude.trim() !== ""
-   ///  );
-   ///};
+    const isFormValid = () => {
+      return (
+        item.item_name.trim() !== "" &&
+        item.item_description.trim() !== "" &&
+        item.item_price.trim() !== "" &&
+        item.item_category.trim() !== "" &&
+        item.item_subcategory.trim() !== "" &&
+        item.item_city.trim() !== "" &&
+        item.item_area.trim() !== "" &&
+        itemImages.length > 0
+        
+      );
+    };
   
 
     return (
       <div className="form-container">
-        <div className="register">
+        <div className="create-item">
           <form encType="multipart/form-data" onSubmit={itemHandler}>
-            <div className="spacer-15"></div>
-            <h1>Create Item</h1>
-            <div className="space-15"></div>
+            <div className="create-item-title">
+            Share your Item with us!
+            </div>
+            <div className='create-item-form'>
+            <div className='create-item-form-1'>
+            <div className='spacer-10'></div>
+            <div className='create-item-input'>
             <Input
               label={"Item Name"}
               placeholder={"Enter Item Name..."}
@@ -118,19 +125,12 @@ import Dropdown from '../../base/Dropdown';
                 });
               }}
             />
+            </div>
+            <div className='spacer-20'></div>
+            <div className='create-item-input'>
             <Input
-              label={"Item Description"}
-              placeholder={"Enter Item Description..."}
-              onChange={(item_description) =>
-                setItem({
-                  ...item,
-                  item_description,
-                })
-              }
-            />
-            <Input
-              label={"Item Price"}
-              placeholder={"Enter Item Price..."}
+              label={"Item Price/Day"}
+              placeholder={"Enter Item Price (USD)..."}
               onChange={(item_price) =>
                 setItem({
                   ...item,
@@ -138,19 +138,28 @@ import Dropdown from '../../base/Dropdown';
                 })
               }
             />
+            </div>
+            <div className='spacer-20'></div>
+            <div className='create-item-input'>
             <Dropdown
-              placeHolder={"Select your category..."}
+              placeHolder={"Select Item Category"}
               options={categories}
               type={"category"}
               onChange={(value) => setCategory(value[0], value[1])}
             />
+            </div>
+            <div className='spacer-20'></div>
+            <div className='create-item-input'>
             <Dropdown
-              placeHolder={"Select your city..."}
+              placeHolder={"Select Item Location"}
               type={"city"}
               options={cities}
               onChange={(value) => setLocation(value[0], value[1])}
             />
-            <div className="label">Upload a item pictures</div>
+            </div>
+            <div className='spacer-30'></div>
+            <div className='create-item-input'>
+            <div className="label">Upload item pictures (up to 6)</div>
             <input
             className="upload"
             type="file"
@@ -160,37 +169,40 @@ import Dropdown from '../../base/Dropdown';
                 setItemImages(e.target.files);
               }
             }}
-          />
-            {error && <p>{error}</p>}
-            {created && (
-              <p>
-                Item Created Successfully.
-              </p>
-            )}
-            <div className="spacer-25"></div>
-            <Button
-              color={"primary-bg"}
-              textColor={"white-text"}
-              text={"Submit"}
-            //onClick={() => {
-            ////if (isFormValid()) {
-            ////itemHandler();
-            ////} else {
-            ////  setError("Please fill in all the fields.");
-            ////}
-            //}}
             />
+            </div>
+            </div>
+            <div className='create-item-form-2'>
+            <div className='create-item-input'>
+            <Textarea
+              label={"Item Description"}
+              placeholder={"Enter Item Description..."}
+              onChange={(item_description) =>
+                setItem({
+                  ...item,
+                  item_description,
+                })
+              }
+            />
+            </div>
+            <div className='create-item-input'>
+            Set your item location on the map
+            <div className="spacer-10"></div>
+            <Map />
+            </div>
+            </div>
+            </div>
+            <div className="spacer-30"></div>
             <button
               type = "submit"
-              className="baseButtonAlternative pointer"
+              className="create-button"
             >
-              submit form
+              Submit
             </button>
 
             <div className="spacer-10"></div>
             <div className="spacer-15"></div>
             <div>
-          <Map />
           </div>
           </form>
         </div>
