@@ -1,11 +1,11 @@
 .register-page-container {
-  width: 55%;
+  width: 50%;
   height: 100%;
-  background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-left: 10%;
 }
 
 .register-page {
@@ -14,10 +14,11 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #1EDC98;
+  background-color:
 }
 
 .register-page-header{
   font-size: 68px; 
   font-weight: bold;
+  margin-left: 10%;
 }
