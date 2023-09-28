@@ -5,8 +5,8 @@ import Login from '../../pages/Authentication/Login';
 import Register from "../../pages/Authentication/Register";
 import Landing from "../../pages/Landing";
 import CreateItem from "../../pages/CreateItem";
+import Items from "../../pages/Items";
 import Chat from "../../pages/Chat";
-import DisplayItems from '../../components/ui/DisplayItems';
 import Item from "../../pages/Item";
 import Profile from '../../pages/Profile';
 import {OnLoad} from '../config/onLoad';
@@ -37,7 +37,7 @@ const AppRoutes = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/add-item" element={<CreateItem />} />
           <Route path="/chat/:id" element={<Chat />} />
-          <Route path="/items" element={<DisplayItems />} />
+          <Route path="/items" element={<Items />} />
           <Route path="/item/:id" element={<Item />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/admin-dashboard" element={authenticatedRoute(AdminDashboard)} />
