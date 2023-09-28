@@ -55,8 +55,6 @@ const RegisterForm = () => {
         body: registerationForm,
       }); 
 
-      console.log('regform', registerationForm)
-
       console.log(response);
 
       setCreated(true);
@@ -82,11 +80,12 @@ const RegisterForm = () => {
   return (
     <div className="">
       <div className="register">
+        <div className="register-title">Register Now</div>
         <form encType="multipart/form-data">
-          <div className="register-button">
+          <div className="register-input">
           <Input
             label={"Username"}
-            placeholder={"Enter you Username..."}
+            placeholder={"Enter your Username..."}
             onChange={(username) =>
               setRegisteration({
                 ...registeration,
@@ -95,11 +94,12 @@ const RegisterForm = () => {
             }
           />
           </div>
-          <div className="register-button">
+          <div className="register-input-pair">
+          <div className="register-input-one">
           <Input
             label={"First Name"}
             width={'200'}
-            placeholder={"Enter you First Name..."}
+            placeholder={"Enter your First Name..."}
             onChange={(first_name) =>
               setRegisteration({
                 ...registeration,
@@ -107,10 +107,12 @@ const RegisterForm = () => {
               })
             }
           />
+          </div>
+          <div className="register-input-one">
           <Input
             label={"Last Name"}
             width={'200'}
-            placeholder={"Enter you Last Name..."}
+            placeholder={"Enter your Last Name..."}
             onChange={(last_name) =>
               setRegisteration({
                 ...registeration,
@@ -119,14 +121,19 @@ const RegisterForm = () => {
             }
           />
           </div>
+          </div>
+          <div className="register-dropdown-pair">
           <Dropdown
-            placeHolder={"Select your city..."}
+            placeHolder={"Enter your location"}
+            type={"city"}
             options={cities}
             onChange={(value) => setLocation(value[0], value[1])}
            />
+          </div>
+          <div className="register-input">
           <Input
             label={"Email"}
-            placeholder={"Enter you Email..."}
+            placeholder={"Enter your Email..."}
             onChange={(email) =>
               setRegisteration({
                 ...registeration,
@@ -134,6 +141,8 @@ const RegisterForm = () => {
               })
             }
           />
+          </div>
+          <div className="register-input">
           <Input
             label={"Password"}
             type={"password"}
@@ -145,7 +154,10 @@ const RegisterForm = () => {
               })
             }
           />
+          </div>
+          <div className="spacer-20"></div>
           <div className="label">Upload a profile picture</div>
+          <div className="spacer-5"></div>
           <input
             className="upload"
             type="file"
@@ -165,8 +177,8 @@ const RegisterForm = () => {
               </span>
             </p>
           )}
+          <div className="spacer-30"></div>
           <Button
-            color={"primary-bg"}
             textColor={"white-text"}
             text={"Submit"}
             onClick={() => {
@@ -191,5 +203,3 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
-
-
