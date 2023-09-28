@@ -1,7 +1,6 @@
 .login-page-container {
   width: 55%;
   height: 100%;
-  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,10 +13,14 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #1EDC98;
 }
 
 .login-page-header{
+  color: #1EDC98;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: D1D2D3;
+  margin-top: 20px;
   font-size: 68px; 
   font-weight: bold;
+  width: 120%;
 }
