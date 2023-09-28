@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { generateImageUrl } from '../../../core/config/generateImageUrl'
 import  './style.css'
 import { useCustomSelector } from '../../../redux/customHooks/customSelector'
+import StarRating from '../../base/StarRating'
 
 const ReviewCard = ({review, type}) => {
 
@@ -46,7 +47,7 @@ const ReviewCard = ({review, type}) => {
           </div>
         </div>
         <div className='review-card-head-rating'>
-          {review.rating}
+          <StarRating value={review.rating} />
         </div>
       </div>
       <div className='review-card-body'>
