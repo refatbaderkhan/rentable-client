@@ -10,13 +10,6 @@
   border-radius: 8px;
 }
 
-/*.baseButton:hover {
-
-}
-.baseButton:active {
-
-}*/
-
 
 .baseButtonAlternative {
   height: 35px;
@@ -29,12 +22,6 @@
   border: none;
 }
 
-/*.baseButton:hover {
-
-}
-.baseButton:active {
-
-}*/
 
 .baseButtonAlternative2 {
   font-size: 20px;
@@ -45,12 +32,19 @@
   border-radius: 0px;
 }
 
-/*.baseButton:hover {
-
+.baseButtonNavBar {
+  font-size: 16px;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  padding: .3em 2em;
+  margin-top: 5px;
+  font-weight: bold;  
+  border: none;
+  border-radius: 8px;
 }
-.baseButton:active {
 
-}*/
+
 
 .baseButtonFrom {
   width:49%;
