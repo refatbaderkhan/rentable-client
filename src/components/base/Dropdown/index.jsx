@@ -13,15 +13,8 @@ const Dropdown = ({ onChange, placeHolder, options, type }) => {
   const getDisplay = () => {
     if (selected) {
       return selected;
-    }
-    if (subDisplay === "Enter your area") {
-      return placeHolder;
-    }
-    if (type === "city") {
-      setSubDisplay("Enter your area");
-    }
-    return placeHolder;
-  };
+    };
+  }
   
   const onSelected = (value) => {
     if (type === "city") {
