@@ -21,7 +21,6 @@ import Reviews from '../../components/ui/Reviews'
     const [loading, setLoading] = useState(true);
 
 
-
     useEffect(() => {
       if (items.length === 0) return
       const fetchItem = async () => {
@@ -34,7 +33,7 @@ import Reviews from '../../components/ui/Reviews'
 
           setLoading(false);
         } catch (error) {
-          console.error('Error fetching item data:', error);
+          console.error(error);
           setLoading(false);
         }
       };
