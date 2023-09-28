@@ -61,18 +61,20 @@ const DisplayItems = ({userItems}) => {
           </div>
         ) : (
           <>
-            <div>
+          <div className='all-display-page'>
+            <div className='all-display-filter'>
               <Button
                 text='Filter'
                 style={'Alternative'}
                 onClick={() => setFilterToggle((prevFilterToggle) => !prevFilterToggle)}
               />
             </div>
-            <div className='flex'>
+            <div className='all-display'>
               {filteredItem.map((item) => (
                 <ItemCard item={item} />
               ))}
             </div>
+          </div>
           </>
         )}
       </div>
