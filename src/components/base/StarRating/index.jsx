@@ -1,17 +1,31 @@
-import Reac0t, {useEffect, useState} from 'react'
-import './style.css'
+import React, { useEffect, useState } from 'react';
+import './style.css';
 
-const StarRating = ({onChange}) => {
+const StarRating = ({ onChange, value }) => {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
-  
 
   useEffect(() => {
-    onChange(rating)
-  }
-  , [rating])
+    if (value) {
+      setRating(value);
+    }
+    if (onChange) {
+      onChange(rating);
+    }
+  }, [rating]);
 
-  
+  const handleMouseEnter = (i) => {
+    if (!value) {
+      setHover(i);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!value) {
+      setHover(rating);
+    }
+  };
+
   return (
     <div className="star-rating">
       {[...Array(5)].map((star, i) => {
@@ -20,10 +34,10 @@ const StarRating = ({onChange}) => {
           <button
             type="button"
             key={i}
-            className={i <= (hover || rating) ? "on" : "off"}
+            className={i <= (hover || rating) ? 'on' : 'off'}
             onClick={() => setRating(i)}
-            onMouseEnter={() => setHover(i)}
-            onMouseLeave={() => setHover(rating)}
+            onMouseEnter={() => handleMouseEnter(i)}
+            onMouseLeave={handleMouseLeave}
           >
             <span className="star">&#9733;</span>
           </button>
