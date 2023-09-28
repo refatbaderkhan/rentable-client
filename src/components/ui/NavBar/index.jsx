@@ -7,8 +7,7 @@ import './style.css'
 import { localStorageAction } from '../../../core/config/localstorage'
 import { useCustomDispatch } from '../../../redux/customHooks/customDispatch';
 import { useCustomSelector } from '../../../redux/customHooks/customSelector';
-import AdminProfileMenu from '../ProfileMenu/AdminProfileMenu'
-import UserProfileMenu from '../ProfileMenu/UserProfileMenu'
+import ProfileMenu from '../ProfileMenu'
 import Alert from '../Alert'
 
 
@@ -47,9 +46,7 @@ const NavBar = () => {
 
   const {setSearch} = useCustomDispatch();
 
-  const [searchTerm, setSearchTerm] = useState("")
-  const handleSearch = (searchTerm) => {
-    setSearch({search: searchTerm})
+  const handleSearch = () => {
     navigate('/items')
   }
 
@@ -74,27 +71,35 @@ const NavBar = () => {
         <img src={logo} alt="logo" className="logo-img"/>
       </span>
     </div>
-    <div>
+    <div className='search-bar'>
+      <div className='search-bar-search'>
       <Input
-        placeholder = {"Search"}
+        placeholder = {"Enter your search"}
         onChange={(value) => setSearch({search: value})}
-        onEnter={handleSearch}
       />
+      </div>
+      <div className='search-bar-button'>
+      <Button
+        style={"NavBar"}
+        text = {"Search"}
+        onClick={handleSearch}
+      />
+      </div>
     </div>
-    <div>
+    <div className='navbar-login'>
       { !isLoggedIn && (
       <Button
-        text = {"LOG IN"}
-        textColor = {"white-text"}
+        text = {"Login"}
+        style={"NavBar"}
         onClick = {() => navigate("/login")}
       />)}
       { isLoggedIn && (
         <div>
-        <div className="profile-avatar pointer white-text green-bg" onClick={toggleProfile}>
+        <div className="nav-profile-avatar pointer white-text green-bg" onClick={toggleProfile}>
           { user.profile_picture ? (
-            <img src={`http://127.0.0.1:8000/uploads/${user.profile_picture}`} alt="profile" className='profilepicture'/>
+            <img src={`http://127.0.0.1:8000/uploads/${user.profile_picture}`} alt="profile" className='nav-profilepicture'/>
           ) : (
-            <span className="profile-letter">
+            <span className="nav-profile-letter">
               {user.first_name[0]}
             </span>
           )}
@@ -104,14 +109,9 @@ const NavBar = () => {
     </div>
     </div>
     </div>
-    { isLoggedIn && profileToggle && user.user_type == 0 && (
+    { isLoggedIn && profileToggle && (
       <div className="navbar-menu ">
-      < AdminProfileMenu handleLogout={handleLogout} setProfileToggle={setProfileToggle}/>
-      </div>
-      )}
-    { isLoggedIn && profileToggle && user.user_type == 1 && (
-      <div className="navbar-menu ">
-      < UserProfileMenu handleLogout={handleLogout} setProfileToggle={setProfileToggle}/>
+      < ProfileMenu handleLogout={handleLogout} setProfileToggle={setProfileToggle}/>
       </div>
       )}
     </div>
