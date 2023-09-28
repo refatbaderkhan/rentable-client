@@ -33,6 +33,12 @@ const FilterItems = ({filters, setFilters, setFilterToggle}) => {
   return (
     <div>
     <div className='filter-container'>
+      <div
+      className='filter-close'
+      onClick={() => setFilterToggle(false)}
+      >
+          x
+      </div>
       <div className='filter-buttons'>
         <div>
           <Button
@@ -58,6 +64,7 @@ const FilterItems = ({filters, setFilters, setFilterToggle}) => {
             className='filter-title pointer'>
             {category.category_name}
           </span>
+          <div className='filter-line'></div>
           <div>
             {category.subCategorySchema.map((subcategory) => (
               <div className = 'filter-entries'>
@@ -84,6 +91,8 @@ const FilterItems = ({filters, setFilters, setFilterToggle}) => {
               className='filter-title pointer'>
             {city.city_name}
             </span>
+            <div className='filter-line'></div>
+
             <div>
               {city.areas.map((area) => (
               <div className = 'filter-entries'>
@@ -101,6 +110,7 @@ const FilterItems = ({filters, setFilters, setFilterToggle}) => {
         ))}
     </div>
     )}
+    <div className='filter-clear'>
     <div>
       <Button
         text="Clear Filters"
@@ -113,12 +123,6 @@ const FilterItems = ({filters, setFilters, setFilterToggle}) => {
         })}
       />
     </div>
-    <div>
-      <Button
-        text="close"
-        style={"Alternative"}
-        onClick={() => setFilterToggle(false)}
-      />
     </div>
     </div>
     </div>

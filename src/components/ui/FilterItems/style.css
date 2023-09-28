@@ -3,19 +3,54 @@
 }
 
 .filter-container {
-  position: absolute;
+  position: fixed;
   width: 20%;
   height: 100vh;
   background-color: #F1F2F3;
+  opacity: 0.95;
+  border-right: #D1D2D3;
   display: flex;
   flex-direction: column;
   align-items: center;
+  left:0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.filter-line {
+  width: 80%;
+  height: 1px;
+  background-color: #D1D2D3;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.filter-close{
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+}
+
+.filter-close:hover{
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+
+.filter-close{
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 
 .filter-buttons {
   width: 80%;
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
 }
@@ -35,9 +70,17 @@
 
 .filter-title {
   text-align: left;
-  margin-bottom: 10px;
+  margin-bottom: ;
   font-weight: 500;
 }
+
+.filter-title:hover {
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: 700;
+  background-color: #1EDC98;
+}
+
 
 .filter-entries {
 }
@@ -49,3 +92,11 @@
   margin-bottom: 3px;
 }
 
+.filter-entry:hover {
+  font-weight: 500;
+  text-align: left;
+  margin-left: 10px;
+  margin-bottom: 3px;
+  background-color: #1EDC98;
+
+}
