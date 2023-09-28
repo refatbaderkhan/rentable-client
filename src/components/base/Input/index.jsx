@@ -13,10 +13,10 @@ const Input = ({ onChange, label, placeholder, enabled, type = "text", width, on
 
 
   return (
-    <div className="flex column baseInput">
-      <label>{label}</label>
+    <div className="baseInput">
+      <label className="baseInput-label">{label}</label>
       <input
-        className= {width}
+        className= {`base-input`}
         value={value}
         type={type}
         onChange={(e) => onChange(e.target.value)}
