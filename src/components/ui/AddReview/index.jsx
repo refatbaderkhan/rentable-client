@@ -5,6 +5,7 @@ import Button from '../../base/Button'
 import { sendRequest } from '../../../core/config/request'
 import { requestMethods } from '../../../core/enums/requestMethods'
 import { useCustomDispatch } from '../../../redux/customHooks/customDispatch'
+import StarRating from '../../base/StarRating'
 
 const AddReview = ({id, type}) => {
   
@@ -56,14 +57,11 @@ const AddReview = ({id, type}) => {
 
         addUserReview(id, response.ratingObject)
   
-        console.log(response.ratingObject);
   
       } catch (error) {
         console.log(error.response);
       }  
     }
-
-
   }
 
 
@@ -71,13 +69,9 @@ const AddReview = ({id, type}) => {
     <div className='add-review-container'>
       <div className='add-review-stars'>
         <div className='add-review-star'>
-          <Input 
-            type={'text'}
-            width={'100'}
+          <StarRating
             value={reviewData.rating}
-            onChange={(rating) =>
-              setReview({...reviewData, rating})
-            }
+            onChange={(rating) => setReview({...reviewData, rating})}
           />
         </div>
       </div>
