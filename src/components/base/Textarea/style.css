@@ -1,0 +1,27 @@
+.baseTextarea {
+  align-items: start;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.baseTextarea-label {
+  margin-bottom: 5px;
+}
+
+
+.base-Textarea {
+  font-family: inherit;
+  background-color: #F5F5F5;
+  height: 70px;
+  font-size: px;
+  padding: .3em 0;
+  border: 1px solid #D1D2D3;
+  border-radius: 8px;
+  width:100%;
+}
+
+
+
+
+
