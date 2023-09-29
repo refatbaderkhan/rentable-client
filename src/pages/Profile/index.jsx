@@ -6,10 +6,12 @@ import Button from '../../components/base/Button'
 import DisplayItems from '../../components/ui/DisplayItems'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import { OnLoad } from '../../core/config/onLoad'
 import Reviews from '../../components/ui/Reviews'
+import cover from '../../assets/cover.jpg'
+
 
 const Profile = () => {
+
   const navigate = useNavigate()
   const {id} = useParams()
 
@@ -17,8 +19,23 @@ const Profile = () => {
   const [foundUser, setFoundUser] = useState({})
   const [foundUserItems, setFoundUserItems] = useState({})
   const [foundUserReviews, setFoundUserReviews] = useState({})
+  const [foundUserRating, setFoundUserRating] = useState(0)
   const [loading, setLoading] = useState(true);
   const [itemsReviewsToggle, setItemsReviewsToggle] = useState(true);
+
+
+  const calculateUserRating = (reviews) => {
+    let totalRating = 0;
+    let averageRating = 0;
+    if (reviews.length > 0) {
+      reviews.forEach(review => {
+        totalRating += review.rating;
+      });
+      averageRating = totalRating / reviews.length;
+    }
+    setFoundUserRating(averageRating);
+  }
+
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -30,6 +47,7 @@ const Profile = () => {
         setFoundUser(userData);
         setFoundUserItems(userItems);
         setFoundUserReviews(userData.user_ratings);
+        calculateUserRating(userData.user_ratings);
         setLoading(false);
 
       } catch (error) {
@@ -49,6 +67,7 @@ const Profile = () => {
     return (
       <div className='profile-page-container'>
         <div className='profile-cover'>
+          <img src={cover} alt='cover' className='profile-cover-image' />
         </div>
         <div className='profile-info'>
           <div className='profile-page-avatar'>
@@ -69,7 +88,7 @@ const Profile = () => {
                   {foundUser.username}
                 </div>
                 <div className='profile-rating'>
-                  5.0(7)
+                  {foundUserRating.toFixed(1)}
                 </div>
               </div>
               <div className='user-button'>
