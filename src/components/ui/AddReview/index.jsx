@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import  './style.css'
 import Input from '../../base/Input'
+import Textarea from '../../base/Textarea'
 import Button from '../../base/Button'
 import { sendRequest } from '../../../core/config/request'
 import { requestMethods } from '../../../core/enums/requestMethods'
@@ -33,9 +34,6 @@ const AddReview = ({id, type}) => {
 
 
         addItemReview(id, response.ratingObject)
-
-
-        console.log(response.ratingObject);
 
       } catch (error) {
         console.log(error.response);
@@ -76,9 +74,8 @@ const AddReview = ({id, type}) => {
         </div>
       </div>
       <div className='add-review-input'>
-        <Input 
-          type={'text'}
-          width={'400'}
+        <Textarea
+          alternative={true}
           value={reviewData.review} 
           onChange={(review) =>
             setReview({...reviewData, review})
