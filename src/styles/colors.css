@@ -32,6 +32,13 @@
   font-size: 16px;
 }
 
+.yellow-18 {
+  color: yellow;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #D1D2D3;
+  font-size: 19px;
+  margin-left:3px;
+}
 
 .white-text {
   color: #FFFFFF;

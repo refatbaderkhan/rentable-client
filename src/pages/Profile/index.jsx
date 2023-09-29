@@ -96,7 +96,7 @@ const Profile = () => {
                   {foundUser.username}
                 </div>
                 <div className='profile-rating'>
-                  {foundUserRating.toFixed(1)}
+                  {foundUserRating.toFixed(1)}<span className='yellow-18'>&#9733;</span>
                 </div>
               </div>
               <div className='user-button'>
