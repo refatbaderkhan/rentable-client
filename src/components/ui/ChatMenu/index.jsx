@@ -8,10 +8,10 @@ import { useCustomSelector } from '../../../redux/customHooks/customSelector'
 const ChatMenu = () => {
 
   const {chats, chatId} = useCustomSelector()
+  
 
   useEffect(() => {
-    console.log('tghayyer')
-  }, [chatId])
+  }, [chatId, chats])
   
 
   return (
