@@ -1,12 +1,15 @@
-button {
+.star {
   background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
+  font-size: 22px;
 }
 .on {
-  color: #000;
+  color: yellow;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #D1D2D3;
 }
 .off {
-  color: #ccc;
+  color: grey;
 }
