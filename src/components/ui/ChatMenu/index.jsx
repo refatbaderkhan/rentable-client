@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.css'
 import Input from '../../base/Input'
 import ChatCard from '../ChatCard'
@@ -7,23 +7,19 @@ import { useCustomSelector } from '../../../redux/customHooks/customSelector'
 
 const ChatMenu = () => {
 
-  const {chats} = useCustomSelector()
+  const {chats, chatId} = useCustomSelector()
+
+  useEffect(() => {
+    console.log('tghayyer')
+  }, [chatId])
+  
 
   return (
     <div className='chat-menu'>
-    <div className='chat-menu-search'>
-      <div className='chat-menu-search-input'>
-      <Input
-      width={'300'}
-      onChange={(value) => console.log(value)}
-      />
-      </div>
-    </div>
     <div className='chat-menu-list'>
       { (chats.length > 0) ? (
-        chats.map((chat, i) => (
+        chats.map((chat) => (
           <ChatCard
-          key={i}
           chat={chat}
           />
         ))
@@ -33,8 +29,6 @@ const ChatMenu = () => {
         </div>
       )
       }
-    </div>
-    <div className='chat-menu-button'>
     </div>
   </div>
   )
