@@ -122,10 +122,11 @@ const AdminDashboardCreateModal = ({behavior, setCreateModal, id}) => {
 
   return (
     <div className='admin-dashboard-modal-container'>
-      <div className='admin-dashboard-modal-content'>
-        <div className="form-container">
-          <div className="create-category">
-          <div className="spacer-30"></div>
+      <div className='admin-dashboard-create-modal-content'>
+        <div className="">
+          <div className="close-create-modal" onClick={() => setCreateModal(false)}>x</div>
+          <div className="create-category-modal">
+          <div className="spacer-20"></div>
           <h2>Create {name}</h2>
           <div className="spacer-30"></div>
           {behavior === 'category' ? (
@@ -182,13 +183,6 @@ const AdminDashboardCreateModal = ({behavior, setCreateModal, id}) => {
           <Button
             text={`Add ${name}`}
             onClick={() => createHandler()}
-          />
-          <div className="spacer-10"></div>
-          <div className="spacer-15"></div>
-          <Button
-            text='Close'
-            style={'Alternative'}
-            onClick={() => setCreateModal(false)}
           />
           <div className="spacer-30"></div>
           </div>
