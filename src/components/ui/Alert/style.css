@@ -2,7 +2,7 @@
   height: 50px;
   background-color: blanchedalmond;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 75;
   z-index: 99;
   display: flex;
