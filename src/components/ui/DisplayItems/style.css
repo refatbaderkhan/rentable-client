@@ -16,6 +16,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 98%;
+  justify-content: center;
 }
 
 .all-display-page{
