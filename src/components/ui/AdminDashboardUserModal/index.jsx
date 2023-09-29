@@ -33,13 +33,15 @@ const AdminDashboardUserModal = ({id , setUserModal}) => {
   return (
     <div className='admin-dashboard-modal-container'>
       <div className='admin-dashboard-modal-content'>
-        <div className="form-container">
-          <div className="create-category">
+        <div className="">
+        <div className="close-create-modal" onClick={() => setUserModal(false)}>x</div>
+
+          <div className="create-category-modal">
           <div className="spacer-30"></div>
-          <h2>modify user</h2>
+          <h2>Delete User</h2>
           <div className="spacer-30"></div>
             <Input
-              placeholder={"Type password here..."}
+              placeholder={"Type your password here to confirm..."}
               onChange={(admin_password) => setAdminPassword({
                 ...admin_password,
                 admin_password,
@@ -48,17 +50,11 @@ const AdminDashboardUserModal = ({id , setUserModal}) => {
           {error && <p>{error}</p>}
           <div className="spacer-30"></div>
           <Button
-            text={"modify"}
+            text={"Delte"}
             onClick={() => deleteUserHandler()}
           />
-          <div className="spacer-10"></div>
-          <div className="spacer-15"></div>
-          <Button
-            text='Close'
-            style={'Alternative'}
-            onClick={() => setUserModal(false)}
-          />
-          <div className="spacer-30"></div>
+          <div className="spacer-10"></div>  
+          <div className="spacer-20"></div>
           </div>
         </div>
       </div> 
