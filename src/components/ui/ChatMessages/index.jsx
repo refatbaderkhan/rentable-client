@@ -19,11 +19,17 @@ const ChatMessages = ({room_id}) => {
           method: requestMethods.GET,
           route: `/user/messages/${room_id}`,
         });
+        
         setMessagesHistory(response);
+
+        const chatMessagingMessages = document.querySelector('.chat-messaging-messages');
+        chatMessagingMessages.scrollTop = chatMessagingMessages.scrollHeight;
       } catch (error) {
         console.log(error.response.data.message);
       }
     };
+
+    
     getMessages();
   }, [room_id]);
 
@@ -37,15 +43,30 @@ const ChatMessages = ({room_id}) => {
           message_time: data.message_time,
         },
       ]);
+      //scroll down chat-messaging-messages div to bottom//
+      const chatMessagingMessages = document.querySelector('.chat-messaging-messages');
+      chatMessagingMessages.scrollTop = chatMessagingMessages.scrollHeight;
+
     });
-  // Remove event listener on component unmount
     return () => socket.off('receive_message');
   }, [socket]);
-  // dd/mm/yyyy, hh:mm:ss
   function formatDateFromTimestamp(timestamp) {
     const date = new Date(timestamp);
-    return date.toLocaleString();
-  }
+        //change this out put 9/28/2023, 11:38:13 AM to "11:38 AM   9/28/2023"//
+
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let ampm = hours >= 12 ? 'PM' : 'AM';
+        let month = date.getMonth() + 1;
+        let day = date.getDate();
+        let year = date.getFullYear();
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        minutes = minutes < 10 ? '0'+ minutes : minutes;
+        let strTime = hours + ':' + minutes + ' ' + ampm;
+        let strDate = month + '/' + day + '/' + year;
+        return `${strTime}    ${strDate}`;        
+      }
 
   return (
     <div className='chat-messaging-messages'>
@@ -67,8 +88,11 @@ const ChatMessages = ({room_id}) => {
                   <div className='sender-avatar-blank'>
                   </div>
                   }
-                  <div className='chat-messaging-messages-history-message-sender-time'>{formatDateFromTimestamp(msg.message_time)}</div>
+                  <div className='message-body-brown'>
                   <div className='chat-messaging-messages-history-message-text'>{msg.message}</div>
+                  <div className='chat-messaging-messages-history-message-sender-time-brown'>{formatDateFromTimestamp(msg.message_time)}</div>
+
+                  </div>
                 </div>
               ) : (
                 <div className='conversation-message' key={i}>
@@ -86,8 +110,10 @@ const ChatMessages = ({room_id}) => {
                   <div className='sender-avatar-blank'>
                   </div>
                   }
-                  <div className='chat-messaging-messages-history-message-sender-time'>{formatDateFromTimestamp(msg.message_time)}</div>
+                  <div className='message-body'>
                   <div className='chat-messaging-messages-history-message-text'>{msg.message}</div>
+                  <div className='chat-messaging-messages-history-message-sender-time'>{formatDateFromTimestamp(msg.message_time)}</div>
+                  </div>
                 </div>
               )
             ))}
@@ -110,8 +136,11 @@ const ChatMessages = ({room_id}) => {
                   <div className='sender-avatar-blank'>
                   </div>
                   }
-                  <div className='chat-messaging-messages-history-message-sender-time'>{formatDateFromTimestamp(msg.message_time)}</div>
+                  <div className='message-body-brown'>
                   <div className='chat-messaging-messages-history-message-text'>{msg.message}</div>
+                  <div className='chat-messaging-messages-history-message-sender-time-brown'>{formatDateFromTimestamp(msg.message_time)}</div>
+
+                  </div>
                 </div>
               ) : (
                 <div className='conversation-message' key={i}>
@@ -129,8 +158,10 @@ const ChatMessages = ({room_id}) => {
                   <div className='sender-avatar-blank'>
                   </div>
                   }
-                  <div className='chat-messaging-messages-history-message-sender-time'>{formatDateFromTimestamp(msg.message_time)}</div>
+                  <div className='message-body'>
                   <div className='chat-messaging-messages-history-message-text'>{msg.message}</div>
+                  <div className='chat-messaging-messages-history-message-sender-time'>{formatDateFromTimestamp(msg.message_time)}</div>
+                  </div>
                 </div>
               )
             ))}
