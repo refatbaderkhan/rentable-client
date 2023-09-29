@@ -29,15 +29,20 @@ const LoginForm = () => {
       });
 
       setUser({user: response.user});
-
+      console.log(response.user);
       localStorageAction("access_token", response.token);
-      navigate("/chat");
+      if (response.user.user_type === 0) {
+        navigate("/admin-dashboard");
+      } else {
+        navigate("/");
+      }
       
     } catch (error) {
       console.log(error.response.data.message);
       setError(error.response.data.message);
     }
   };
+
 
 
   return (
