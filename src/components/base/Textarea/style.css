@@ -19,6 +19,7 @@
   border: 1px solid #D1D2D3;
   border-radius: 8px;
   width:100%;
+  font-family: inherit;
 }
 
 .baseTextarea-textarea-alternative{

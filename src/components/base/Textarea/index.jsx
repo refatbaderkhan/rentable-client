@@ -14,7 +14,7 @@ const Textarea = ({ onChange, label, placeholder, value, alternative, text}) => 
         />
       ) : (
         <textarea
-          className= {alternative ? 'baseTextarea-textarea-alternative' : 'baseTextarea-textarea'}
+          className= {alternative ? 'baseTextarea-textarea-alternative' : 'base-Textarea'}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           placeholder={placeholder}  
