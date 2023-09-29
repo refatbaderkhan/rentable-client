@@ -1,11 +1,11 @@
-  import React, {useEffect, useState} from 'react'
-  import './style.css'
-  import Map from '../../components/base/Map'
-  import { useCustomSelector } from '../../redux/customHooks/customSelector'
-  import ItemImages from '../../components/ui/ItemImages'
-  import { generateImageUrl } from '../../core/config/generateImageUrl'
-  import ItemBooking from '../../components/ui/ItemBooking'
-  import { useNavigate, useParams } from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
+import './style.css'
+import Map from '../../components/base/Map'
+import { useCustomSelector } from '../../redux/customHooks/customSelector'
+import ItemImages from '../../components/ui/ItemImages'
+import { generateImageUrl } from '../../core/config/generateImageUrl'
+import ItemBooking from '../../components/ui/ItemBooking'
+import { useNavigate, useParams } from 'react-router-dom'
 import Reviews from '../../components/ui/Reviews'
 
   const Item = () => {
@@ -19,7 +19,7 @@ import Reviews from '../../components/ui/Reviews'
     const [foundItemBookings, setFoundItemBookings] = useState([])
     const [foundItemReviews, setFoundItemReviews] = useState([])
     const [loading, setLoading] = useState(true);
-
+    
 
     useEffect(() => {
       if (items.length === 0) return
@@ -50,11 +50,12 @@ import Reviews from '../../components/ui/Reviews'
       <div className='item-page-container'>
         <div className='item-section'>
           <div className='item-filter'>
-            All items _ Category _ subCategory
           </div>
           <div className='item-pictures'>
             <ItemImages foundItemImages={foundItemImages} />
           </div>
+          <div className='spacer-30'></div>
+          <div className='line'></div>
           <div className='user-main'>
           <div className='item-main-user pointer' onClick={()=>navigate(`/profile/${foundItem.user_id}`)}>
             <div className='item-user-avatar'>
@@ -71,7 +72,6 @@ import Reviews from '../../components/ui/Reviews'
             </div>
           </div>
             <div className='item-user-rating'>
-              5.0
             </div>
           </div>
           <div className='line'></div>
@@ -95,6 +95,8 @@ import Reviews from '../../components/ui/Reviews'
               <Map item_latitude={foundItem.item_location.latitude} item_longitude={foundItem.item_location.longitude} alternative={true} />
             </div>
           </div>
+          <div className='spacer-25'></div>
+          <div className='line'></div>
           <div className='review'>
             <div className='review-title'>
               Reviews
