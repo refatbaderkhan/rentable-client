@@ -18,17 +18,17 @@ const AdminDashboardContent = ({behavior}) => {
   const setNames = () => {
     if (behavior === 'category') {
       setContentMap(categories)
-      setContentName('Category')
+      setContentName('Category Management')
     }
 
     if (behavior === 'location') {
       setContentMap(cities)
-      setContentName('Location')
+      setContentName('Location Management')
     }
 
     if (behavior === 'user') {
       setContentMap(users)
-      setContentName('User')
+      setContentName('Users Management')
     }
   }
 
