@@ -9,11 +9,8 @@ const ChatMenu = () => {
 
   const {chats, chatId} = useCustomSelector()
   
-
-  useEffect(() => {
-  }, [chatId, chats])
   
-
+  if (chats) {
   return (
     <div className='chat-menu'>
     <div className='chat-menu-list'>
@@ -32,6 +29,7 @@ const ChatMenu = () => {
     </div>
   </div>
   )
+}
 }
 
 export default ChatMenu
