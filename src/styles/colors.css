@@ -18,6 +18,20 @@
   background-color: #5d5d5d;
 }
 
+.yellow {
+  color: yellow;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #D1D2D3;
+  font-size: 22px;
+}
+
+.yellow-14 {
+  color: yellow;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #D1D2D3;
+  font-size: 16px;
+}
+
 
 .white-text {
   color: #FFFFFF;
