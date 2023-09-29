@@ -29,17 +29,7 @@
    margin-left:40px;  
 }
 
-.chat-messaging-messages {
-  width: 100%;
-  height: calc(100vh - 155px);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  overflow-y: scroll;
-  border-bottom: 1px solid #D1D2D3;
 
-}
 
 .chat-messaging-send {
   width: 100%;
@@ -54,10 +44,6 @@
   
 }
 
-
-.chat-messaging-messages::-webkit-scrollbar-track{
-  margin-top: 0px;
-}
 
 
 
