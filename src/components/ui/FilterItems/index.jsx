@@ -11,15 +11,21 @@ const FilterItems = ({filters, setFilters, setFilterToggle}) => {
   
   const [categoryToggle, setCategoryToggle] = useState(true);
   const [locationToggle, setLocationToggle] = useState(false);
+  const [toggleClassCategory, setToggleClassCategory] = useState('filter-button-clicked');
+  const [toggleClassLocation, setToggleClassLocation] = useState('filter-button');
 
   const categoryToggleHandler = () => {
     setCategoryToggle(true)
     setLocationToggle(false)
+    setToggleClassLocation('filter-button')
+    setToggleClassCategory('filter-button-clicked')
   }
 
   const locationToggleHandler = () => {
     setLocationToggle(true)
     setCategoryToggle(false)
+    setToggleClassCategory('filter-button')
+    setToggleClassLocation('filter-button-clicked')
   }
 
   const updateFilters = (filter, value) => {
@@ -32,7 +38,7 @@ const FilterItems = ({filters, setFilters, setFilterToggle}) => {
 
   return (
     <div>
-    <div className='filter-container'>
+    <div className='filter-container'>  
       <div
       className='filter-close'
       onClick={() => setFilterToggle(false)}
@@ -40,21 +46,14 @@ const FilterItems = ({filters, setFilters, setFilterToggle}) => {
           x
       </div>
       <div className='filter-buttons'>
-        <div>
-          <Button
-            text="Category"
-            style={"Alternative"}
-            onClick={ () => categoryToggleHandler()}
-          />
+        <div className={toggleClassCategory} onClick={categoryToggleHandler}>
+          Category
         </div>
-        <div>
-          <Button
-            text="Location"
-            style={"Alternative"}
-            onClick={() => locationToggleHandler()}
-          />
+        <div className={toggleClassLocation} onClick={locationToggleHandler}>
+          Location
         </div>
       </div>
+      <div className='filter-line-thick'></div>
     {categoryToggle && (
     <div className='filter-content'>
         {categories.map((category) => (

@@ -6,7 +6,7 @@
   position: fixed;
   width: 20%;
   height: 100vh;
-  background-color: #F1F2F3;
+  background-color: #363738;
   opacity: 0.95;
   border-right: #D1D2D3;
   display: flex;
@@ -14,6 +14,7 @@
   align-items: center;
   left:0;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  color: #FFFFFF;
 }
 
 .filter-line {
@@ -24,11 +25,18 @@
   margin-top: 5px;
 }
 
+.filter-line-thick {
+  width: 80%;
+  height: 2px;
+  background-color: #D1D2D3;
+}
+
 .filter-close{
   margin-top: 20px;
   display: flex;
   justify-content: flex-end;
   width: 80%;
+  color:#1EDC98
 }
 
 .filter-close:hover{
@@ -45,6 +53,8 @@
   margin-top: 20px;
   display: flex;
   justify-content: flex-end;
+  font-size: 18px;
+  font-weight: 400px;
 }
 
 
@@ -52,13 +62,45 @@
   width: 80%;
   margin-top: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.filter-button{
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 3px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.filter-button:hover{
+  font-size: 21px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #1EDC98;
+  padding-top:7px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 8px;
+  margin-bottom: 0;
+}
+
+.filter-button-clicked{
+  font-size: 21px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #1EDC98;
+  padding-top:7px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 8px;
+
 }
 
 .filter-content {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 40px;
   width: 80%;
 }
 
@@ -72,6 +114,8 @@
   text-align: left;
   margin-bottom: ;
   font-weight: 500;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .filter-title:hover {
@@ -90,6 +134,8 @@
   text-align: left;
   margin-left: 10px;
   margin-bottom: 3px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }
 
 .filter-entry:hover {
