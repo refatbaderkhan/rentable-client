@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import './style.css'
 import { useCustomSelector } from '../../redux/customHooks/customSelector'
+import { useCustomDispatch } from '../../redux/customHooks/customDispatch'
 import { generateImageUrl } from '../../core/config/generateImageUrl'
 import Button from '../../components/base/Button'
 import DisplayItems from '../../components/ui/DisplayItems'
@@ -15,6 +16,7 @@ const Profile = () => {
   const navigate = useNavigate()
   const {id} = useParams()
 
+  const {setChat} = useCustomDispatch()
   const {users, getUser, getUserItems} = useCustomSelector()
   const [foundUser, setFoundUser] = useState({})
   const [foundUserItems, setFoundUserItems] = useState({})
@@ -35,6 +37,12 @@ const Profile = () => {
     }
     setFoundUserRating(averageRating);
   }
+
+  const handleChatNav = () => {
+    navigate(`/chat/${foundUser._id}`)
+    setChat({room_id: foundUser._id})
+  }
+
 
 
   useEffect(() => {
@@ -94,7 +102,7 @@ const Profile = () => {
               <div className='user-button'>
                 <Button
                   text='Message'
-                  onClick={() => navigate(`/chat/${foundUser._id}`)}
+                  onClick={() => handleChatNav()}
                 />
               </div>
             </div>
