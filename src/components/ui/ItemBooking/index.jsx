@@ -5,16 +5,18 @@ import Calendar from 'react-calendar'
 import {sendRequest} from '../../../core/config/request'
 import {requestMethods} from '../../../core/enums/requestMethods'
 import { useCustomDispatch } from '../../../redux/customHooks/customDispatch'
+import { useCustomSelector } from '../../../redux/customHooks/customSelector'
 
 const ItemBooking = ({foundItem, foundItemBookings}) => {
 
-  console.log('ffff', foundItem)
   const [calendarButton, setCalendarButton] = useState(false)
   const [value, onChange] = useState([]);
   const [total, setTotal] = useState("")
   const [breakdown, setBreakdown] = useState("")
   const [averageRating, setAverageRating] = useState(0)
   const [error, setError] = useState("")
+
+  const {items} = useCustomSelector()
 
   const {addAlert} = useCustomDispatch()
 
@@ -80,7 +82,7 @@ const ItemBooking = ({foundItem, foundItemBookings}) => {
     } else {
       setError("")
     }
-  }, [value]);
+  }, [value, items]);
 
   const bookItem = async () => {
     try {
