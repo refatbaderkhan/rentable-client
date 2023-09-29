@@ -3,6 +3,8 @@ import { generateImageUrl } from '../../../core/config/generateImageUrl'
 import  './style.css'
 import { useCustomSelector } from '../../../redux/customHooks/customSelector'
 import StarRating from '../../base/StarRating'
+import Textarea from '../../base/Textarea'
+
 
 const ReviewCard = ({review, type}) => {
 
@@ -51,7 +53,7 @@ const ReviewCard = ({review, type}) => {
         </div>
       </div>
       <div className='review-card-body'>
-        {review.review}
+        <Textarea text={review.review} />
       </div>
       <div className='review-card-footer'>
         02/02/2020

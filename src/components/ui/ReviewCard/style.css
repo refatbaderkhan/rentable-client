@@ -1,16 +1,27 @@
 .review-card {
-  background: #eee7e7;
+  background-color: #F1F2F3;
   margin-top: 80px;
   border-radius: 16px;
-  border: 1px solid #e6e6e6;
-  height: 210px;
   display: flex;
   width: 100%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  color: black; 
+}
+
+.review-card:hover {
+  background-color: #eee7e7;
+  box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+  border: 0.4px solid #D1D2D3;
+  margin-top: 80px;
+  border-radius: 16px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .review-card-head{
@@ -18,8 +29,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
-  width: 90%;
+  width: 95%;
+  margin-top:15px;
+  margin-bottom: 25px;
 }
 
 .review-card-head-user {
@@ -67,6 +79,6 @@
   justify-content: flex-end;
   align-items: center;
   width: 90%;
-  margin-bottom: 10px;
-  background-color: green;
+  margin-top: 25px;
+  margin-bottom: 34px;
 }
