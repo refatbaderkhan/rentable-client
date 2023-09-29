@@ -4,3 +4,10 @@
   border-radius: 16px;
   border: 1px solid #D1D2D3;
 }
+
+.leaflet-container-alternative {
+  width: 686px;
+  height: 360px;
+  border-radius: 16px;
+  border: 1px solid #D1D2D3;
+}

@@ -11,6 +11,7 @@ const Map = ({item_latitude, item_longitude, alternative}) => {
   const [position, setPosition] = useState(
     item_latitude && item_longitude ? [item_latitude, item_longitude] : [33.891122, 35.506016]
   );
+
   
   const LocationMarker = ({setPosition}) => {
     const map = useMapEvents({
@@ -58,13 +59,11 @@ const Map = ({item_latitude, item_longitude, alternative}) => {
     )
   }
 
-  const containerId = alternative ? 'leaflet-container-alternative' : 'leaflet-container';
-  
+
   return (
-  <div id={containerId}>
- <MapContainer center={position} zoom={13} scrollWheelZoom={true}>
- <TileLayer
-    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  <div className={ alternative ? 'leaflet-container-alternative' : 'leaflet-container'}>
+ <MapContainer center={position} zoom={14} scrollWheelZoom={true} className={ alternative ? 'leaflet-container-alternative' : 'leaflet-container'}>
+ <TileLayer className={ alternative ? 'leaflet-container-alternative' : 'leaflet-container'} attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
   {!item_latitude && !item_longitude && (
