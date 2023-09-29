@@ -4,5 +4,34 @@
   align-self: center;
   justify-content: space-between;
   width: 100%;
-  background-color: red;
+  background-color: #363738;
+  border-radius: 8px;
+  color:#FFFFFF;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+
 }
+
+.admin-dashboard-content-table-entry-name{
+  align-self: center;
+  margin-left: 30px;
+  width:70%;
+  text-align: start;
+}
+
+.admin-dashboard-content-table-entry-dropdown {
+  margin-right:15px;
+}
+
+.admin-dashboard-content-table-entry-subcreate{
+  margin-right:15px;
+}
+
+.admin-dashboard-content-table-entry-delete{
+  margin-right:15px;
+}
+
+
+/* #1EDC98*/
+/* #363738*/
