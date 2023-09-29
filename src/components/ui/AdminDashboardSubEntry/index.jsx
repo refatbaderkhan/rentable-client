@@ -62,7 +62,7 @@ const AdminDashboardSubEntry = ({map, mapId, behavior}) => {
   return (
     <div className='admin-dashboard-content-table-entry-sub'>
     <div className='admin-dashboard-content-table-entry-subcounter'>
-      1
+  
     </div>
     <div className='admin-dashboard-content-table-entry-subname'>
       {subEntryName}

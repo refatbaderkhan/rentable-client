@@ -2,6 +2,24 @@
   display : flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  background-color: orange;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #1EDC98;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
+
+.admin-dashboard-content-table-entry-subname {
+  text-align: left;
+  width:75%
+}
+
+.admin-dashboard-content-table-entry-subdelete {
+  margin-right:50px;
+}
+
+/* #1EDC98*/
+/* #363738*/
+/*#F1F2F3*/
