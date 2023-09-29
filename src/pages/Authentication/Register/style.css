@@ -9,8 +9,10 @@
 }
 
 .register-page {
-  width: 100vw;
-  height: calc(100vh - 75px);
+  background-image: url('../../../assets/background.png');
+  background-size:cover;
+  width: 99.2vw;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;

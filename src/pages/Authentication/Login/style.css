@@ -8,6 +8,8 @@
 }
 
 .login-page {
+  background-image: url('../../../assets/background.png');
+  background-size: cover  ;
   width: 100vw;
   height: calc(100vh - 75px);
   display: flex;
