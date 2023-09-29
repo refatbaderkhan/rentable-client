@@ -8,11 +8,14 @@ import { useCustomDispatch } from '../../../redux/customHooks/customDispatch'
 
 const ItemBooking = ({foundItem, foundItemBookings}) => {
 
+  console.log('ffff', foundItem)
   const [calendarButton, setCalendarButton] = useState(false)
   const [value, onChange] = useState([]);
   const [total, setTotal] = useState("")
   const [breakdown, setBreakdown] = useState("")
-  
+  const [averageRating, setAverageRating] = useState(0)
+  const [error, setError] = useState("")
+
   const {addAlert} = useCustomDispatch()
 
   const calculateTotal = () => {
@@ -55,14 +58,36 @@ const ItemBooking = ({foundItem, foundItemBookings}) => {
     }
   }
 
+  const calcluateAvergeRating = () => {
+    let total = 0
+    if (foundItem.item_ratings.length > 0) {
+      for (const rating of foundItem.item_ratings) {
+        total += rating.rating
+      }
+      const average = total / foundItem.item_ratings.length
+      setAverageRating(average.toFixed(1))
+    } else {
+      setAverageRating(0)
+    }
+  }
   
   useEffect(() => {
     calculateTotal()
     checkRange(value)
+    calcluateAvergeRating()
+    if (value.length === 0) {
+      setError("Please select start and end dates.")
+    } else {
+      setError("")
+    }
   }, [value]);
 
   const bookItem = async () => {
     try {
+      if (value.length === 0) {
+        addAlert({alert: 'Please select start and end dates.'})
+        return
+      }
       const response = await sendRequest({
         method: requestMethods.POST,
         route: `user/book/${foundItem._id}`,
@@ -86,7 +111,7 @@ const ItemBooking = ({foundItem, foundItemBookings}) => {
             ${foundItem.item_price}/day
           </div>
           <div className='booking-card-rating'>
-          5.0(7)
+          <p>{averageRating}<span className='yellow-14'>&#9733;</span> </p>
           </div>
         </div>
         <div className='booking-date-buttons'>
