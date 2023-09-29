@@ -14,7 +14,7 @@ export const useCustomDispatch = () => {
 
   const setChat = (chat) => dispatch({ type: "chat/setChat", payload: chat });
 
-  const addMessage = (chat_id, message) => dispatch({ type: "chat/addMessage", payload: {chat_id, message} });
+  const addMessage = (chat_id, message) => dispatch({ type: "chats/addMessage", payload: {chat_id, message} });
 
   const setItems = (items) => dispatch({ type: "items/setItems", payload: items });
 
