@@ -1,17 +1,25 @@
 import React from 'react'
 import "./style.css";
 
-const Textarea = ({ onChange, label, placeholder,value}) => {
+const Textarea = ({ onChange, label, placeholder, value, alternative, text}) => {
 
   return (
     <div className='baseTextarea'>
       <label className='baseTextarea-label'>{label}</label>
-      <textarea
-        className='base-Textarea'
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}  
-      />
+      {text ? (
+        <textarea
+          className= {alternative ? 'baseTextarea-textarea-alternative' : text ? 'baseTextarea-textarea-text' : 'baseTextarea-textarea'}
+          value={text}
+          disabled
+        />
+      ) : (
+        <textarea
+          className= {alternative ? 'baseTextarea-textarea-alternative' : 'baseTextarea-textarea'}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}  
+        />
+      )}
     </div>
   )
 }
