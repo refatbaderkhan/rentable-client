@@ -6,6 +6,7 @@
   position: fixed;
   width: 100%;
   top: 0;
+  justify-content: space-between;
 }
 
 .navbar-container {
@@ -20,6 +21,7 @@
 
 .logo {
   margin-top: 5px;
+  margin-right: auto;
 }
 
 .search-bar {
@@ -44,7 +46,7 @@
 }
 
 .navbar-login{
-  margin-left: auto;
+  margin-left: 10px;
 }
 
 .nav-profile-avatar {
