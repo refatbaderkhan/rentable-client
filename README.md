@@ -7,24 +7,29 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
-> A platform that connects owners and renters -of basically everything that can be borrowed temporarily instead of purchasing it- with the goal of saving the environment, money, and space.
+> A platform that connects owners and renters of basically everything that can be borrowed temporarily instead of purchasing. The goal is to save the environment, money, and space.
 >
 
 ### User Stories
-- As a user, I want to browse the items
-- As a user, I want to rent
+-As a Borrower, I want to go on rentable, so I can sit at home comfortably and search for items I can borrow temporarily without the need to buy them.
+-As a Lender, I want to list my items for rent on Rentable, so I will make money out of them.
+-As a Borrower, after finding a listing I’m interested in, I want to know more about it, so I will text the Lender through the built-in direct messages feature.
+-As a Borrower, I don’t want to take risks, so I will check the Lender’s rating.
+-As a Lender, I don’t want to take risks, so I will check the Borrowers’s rating.
+
+
 
 <br><br>
 
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
 
-> We designed Coffee Express using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
+> I designed rentable using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
-| Login screen  | Register screen |  Landing screen |
+| Landing screen  | Profile screen |  Item screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Landing](./readme/demo/landing-wireframe.png) | ![fsdaf](./readme/demo/profile-wireframe.png) | ![fsdaf](./readme/demo/item-wireframe.png) |
 
 ### Mockups
 | Home screen  | Menu Screen | Order Screen |
