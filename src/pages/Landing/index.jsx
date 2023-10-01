@@ -29,11 +29,11 @@ const Landing = () => {
     <div className="landing-page">
       <div className="landing-page-container">
         <div className="landing-page-header">
-        Rent <span className="green-text">anything</span> you need.
-        <br></br><span className="green-text">whenever </span>you need it.
+        Rent <span className="green-text">anything</span><br></br>you need.
+        <br></br><span className="green-text">Whenever </span>you need it.
         </div>
         <div className="landing-page-subheader">
-        Enhance your environmental blueprint, save money and space, and borrow whatever you need.
+        Enhance your environmental blueprint,<br></br>save money and space, and borrow<br></br> whatever you need.
         </div>
         <div className="landing-page-button">
         <Button
@@ -44,6 +44,7 @@ const Landing = () => {
       </div>
       </div>
       <div className="carousel-container">
+        <div className="carousel">
         <Carousel
           showArrows={false}
           showThumbs={false}
@@ -66,6 +67,7 @@ const Landing = () => {
             </div>
           ))}
         </Carousel>
+        </div>
       </div>
     </div>
   );
