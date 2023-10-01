@@ -43,7 +43,6 @@ const FilterItems = ({filters, setFilters, setFilterToggle}) => {
       className='filter-close'
       onClick={() => setFilterToggle(false)}
       >
-          x
       </div>
       <div className='filter-buttons'>
         <div className={toggleClassCategory} onClick={categoryToggleHandler}>

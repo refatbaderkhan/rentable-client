@@ -77,6 +77,7 @@ const NavBar = () => {
         <img src={logo} alt="logo" className="logo-img"/>
       </span>
     </div>
+    { location.pathname !== '/items' && (
     <div className='search-bar'>
       <div className='search-bar-search'>
       <Input
@@ -92,6 +93,7 @@ const NavBar = () => {
       />
       </div>
     </div>
+    )}
     <div className='navbar-login'>
       { !isLoggedIn && (
       <Button

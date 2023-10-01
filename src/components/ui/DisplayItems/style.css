@@ -1,7 +1,28 @@
 .items-page {
   display: flex;
+  justify-content: space-between;
 }
 
+.items-page-filter {
+  width: 30%;
+}
+
+.items-page-filter-title{
+  text-align: left;
+  font-size: 42px;
+  margin-bottom: 23px;
+  font-weight: 500;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-top: 30px;
+}
+
+.display-items-items{
+  display: flex;
+  width: 100%;
+  align-self: flex-end;
+  justify-self: flex-end;
+}
 
 .profile-display {
   display: flex;
@@ -19,6 +40,8 @@
   justify-content: center;
 }
 
+
+
 .all-display-page{
   margin-top: 30px;
   display:flex;
@@ -29,14 +52,30 @@
 
 .all-display-filter{
   align-self: flex-start;
-  margin-left: 75px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 88%;
+  margin-bottom: 20px;
 }
+
+
 
 .all-display {
   display: flex;
   flex-wrap: wrap;
-  align-self: center;
   margin: 0 auto;
   width: 100%;
   justify-content: center;
+  justify-content: flex-end;
 }
+
+.display-items{
+  display: flex;
+  width: 98%;
+  justify-content: space-between;
+}
+
+
+

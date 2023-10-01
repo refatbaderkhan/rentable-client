@@ -1,14 +1,18 @@
 import React, {useState, useEffect} from 'react'
 import './style.css'
 import { useCustomSelector } from '../../../redux/customHooks/customSelector'
+import { useCustomDispatch } from '../../../redux/customHooks/customDispatch'
 import ItemCard from '../../base/ItemCard'
 import Button from '../../base/Button'
+import Input from '../../base/Input'
 import FilterItems from '../FilterItems'
 
 
 const DisplayItems = ({userItems}) => {
 
   const { items, search} = useCustomSelector();
+  const {setSearch} = useCustomDispatch();
+
 
   const [searchTerm, setSearchTerm] = useState(search);
 
@@ -39,35 +43,54 @@ const DisplayItems = ({userItems}) => {
     })
   : searchedItems; 
 
-  const [filterToggle, setFilterToggle] = useState(false);
+  const [filterToggle, setFilterToggle] = useState(true);
 
   useEffect(() => {
     setSearchTerm(search);
+    if (userItems) {
+      setFilterToggle(false);
+    }
   }, [search])
   
   return (
     <div className='items-page'>
-      {filterToggle && (
-        <FilterItems filters={filters} setFilters={setFilters} setFilterToggle={setFilterToggle}/>
-      )}
-      <div className='display-items'>
-      {userItems ? (
-          <div className='profile-display'>
-            <div className='profile-display-items'>
-            {filteredItem.map((item) => (
-              <ItemCard item={item} />
-            ))}
-            </div>
+        <div className='items-page-filter'>
+          <div className='items-page-filter-title'>
+            Search results
           </div>
-        ) : (
-          <>
-          <div className='all-display-page'>
-            <div className='all-display-filter'>
-              <Button
-                text='Filter'
-                style={'Alternative'}
-                onClick={() => setFilterToggle((prevFilterToggle) => !prevFilterToggle)}
-              />
+        {filterToggle && (
+          <FilterItems filters={filters} setFilters={setFilters} setFilterToggle={setFilterToggle}/>
+        )}
+        </div>
+        <div className='display-items-items'>
+        {userItems ? (
+            <div className='profile-display'>
+              <div className='profile-display-items'>
+              {filteredItem.map((item) => (
+                <ItemCard item={item} />
+              ))}
+              </div>
+            </div>
+          ) : (
+            <>
+            <div className='all-display-page'>
+              <div className='all-display-filter'>
+                <div>
+                </div>
+                <div className='search-bar'>
+                  <div className='search-bar-search'>
+                    <Input
+                      placeholder = {"Enter your search"}
+                      onChange={(value) => setSearch({search: value})}
+                    />
+                  </div>
+                  <div className='search-bar-button'>
+                  <Button
+                    style={"NavBar"}
+                    text = {"Search"}
+                  />
+                  </div>
+                </div>
             </div>
             <div className='all-display'>
               {filteredItem.map((item) => (
@@ -78,7 +101,7 @@ const DisplayItems = ({userItems}) => {
           </>
         )}
       </div>
-    </div>
+      </div>
   );
 };
 
