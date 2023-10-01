@@ -13,12 +13,13 @@ const Button = ({ text, color, textColor, onClick, style, enabled = true, type }
                                         (style === "NavBar" ? "NavBar" :
                                         (style === "From" ? "From" :
                                         (style === "To" ? "To" :
+                                        (style === "Login" ? "Login" :
                                         (style === "Book" ? "Book" :
-                                        "" )))))}`;
+                                        "" ))))))}`;
 
   return (
     <button
-      type = {`${type}`}
+      type={`${type}`}
       className={` ${combinedClassName} green-bg white-text pointer ${color} `}
       onClick={() => clickHandler()}
     >

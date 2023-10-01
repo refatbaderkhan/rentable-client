@@ -78,3 +78,14 @@
   border: none;
   border-radius: 16px  ;
 }
+
+.baseButtonLogin {
+  width: 100%;
+  font-size: 16px;
+  height: 45px;
+  cursor: pointer;
+  padding: .3em 2em;
+  font-weight: bold;  
+  border: none;
+  border-radius: 6px  ;
+}

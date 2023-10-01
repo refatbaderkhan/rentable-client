@@ -7,6 +7,7 @@ import { localStorageAction } from "../../../../core/config/localstorage";
 import "./style.css";
 import { useCustomDispatch } from "../../../../redux/customHooks/customDispatch";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../../../assets/logo.svg";
 
 const LoginForm = () => {
 
@@ -48,6 +49,9 @@ const LoginForm = () => {
   return (
     <div className="">
       <div className="log-in">
+      <div className="log-in-logo">
+      <img src={Logo} alt="logo" />
+      </div>
       <div className="login-in-button">
       <Input
         label={"Email"}
@@ -74,23 +78,25 @@ const LoginForm = () => {
       />
       </div>
       {error && <p>{error}</p>}
+      <div className="spacer-5"></div>
       <div className="login-in-button">
       <Button
         textColor={"white-text"}
         text={"Login"}
+        style={"Login"}
         onClick={() => loginHandler()}
       />
       </div>
       <div className="login-line"></div>
       <div className="spacer-20"></div>
+      <div className="spacer-10"></div>
       <p className="black-text">
         Don't have an account?{" "}
-        <span className="pointer green-text" onClick={() => navigate("/register")}>
-             Sign up now
+        <span className="pointer bold green-text" onClick={() => navigate("/register")}>
+             Register
         </span>
       </p>
-      <div className="spacer-30"></div>
-
+      <div className="spacer-20"></div>
       </div>
     </div>
   );

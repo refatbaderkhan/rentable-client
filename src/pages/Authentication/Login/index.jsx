@@ -7,9 +7,6 @@ const Login = () => {
   return (
     <div className="login-page">
       <div className="login-page-container">
-        <div className="login-page-header">
-          Weclome Back!
-        </div>
         <LoginForm />
       </div>
     </div>

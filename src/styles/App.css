@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   margin: 0px;
-  background-color: #eee7e7;
+  background-color: #f2f5f8;
   margin-top: 75px;
 }
 
@@ -10,7 +10,7 @@
 }
 
 ::-webkit-scrollbar-track{
-  background-color: #eee7e7;
+  background-color: #f2f5f8;
   border-radius: 10px;
   margin-top: 75px;
 }

@@ -6,8 +6,13 @@ import { requestMethods } from "../../../../core/enums/requestMethods";
 import { sendMultipartRequest } from "../../../../core/config/sendMultipartRequest";
 import {useCustomSelector} from "../../../../redux/customHooks/customSelector";
 import Dropdown from "../../../base/Dropdown";
+import Logo from "../../../../assets/logo.svg";
+import { useNavigate } from "react-router-dom";
+
 
 const RegisterForm = () => {
+
+  const navigate = useNavigate();
 
   const {cities} = useCustomSelector();
 
@@ -80,7 +85,10 @@ const RegisterForm = () => {
   return (
     <div className="">
       <div className="register">
-        <div className="register-title">Register Now</div>
+        <div className="spacer-30"></div>
+        <div className="spacer-30"></div>
+        <div className="register-logo"><img src={Logo} alt="" /></div>
+        <div className="spacer-10"></div>
         <form encType="multipart/form-data">
           <div className="register-input">
           <Input
@@ -156,6 +164,8 @@ const RegisterForm = () => {
           />
           </div>
           <div className="spacer-20"></div>
+
+          <div className="register-upload">
           <div className="label">Upload a profile picture</div>
           <div className="spacer-5"></div>
           <input
@@ -167,6 +177,7 @@ const RegisterForm = () => {
               }
             }}
           />
+          </div>
           {error && <p>{error}</p>}
           {created && (
             <p>
@@ -177,9 +188,10 @@ const RegisterForm = () => {
               </span>
             </p>
           )}
-          <div className="spacer-30"></div>
+          <div className="register-button">
           <Button
             textColor={"white-text"}
+            style={"Login"}
             text={"Submit"}
             onClick={() => {
               if (isFormValid()) {
@@ -189,13 +201,18 @@ const RegisterForm = () => {
               }
             }}
           />
+          </div>
           <div className="spacer-10"></div>
           <p className="black-text">
             Already have an account?{" "}
-            <span className="pointer primary-text">
+            <span
+            className="pointer green-text bold primary-text"
+            onClick={() => navigate("/login")}
+            >
               Login
             </span>
           </p>
+          <div className="spacer-20"></div>
         </form>
       </div>
     </div>
