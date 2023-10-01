@@ -6,6 +6,10 @@
   color: #1EDC98;
 }
 
+.white-text {
+  color: #FFFFFF;
+}
+
 .primary-bg {
   background-color: #ff385c;
 }
@@ -40,9 +44,6 @@
   margin-left:3px;
 }
 
-.white-text {
-  color: #FFFFFF;
-}
 
 .black-text {
   color: black;

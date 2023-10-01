@@ -54,14 +54,16 @@ const DisplayItems = ({userItems}) => {
   
   return (
     <div className='items-page'>
+      { !userItems && (
         <div className='items-page-filter'>
           <div className='items-page-filter-title'>
             Search results
           </div>
-        {filterToggle && (
-          <FilterItems filters={filters} setFilters={setFilters} setFilterToggle={setFilterToggle}/>
-        )}
+          {filterToggle && (
+            <FilterItems filters={filters} setFilters={setFilters} setFilterToggle={setFilterToggle}/>
+          )}
         </div>
+      )}
         <div className='display-items-items'>
         {userItems ? (
             <div className='profile-display'>

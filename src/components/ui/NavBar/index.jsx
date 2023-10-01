@@ -77,7 +77,7 @@ const NavBar = () => {
         <img src={logo} alt="logo" className="logo-img"/>
       </span>
     </div>
-    { location.pathname !== '/items' && (
+    { location.pathname !== '/items' && location.pathname !== '/admin-dashboard' && (
     <div className='search-bar'>
       <div className='search-bar-search'>
       <Input

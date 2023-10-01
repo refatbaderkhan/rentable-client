@@ -10,7 +10,7 @@ const AdminDashboard = () => {
   return (
     <div className='admin-dashboard-container'>
       <div className='admin-dashboard-menu-section'>
-        <AdminDashboardMenu setDashboardToggle={setDashboardToggle}/>
+        <AdminDashboardMenu dashboardToggle={dashboardToggle} setDashboardToggle={setDashboardToggle}/>
       </div>
       <div className='admin-dashboard-content'>
         <AdminDashboardContent behavior={dashboardToggle} />
