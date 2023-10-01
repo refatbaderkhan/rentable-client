@@ -24,7 +24,7 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
 
-> I designed rentable using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
+> I designed Rentable using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
 | Landing screen  | Profile screen |  Item screen |
@@ -32,31 +32,28 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 | ![Landing](./readme/demo/landing-wireframe.png) | ![fsdaf](./readme/demo/profile-wireframe.png) | ![fsdaf](./readme/demo/item-wireframe.png) |
 
 ### Mockups
-| Home screen  | Menu Screen | Order Screen |
+| Landing screen  | Profile Screen | Item Screen |
 | ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| ![Landing](./readme/demo/landing-mockup.png) | ![fsdaf](./readme/demo/profile-mockup.png) | ![fsdaf](./readme/demo/item-mockup.png) |
 
 <br><br>
 
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
 
-> Using the wireframes and mockups as a guide, we implemented the Coffee Express app with the following features:
+> Using the wireframes and mockups as a guide, I implemented the Rentable website with the following features:
 
-### User Screens (Mobile)
-| Login screen  | Register screen | Landing screen | Loading screen |
-| ---| ---| ---| ---|
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
-| Home screen  | Menu Screen | Order Screen | Checkout Screen |
-| ![Landing](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) | ![fsdaf](https://placehold.co/900x1600) |
+### User Screens (Web)
+| Landing screen  | Search screen |  Profile screen |
+| ---| ---| ---|
+| ![Landing](./readme/demo/landing-screen.png) | ![fsdaf](./readme/demo/search-screen.png) | ![fsdaf](./readme/demo/profile-screen.png) |
+| Item screen  | Chat Screen | Login Screen |
+| ![Landing](./readme/demo/item-screen.png) | ![fsdaf](./readme/demo/chat-screen.png) | ![fsdaf](./readme/demo/landing-screen.png) |
 
 ### Admin Screens (Web)
-| Login screen  | Register screen |  Landing screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-| Home screen  | Menu Screen | Order Screen |
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-
+| Admindashboard screen  |
+| ---|
+| ![Landing](./readme/demo/admin-screen.png) |
 <br><br>
 
 <!-- Tech stack -->
