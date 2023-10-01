@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import logo from '../../../assets/logo.svg'
 import Button from '../../base/Button';
 import Input from '../../base/Input';
@@ -12,6 +12,8 @@ import Alert from '../Alert'
 
 
 const NavBar = () => {
+
+  const location = useLocation();
 
   const navigate = useNavigate();
 
@@ -56,7 +58,11 @@ const NavBar = () => {
     }
   }, [alert])
 
-  
+
+  if (location.pathname === '/register' || location.pathname === '/login') {
+    return null;
+  }
+
 
   return (
     <div>
