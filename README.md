@@ -11,11 +11,11 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 >
 
 ### User Stories
--As a Borrower, I want to go on rentable, so I can sit at home comfortably and search for items I can borrow temporarily without the need to buy them.
--As a Lender, I want to list my items for rent on Rentable, so I will make money out of them.
--As a Borrower, after finding a listing I’m interested in, I want to know more about it, so I will text the Lender through the built-in direct messages feature.
--As a Borrower, I don’t want to take risks, so I will check the Lender’s rating.
--As a Lender, I don’t want to take risks, so I will check the Borrowers’s rating.
+-As a Borrower, I want to go on rentable, so I can sit at home comfortably and search for items I can borrow temporarily without the need to buy them.<br>
+-As a Lender, I want to list my items for rent on Rentable, so I will make money out of them.<br>
+-As a Borrower, after finding a listing I’m interested in, I want to know more about it, so I will text the Lender through the built-in direct messages feature.<br>
+-As a Borrower, I don’t want to take risks, so I will check the Lender’s rating.<br>
+-As a Lender, I don’t want to take risks, so I will check the Borrowers’s rating.<br>
 
 
 
