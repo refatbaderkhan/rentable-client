@@ -35,28 +35,37 @@
   border-radius: 8px;
   width:100%;
   resize: none;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .baseTextarea-textarea-text{
   font-family: inherit;
-  background-color: #F1F2F3;
+  background-color: #ffffff;
   height: 120px;
   font-size: 18px;
   padding: .4em 0 0.4em 0;
   border: 1px solid #D1D2D3;
   border-radius: 8px;
   width:100%;
+  resize: none;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .baseTextarea-textarea-text:hover{
   font-family: inherit;
-  background-color: #eee7e7;
+  background-color: #ffffff;
   height: 120px;
   font-size: 18px;
   padding: .4em 0 0.4em 0;
   border: 1px solid #D1D2D3;
   border-radius: 8px;
   width:100%;
+  resize: none;
+
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 

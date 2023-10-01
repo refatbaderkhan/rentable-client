@@ -56,7 +56,7 @@ const ReviewCard = ({review, type}) => {
         <Textarea text={review.review} />
       </div>
       <div className='review-card-footer'>
-        02/02/2020
+        01/10/2023
       </div>
     </div>
   )}

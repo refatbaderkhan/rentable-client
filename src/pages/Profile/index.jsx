@@ -95,6 +95,9 @@ const Profile = () => {
                 <div className='profile-username'>
                   {foundUser.username}
                 </div>
+                <div className='profile-fullname-location'>
+                {foundUser.first_name} {foundUser.last_name} | {foundUser.area}, {foundUser.city}
+                </div>
                 <div className='profile-rating'>
                   {foundUserRating.toFixed(1)}<span className='yellow-18'>&#9733;</span>
                 </div>
@@ -109,18 +112,13 @@ const Profile = () => {
           </div>
         </div>
         <div className='fullname-location'>
-          <div className='profile-fullname'>
-            {foundUser.first_name} {foundUser.last_name}
-          </div>
-          <div className='profile-location'>
-            Badaro, Beirut
-          </div>
+
         </div>
         <div className='items-reviews'>
-          <div className='items pointer' onClick={()=> setItemsReviewsToggle((prevItemsReviewsToggle) => !prevItemsReviewsToggle)}>
+          <div className={itemsReviewsToggle ? "items pointer bold" : "items pointer"} onClick={()=> setItemsReviewsToggle((prevItemsReviewsToggle) => !prevItemsReviewsToggle)}>
             Items
           </div>
-          <div className='reviews pointer' onClick={()=> setItemsReviewsToggle((prevItemsReviewsToggle) => !prevItemsReviewsToggle)}>
+          <div className={itemsReviewsToggle ? "reviews pointer" : "reviews pointer bold"} onClick={()=> setItemsReviewsToggle((prevItemsReviewsToggle) => !prevItemsReviewsToggle)}>
             Reviews
           </div>
         </div>

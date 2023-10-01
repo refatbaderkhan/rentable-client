@@ -88,15 +88,24 @@
 }
 
 .profile-username {
-  height: 50%;
+  height: 30%;
   font-size: 36px;
+  font-weight: 600;
+  margin-left: 15px;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.profile-fullname-location {
+  height: 25%;
+  font-size: ;
   font-weight: 600;
   margin-left: 15px;
   margin-top: 15px;
 }
 
 .profile-rating {
-  height: 50%;
+  height: 15%;
   font-size: 18px;
   font-weight: 600;
   margin-left: 15px;
@@ -113,7 +122,6 @@
   display: flex;
   justify-content: space-between;
   align-self: center;
-  margin-bottom: 50px;
 }
 
 .profile-fullname {
@@ -135,25 +143,20 @@
 
 .items {
   font-size: 24px;
-  font-weight: 600;
   margin-right: 15px;
   
 }
 
 .items:hover {
-  background-color: #1EDC98;
-  padding: 10px;
-
+  font-size: bolder;
 }
 
 .reviews {
   font-size: 24px;
-  font-weight: 600;
 }
 
 .reviews:hover {
-  background-color: #1EDC98;
-  padding: 10px;
+ font-size: bolder;
 }
 
 .profile-line {

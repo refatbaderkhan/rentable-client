@@ -4,14 +4,14 @@
   align-items: flex-start;
   width: 100%;
   align-self: flex-start;
-  background-color: #F1F2F3;
+  background-color: #ffffff;
   border-radius: 25px;
 }
 
 .add-review-container:hover {
-  background-color: #eee7e7;
+  background-color: #ffffff;
   box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
-  border: 0.4px solid #D1D2D3;
+  border: 0.4px solid #ffffff;
 }
 
 .add-review-stars{
