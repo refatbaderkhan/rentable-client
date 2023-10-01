@@ -17,8 +17,24 @@
   padding: .3em 0;
   border: 1px solid #D1D2D3;
   border-radius: 8px;
-  width:100%;
+  padding-left: 10px;
+  
 }
+
+
+.base-input {
+  background-color: #FFFFFF;
+  height: 40px;
+  font-size: px;
+  padding: .3em 0;
+  border: 1px solid #D1D2D3;
+  border-radius: 8px;
+  width:100%;
+  overflow: hidden;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+
 
 
 

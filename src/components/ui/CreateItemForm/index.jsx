@@ -109,7 +109,7 @@ import Textarea from '../../base/Textarea';
         <div className="create-item">
           <form encType="multipart/form-data" onSubmit={itemHandler}>
             <div className="create-item-title">
-            Share your Item with us!
+            Share your item with us!
             </div>
             <div className='create-item-form'>
             <div className='create-item-form-1'>
@@ -173,7 +173,7 @@ import Textarea from '../../base/Textarea';
             </div>
             </div>
             <div className='create-item-form-2'>
-            <div className='create-item-input'>
+            <div className='create-item-textarea'>
             <Textarea
               label={"Item Description"}
               placeholder={"Enter Item Description..."}

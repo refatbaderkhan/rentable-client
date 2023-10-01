@@ -19,8 +19,7 @@
 
 .create-item-title{
   color: #1EDC98;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #D1D2D3;
+
   margin-top: 20px;
   font-size: 45px; 
   font-weight: bold;
@@ -60,6 +59,14 @@
   align-items: flex-start;
 }
 
+.create-item-textarea {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  align-items: flex-start;
+}
+
 
 .create-button {
   background-color:#1EDC98;
@@ -72,4 +79,5 @@
   font-weight: bold;  
   border: none;
   border-radius: 8px;
+  margin-top: 20px;
 }

@@ -12,25 +12,29 @@
 
 .base-Textarea {
   font-family: inherit;
-  background-color: #F5F5F5;
-  height: 70px;
+  background-color: #FFFFFF;
+  height: 100px;
   font-size: px;
   padding: .3em 0;
   border: 1px solid #D1D2D3;
   border-radius: 8px;
-  width:100%;
+  width:568px;
   font-family: inherit;
+  resize: none;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .baseTextarea-textarea-alternative{
   font-family: inherit;
-  background-color: #F5F5F5;
+  background-color: #ffffff;
   height: 120px;
   font-size: 18px;
   padding: .4em 0 0.4em 0;
   border: 1px solid #D1D2D3;
   border-radius: 8px;
   width:100%;
+  resize: none;
 }
 
 .baseTextarea-textarea-text{
