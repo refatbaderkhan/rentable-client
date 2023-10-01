@@ -87,7 +87,8 @@ const RegisterForm = () => {
       <div className="register">
         <div className="spacer-30"></div>
         <div className="spacer-30"></div>
-        <div className="register-logo"><img src={Logo} alt="" /></div>
+        <div className="register-logo pointer" onClick={() => navigate("/")}>
+          <img src={Logo} alt="" /></div>
         <div className="spacer-10"></div>
         <form encType="multipart/form-data">
           <div className="register-input">
@@ -163,7 +164,7 @@ const RegisterForm = () => {
             }
           />
           </div>
-          <div className="spacer-20"></div>
+          <div className="spacer-30"></div>
 
           <div className="register-upload">
           <div className="label">Upload a profile picture</div>

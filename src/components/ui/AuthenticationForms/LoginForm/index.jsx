@@ -49,7 +49,7 @@ const LoginForm = () => {
   return (
     <div className="">
       <div className="log-in">
-      <div className="log-in-logo">
+      <div className="log-in-logo pointer" onClick={() => navigate("/")}> 
       <img src={Logo} alt="logo" />
       </div>
       <div className="login-in-button">
