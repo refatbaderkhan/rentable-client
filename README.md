@@ -1,5 +1,3 @@
-server repo: https://github.com/refatbaderkhan/rentable-server
-
 <img src="./readme/title1.svg"/>
 
 <br><br>
@@ -56,8 +54,9 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 | ![Landing](./readme/demo/admin-screen.png) |
 <br><br>
 
-### Demo Screens (Web)
-<br><br>
+<!-- Demo -->
+<img src="./readme/title7.svg"/>
+
 <div align="center">
 
 | Landing screen  |
@@ -94,6 +93,15 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 </div>
 
 <br><br>
+
+<!-- Server -->
+<img src="./readme/title8.svg"/>
+
+> server repo: https://github.com/refatbaderkhan/rentable-server
+
+<br><br>
+
+
 
 
 
