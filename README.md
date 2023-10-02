@@ -96,9 +96,35 @@
 <br><br>
 
 <!-- Server -->
-<img src="./readme/title8.svg"/>
+<img src="./readme/title9.svg"/>
+> The following tests were done using  Postman to assess the functionality of my application's primary APIs
 
-> server repo: https://github.com/refatbaderkhan/rentable-server
+<br>
+
+URL: http://34.241.32.106:80/items
+
+```sh 
+PASS: Response time is within acceptable range //161 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+```
+
+<br>
+URL: http://34.241.32.106:80/account
+
+```sh 
+PASS: Response time is within acceptable range //170 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+```
+<br>
+URL: http://34.241.32.106:80/cities
+
+```sh 
+PASS: Response time is within acceptable range //161 ms
+PASS: Response content type is JSON
+PASS: Response schema is valid
+```
 
 <br><br>
 
@@ -120,6 +146,11 @@
 
 
 <br><br>
+
+<!-- Perfomance -->
+<img src="./readme/title9.svg"/>
+
+
 
 <!-- How to run -->
 <img src="./readme/title6.svg"/>
