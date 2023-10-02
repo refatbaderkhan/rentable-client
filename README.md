@@ -56,13 +56,50 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 | ![Landing](./readme/demo/admin-screen.png) |
 <br><br>
 
+### Demo Screens (Web)
+| Landing screen  |
+| ---|
+| ![Landing](./readme/demo/landing.gif) |
+| Admin login screen  |
+| ---|
+| ![fsdaf](./readme/demo/admin-login.gif) |
+| Admin dashboard screen  |
+| ---|
+| ![Landing](./readme/demo/admin-dashboard.gif) |
+| User login screen  |
+| ---|
+| ![Landing](./readme/demo/user-login.gif) |
+| Add item screen  |
+| ---|
+| ![Landing](./readme/demo/list-item.gif) |
+| Item screen  |
+| ---|
+| ![Landing](./readme/demo/item-page.gif) |
+| Profile screen  |
+| ---|
+| ![Landing](./readme/demo/user-profile.gif) |
+| Live chat screen  |
+| ---|
+| ![Landing](./readme/demo/live-chat.gif) |
+
+
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
 
-
 ###  Rentable is built using the following technologies:
 
-- Socket.io: Real-time communication and updates are facilitated through Socket.io, a library for enabling bidirectional, event-basedcommunication between the server and clients. This was used to implement the live chat feature in the website.
+- [React](https://reactjs.org/): Rentable's front-end is built using ReactJS, a popular JavaScript library for building user interfaces. This choice ensures a highly responsive and interactive interface that caters to a modern web audience.
+- [Redux](https://redux.js.org/): To manage the application's state efficiently, Redux is integrated into Rentable, enabling real-time updates and a smooth flow of data throughout the application.
+- [Node.js](https://nodejs.org/): The server-side runtime environment of Rentable is Node.js, which enables asynchronous operations and provides a fast and scalable foundation for the application's core functionality.
+- [Express](https://expressjs.com/): Rentable's back-end is powered by Express, a minimalist Node.js web application framework. Express simplifies the creation of RESTful APIs and handles server-side logic, ensuring secure and efficient data transmission.
+- [MongoDB](https://www.mongodb.com/): For data storage, Rentable relies on MongoDB, a NoSQL database known for its scalability and flexibility. MongoDB allows for efficient data retrieval and storage of property listings, user profiles, and more.
+- [Socket.io](https://socket.io/): Real-time communication and updates are facilitated through Socket.io, a library for enabling bidirectional, event-based communication between the server and clients. This was used to implement the live chat feature in the website.
+
+
+<br><br>
+
+<!-- How to run -->
+<img src="./readme/title6.svg"/>
 
 > To set up Rentable locally, follow these steps:
 
@@ -90,7 +127,7 @@ Make sure to download the latest npm version on your machine.
    ```
 4. Clone the client repo
    ```sh
-   git clone https://github.com/refatbaderkhan/rentable-client
+   git clone https://github.com/refatbaderkhan/rentable-server
    ```
 5. Install NPM packages
    ```sh
