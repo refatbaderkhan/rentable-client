@@ -62,19 +62,7 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 
 ###  Rentable is built using the following technologies:
 
-- [React](https://reactjs.org/): Rentable's front-end is built using ReactJS, a popular JavaScript library for building user interfaces. This choice ensures a highly responsive and interactive interface that caters to a modern web audience.
-- [Redux](https://redux.js.org/): To manage the application's state efficiently, Redux is integrated into Rentable, enabling real-time updates and a smooth flow of data throughout the application.
-- [Node.js](https://nodejs.org/): The server-side runtime environment of Rentable is Node.js, which enables asynchronous operations and provides a fast and scalable foundation for the application's core functionality.
-- [Express](https://expressjs.com/): Rentable's back-end is powered by Express, a minimalist Node.js web application framework. Express simplifies the creation of RESTful APIs and handles server-side logic, ensuring secure and efficient data transmission.
-- [MongoDB](https://www.mongodb.com/): For data storage, Rentable relies on MongoDB, a NoSQL database known for its scalability and flexibility. MongoDB allows for efficient data retrieval and storage of property listings, user profiles, and more.
-- [Socket.io](https://socket.io/): Real-time communication and updates are facilitated through Socket.io, a library for enabling bidirectional, event-based communication between the server and clients. This was used to implement the live chat feature in the website.
-
-
-
-<br><br>
-
-<!-- How to run -->
-<img src="./readme/title6.svg"/>
+- Socket.io: Real-time communication and updates are facilitated through Socket.io, a library for enabling bidirectional, event-basedcommunication between the server and clients. This was used to implement the live chat feature in the website.
 
 > To set up Rentable locally, follow these steps:
 
