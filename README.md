@@ -59,7 +59,6 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
 
-###  Rentable is built using the following technologies:
 
 ###  Rentable is built using the following technologies:
 
