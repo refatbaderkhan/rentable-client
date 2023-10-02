@@ -15,7 +15,7 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 -As a Lender, I want to list my items for rent on Rentable, so I will make money out of them.<br>
 -As a Borrower, after finding a listing I’m interested in, I want to know more about it, so I will text the Lender through the built-in direct messages feature.<br>
 -As a Borrower, I don’t want to take risks, so I will check the Lender’s rating.<br>
--As a Lender, I don’t want to take risks, so I will check the Borrowers’s rating.<br>
+-As a Lender, I don’t want to take risks, so I will check the borrower’s rating.<br>
 
 
 
@@ -57,8 +57,9 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 <br><br>
 
 ### Demo Screens (Web)
-
+<br><br>
 <div align="center">
+
 | Landing screen  |
 | ---|
 | ![Landing](./readme/demo/landing.gif) |
@@ -91,6 +92,9 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 | ---|
 | ![Landing](./readme/demo/live-chat.gif) |
 </div>
+
+<br><br>
+
 
 
 <!-- Tech stack -->
