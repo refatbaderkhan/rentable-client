@@ -52,6 +52,7 @@
 | Admin dashboard screen  |
 | ---|
 | ![Landing](./readme/demo/admin-screen.png) |
+
 <br><br>
 
 <!-- Demo -->
