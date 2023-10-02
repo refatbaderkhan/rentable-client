@@ -57,30 +57,40 @@ server repo: https://github.com/refatbaderkhan/rentable-server
 <br><br>
 
 ### Demo Screens (Web)
+
+<div align="center">
 | Landing screen  |
 | ---|
 | ![Landing](./readme/demo/landing.gif) |
+
 | Admin login screen  |
 | ---|
 | ![fsdaf](./readme/demo/admin-login.gif) |
+
 | Admin dashboard screen  |
 | ---|
 | ![Landing](./readme/demo/admin-dashboard.gif) |
+
 | User login screen  |
 | ---|
 | ![Landing](./readme/demo/user-login.gif) |
+
 | Add item screen  |
 | ---|
 | ![Landing](./readme/demo/list-item.gif) |
+
 | Item screen  |
 | ---|
 | ![Landing](./readme/demo/item-page.gif) |
+
 | Profile screen  |
 | ---|
 | ![Landing](./readme/demo/user-profile.gif) |
+
 | Live chat screen  |
 | ---|
 | ![Landing](./readme/demo/live-chat.gif) |
+</div>
 
 
 <!-- Tech stack -->
