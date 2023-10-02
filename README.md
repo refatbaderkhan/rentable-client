@@ -100,14 +100,14 @@
 
 > The following tests were done using  Postman to assess the functionality of my application's primary APIs
 
-
+<br>
 URL: http://34.241.32.106:80/items
+
 ```sh 
 PASS: Response time is within acceptable range //161 ms
 PASS: Response content type is JSON
 PASS: Response schema is valid
 ```
-
 <br>
 URL: http://34.241.32.106:80/account
 
