@@ -5,13 +5,13 @@
 <!-- Table of contents -->
 <img src="./readme/title10.svg"/>
 
-[Project Philosophy](#project-philosophy)
-[Prototyping](#Prototyping)
-[Implementation](#Implementation)
-[Demo](#Demo)
-[Server Repo](#Server)
-[Tech Stack](#Tech-Stack)
-[How to Run](#how-to)
+*[Project Philosophy](#project-philosophy)
+*[Prototyping](#Prototyping)
+*[Implementation](#Implementation)
+*[Demo](#Demo)
+*[Server Repo](#Server)
+*[Tech Stack](#Tech-Stack)
+*[How to Run](#how-to)
 
 
 
@@ -133,6 +133,7 @@
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
 <a name="Tech-Stack"></a>
+
 ###  Rentable is built using the following technologies:
 
 - [React](https://reactjs.org/): Rentable's front-end is built using ReactJS, a popular JavaScript library for building user interfaces. This choice ensures a highly responsive and interactive interface that caters to a modern web audience.
