@@ -6,6 +6,14 @@
 <img src="./readme/title10.svg"/>
 
 [Project Philosophy](#project-philosophy)
+[Prototyping](#Prototyping)
+[Implementation](#Implementation)
+[Demo](#Demo)
+[Server Repo](#Server)
+[Tech Stack](#Tech-Stack)
+[How to Run](#how-to)
+
+
 
 <br><br>
 
@@ -13,11 +21,11 @@
 
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
+<a name="project-philosophy"></a>
 
 > A platform that connects owners and renters of basically everything that can be borrowed temporarily instead of purchasing. The goal is to save the environment, money, and space.
->
 
-<a name="project-philosophy"></a>
+
 
 
 ### User Stories
@@ -33,6 +41,7 @@
 
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
+<a name="Prototyping"></a>
 
 > I designed Rentable using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
@@ -50,6 +59,7 @@
 
 <!-- Implementation -->
 <img src="./readme/title4.svg"/>
+<a name="Implementation"></a>
 
 > Using the wireframes and mockups as a guide, I implemented the Rentable website with the following features:
 
@@ -69,6 +79,8 @@
 
 <!-- Demo -->
 <img src="./readme/title7.svg"/>
+<a name="Demo"></a>
+
 
 <div align="center">
 
@@ -109,7 +121,7 @@
 
 <!-- Server -->
 <img src="./readme/title8.svg"/>
-
+<a name="Server"></a>
 > server repo: https://github.com/refatbaderkhan/rentable-server
 
 <br><br>
@@ -120,7 +132,7 @@
 
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
-
+<a name="Tech-Stack"></a>
 ###  Rentable is built using the following technologies:
 
 - [React](https://reactjs.org/): Rentable's front-end is built using ReactJS, a popular JavaScript library for building user interfaces. This choice ensures a highly responsive and interactive interface that caters to a modern web audience.
@@ -137,6 +149,7 @@
 
 <!-- How to run -->
 <img src="./readme/title6.svg"/>
+<a name="how-to"></a>
 
 > To set up Rentable locally, follow these steps:
 
