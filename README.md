@@ -5,13 +5,13 @@
 <!-- Table of contents -->
 <img src="./readme/title10.svg"/>
 
-*[Project Philosophy](#project-philosophy)
-*[Prototyping](#Prototyping)
-*[Implementation](#Implementation)
-*[Demo](#Demo)
-*[Server Repo](#Server)
-*[Tech Stack](#Tech-Stack)
-*[How to Run](#how-to)
+- [Project Philosophy](#project-philosophy)
+- [Prototyping](#Prototyping)
+- [Implementation](#Implementation)
+- [Demo](#Demo)
+- [Server Repo](#Server)
+- [Tech Stack](#Tech-Stack)
+- [How to Run](#how-to)
 
 
 
