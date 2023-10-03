@@ -32,10 +32,12 @@
 Admin user:<br>
 -As an Admin, I want to add a new subcategory to a category in the database, so I will go to the admin dashboard<br>
 -As an Admin, I want to remove an area from a location, so I will go to the admin dashboard<br>
+<br>
 Borrower user:<br>
 -As a Borrower, I want to go on rentable, so I can sit at home comfortably and search for items I can borrow temporarily without the need to buy them.<br>
 -As a Borrower, after finding a listing I’m interested in, I want to know more about it, so I will text the Lender through the built-in direct messages feature.<br>
 -As a Borrower, I don’t want to take risks, so I will check the Lender’s rating.<br>
+<br>
 Lender user:<br>
 -As a Lender, I want to list my items for rent on Rentable, so I will make money out of them.<br>
 -As a Lender, I don’t want to take risks, so I will check the borrower’s rating.<br>
