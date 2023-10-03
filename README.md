@@ -29,10 +29,15 @@
 
 
 ### User Stories
+Admin user:<br>
+-As an Admin, I want to add a new subcategory to a category in the database, so I will go to the admin dashboard<br>
+-As an Admin, I want to remove an area from a location, so I will go to the admin dashboard<br>
+Borrower user:<br>
 -As a Borrower, I want to go on rentable, so I can sit at home comfortably and search for items I can borrow temporarily without the need to buy them.<br>
--As a Lender, I want to list my items for rent on Rentable, so I will make money out of them.<br>
 -As a Borrower, after finding a listing I’m interested in, I want to know more about it, so I will text the Lender through the built-in direct messages feature.<br>
 -As a Borrower, I don’t want to take risks, so I will check the Lender’s rating.<br>
+Lender user:<br>
+-As a Lender, I want to list my items for rent on Rentable, so I will make money out of them.<br>
 -As a Lender, I don’t want to take risks, so I will check the borrower’s rating.<br>
 
 
@@ -46,12 +51,12 @@
 > I designed Rentable using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
-| Landing screen  | Profile screen |  Item screen |
+| landing screen  | profile screen |  item screen |
 | ---| ---| ---|
 | ![Landing](./readme/demo/landing-wireframe.png) | ![fsdaf](./readme/demo/profile-wireframe.png) | ![fsdaf](./readme/demo/item-wireframe.png) |
 
 ### Mockups
-| Landing screen  | Profile Screen | Item Screen |
+| landing screen  | profile screen | item screen |
 | ---| ---| ---|
 | ![Landing](./readme/demo/landing-mockup.png) | ![fsdaf](./readme/demo/profile-mockup.png) | ![fsdaf](./readme/demo/item-mockup.png) |
 
@@ -64,14 +69,14 @@
 > Using the wireframes and mockups as a guide, I implemented the Rentable website with the following features:
 
 ### User Screens (Web)
-| Landing screen  | Search screen |  Profile screen |
+| landing screen  | search screen |  profile screen |
 | ---| ---| ---|
 | ![Landing](./readme/demo/landing-screen.png) | ![fsdaf](./readme/demo/search-screen.png) | ![fsdaf](./readme/demo/profile-screen.png) |
 | Register screen  | Chat Screen | Login Screen |
 | ![Landing](./readme/demo/register-screen.png) | ![fsdaf](./readme/demo/chat-screen.png) | ![fsdaf](./readme/demo/login-screen.png) |
 
 ### Admin Screens (Web)
-| Admin dashboard screen  |
+| admin dashboard screen  |
 | ---|
 | ![Landing](./readme/demo/admin-screen.png) |
 
@@ -111,35 +116,35 @@
 
 <div align="center">
 
-| Landing screen  |
+| landing screen  |
 | ---|
 | ![Landing](./readme/demo/landing.gif) |
 
-| Admin login screen  |
+| admin login screen  |
 | ---|
 | ![fsdaf](./readme/demo/admin-login.gif) |
 
-| Admin dashboard screen  |
+| admin dashboard screen  |
 | ---|
 | ![Landing](./readme/demo/admin-dashboard.gif) |
 
-| User login screen  |
+| user login screen  |
 | ---|
 | ![Landing](./readme/demo/user-login.gif) |
 
-| Add item screen  |
+| add item screen  |
 | ---|
 | ![Landing](./readme/demo/list-item.gif) |
 
-| Item screen  |
+| item screen  |
 | ---|
 | ![Landing](./readme/demo/item-page.gif) |
 
-| Profile screen  |
+| profile screen  |
 | ---|
 | ![Landing](./readme/demo/user-profile.gif) |
 
-| Live chat screen  |
+| live chat screen  |
 | ---|
 | ![Landing](./readme/demo/live-chat.gif) |
 </div>
