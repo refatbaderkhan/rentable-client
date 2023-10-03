@@ -2,11 +2,23 @@
 
 <br><br>
 
+<!-- Table of contents -->
+<img src="./readme/title10.svg"/>
+
+[Project Philosophy](#project-philosophy)
+
+<br><br>
+
+
+
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
 > A platform that connects owners and renters of basically everything that can be borrowed temporarily instead of purchasing. The goal is to save the environment, money, and space.
 >
+
+<a name="project-philosophy"></a>
+
 
 ### User Stories
 -As a Borrower, I want to go on rentable, so I can sit at home comfortably and search for items I can borrow temporarily without the need to buy them.<br>
@@ -95,6 +107,17 @@
 
 <br><br>
 
+<!-- Server -->
+<img src="./readme/title8.svg"/>
+
+> server repo: https://github.com/refatbaderkhan/rentable-server
+
+<br><br>
+
+
+
+
+
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
 
@@ -107,45 +130,6 @@
 - [MongoDB](https://www.mongodb.com/): For data storage, Rentable relies on MongoDB, a NoSQL database known for its scalability and flexibility. MongoDB allows for efficient data retrieval and storage of property listings, user profiles, and more.
 - [Socket.io](https://socket.io/): Real-time communication and updates are facilitated through Socket.io, a library for enabling bidirectional, event-based communication between the server and clients. This was used to implement the live chat feature in the website.
 
-
-<br><br>
-
-<!-- Server -->
-<img src="./readme/title8.svg"/>
-
-> server repo: https://github.com/refatbaderkhan/rentable-server
-
-<br><br>
-
-<!-- Performance -->
-<img src="./readme/title9.svg"/>
-
-> The following tests were done using  Postman to assess the functionality of my application's primary APIs
-
-<br>
-URL: http://34.241.32.106:80/items
-
-```sh 
-PASS: Response time is within acceptable range //161 ms
-PASS: Response content type is JSON
-PASS: Response schema is valid
-```
-<br>
-URL: http://34.241.32.106:80/account
-
-```sh 
-PASS: Response time is within acceptable range //170 ms
-PASS: Response content type is JSON
-PASS: Response schema is valid
-```
-<br>
-URL: http://34.241.32.106:80/cities
-
-```sh 
-PASS: Response time is within acceptable range //161 ms
-PASS: Response content type is JSON
-PASS: Response schema is valid
-```
 
 <br><br>
 
